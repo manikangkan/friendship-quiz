@@ -1,24 +1,17 @@
 {
-  "name": "friendship-quiz",
+  "name": "friend-static",
   "version": "1.0.0",
-  "description": "Official repo for project friendship-quiz of ASITY",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asity-tech/friendship-quiz.git"
-  },
-  "author": "Manikangkan Das <manikangkan.das@yahoo.com>",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/asity-tech/friendship-quiz/issues"
-  },
-  "homepage": "https://github.com/asity-tech/friendship-quiz#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.11"
+    "express": "^4.17.1"
   }
 }
