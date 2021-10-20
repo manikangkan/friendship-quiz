@@ -1,0 +1,28 @@
+.title {
+    text-align: center;
+    margin: 3em 0em;
+}
+
+.play-button {
+    margin: auto;
+    width: 50;
+}
+
+.quesContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.options {
+    display: block;
+}
+
+#answerForm{
+    display: none;
+}
+
+.submitBtn{
+    margin: 2em;
+}
