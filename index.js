@@ -18,9 +18,9 @@ const answers = [
     "6b",
 ];
 
-const userDefinedQuestions = {
-    
-}
+let allCookedQuestions;
+
+const userMap = new Map();
 
 //routing part
 
@@ -55,8 +55,19 @@ app.get('/login', (req, res) => {
 
 app.post('/login',(req,res)=>{
     const {username, gender} = req.body;
+
+    userMap.set(username,{});
     console.log(req.body);
+    console.log(userMap);
+    userMap.set(username,"2424");
+    console.log(userMap);
     res.render('selectQuestions', {questions,answers, username, gender});
+})
+
+app.post('/cooked',(req,res)=>{
+    allCookedQuestions =req.body;
+    console.log(req.body);
+    res.send('received the quesitons');
 })
 
 app.get('/play', (req, res) => {

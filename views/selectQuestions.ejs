@@ -15,6 +15,7 @@
 <body>
     <div class="container">
         <h1 class="title">Welcome to the quiz portal</h1>
+        <h3 class="title">Select the questions by highlighting them. Note: all 4 options are mandatory</h3>
         <center>
             <h2>
                 <%=gender=="male"? "Mr." : "Miss." %>
@@ -25,21 +26,21 @@
             <% let index=0; for (let q of questions) {%>
 
                 <section class="list-group-item" id="ques" aria-current="true">
-                    <input type="text" id="quesEditor" class="form-control mt-1 mb-3" value="<%= q %>"> 
+                    <input type="text" id="quesEditor" class="form-control mt-1 mb-3" value="<%= q %>">
 
                     <div class="options">
-                        <input type="text" value="option A" id="<%=index%>a" class="btn btn-outline-success opns"
-                            role="button" data-bs-toggle="button">
+                        <input type="text" value="option A" id="a" class="btn btn-outline-success opns" role="button"
+                            data-bs-toggle="button">
                         </input>
 
-                        <input type="text" value="option B" id="<%=index%>b" class="btn btn-outline-success opns"
-                            role="button" data-bs-toggle="button" aria-pressed="true">
+                        <input type="text" value="option B" id="b" class="btn btn-outline-success opns" role="button"
+                            data-bs-toggle="button" aria-pressed="true">
                         </input>
-                        <input type="text" value="option C" id="<%=index%>c" class="btn btn-outline-success opns"
-                            role="button" data-bs-toggle="button" aria-pressed="true">
+                        <input type="text" value="option C" id="c" class="btn btn-outline-success opns" role="button"
+                            data-bs-toggle="button" aria-pressed="true">
                         </input>
-                        <input type="text" value="option D" id="<%=index%>d" class="btn btn-outline-success opns"
-                            role="button" data-bs-toggle="button" aria-pressed="true">
+                        <input type="text" value="option D" id="d" class="btn btn-outline-success opns" role="button"
+                            data-bs-toggle="button" aria-pressed="true">
                         </input>
 
 
@@ -58,7 +59,7 @@
                 <% index++; } %>
         </div>
 
-        <button id="fetchScore" type="button" class="btn btn-success">Submit</button>
+        <button id="genLinkBtn" type="button" class="btn btn-success">Generate Link</button>
     </div>
 
 
@@ -69,7 +70,6 @@
 
     <script>
         const optionArr = document.querySelectorAll('.options');
-        const set = new Set();
         const answerForm = document.querySelector('#answerForm');
 
 
@@ -89,10 +89,6 @@
                 buttonC.classList.remove('active');
                 buttonD.classList.remove('active');
 
-                set.add(buttonA.id);
-                set.delete(buttonB.id);
-                set.delete(buttonC.id);
-                set.delete(buttonD.id);
             });
 
             buttonB.addEventListener('click', function (e) {
@@ -102,10 +98,6 @@
                 buttonC.classList.remove('active');
                 buttonD.classList.remove('active');
 
-                set.add(buttonB.id);
-                set.delete(buttonA.id);
-                set.delete(buttonC.id);
-                set.delete(buttonD.id);
             });
 
             buttonC.addEventListener('click', function (e) {
@@ -115,10 +107,6 @@
                 buttonB.classList.remove('active');
                 buttonD.classList.remove('active');
 
-                set.add(buttonC.id);
-                set.delete(buttonA.id);
-                set.delete(buttonB.id);
-                set.delete(buttonD.id);
             });
 
             buttonD.addEventListener('click', function (e) {
@@ -127,40 +115,22 @@
                 buttonA.classList.remove('active');
                 buttonB.classList.remove('active');
                 buttonC.classList.remove('active');
-
-                set.add(buttonD.id);
-                set.delete(buttonA.id);
-                set.delete(buttonB.id);
-                set.delete(buttonC.id);
             });
 
 
 
         }
 
-        const fetchScore = document.querySelector("#fetchScore");
-        fetchScore.addEventListener('click', function () {
-            let score = 0;
-            // var answers = <% - JSON.stringify(answers) %>;
-            // for (let i = 0; i < answers.length; i++)
-            //     if (set.has(answers[i]))
-            //         score++;
 
 
-            answerForm.value = score;
-
-            const submitForm = document.querySelector("#submitForm");
-            submitForm.submit();
-        })
 
 
-       
 
         const userDefinedQuestions = {};
 
         const quesSections = document.querySelectorAll('#ques');
         for (let sec of quesSections) {
-            sec.children[0].addEventListener('click',function(e){
+            sec.children[0].addEventListener('click', function (e) {
                 console.log('clicked');
                 e.stopPropagation();
             })
@@ -171,6 +141,56 @@
 
 
         }
+
+
+        const genLinkBtn = document.querySelector("#genLinkBtn");
+        genLinkBtn.addEventListener('click', function () {
+            const chosenQues = document.querySelectorAll(".list-group-item-success#ques");
+            // console.log(chosenQues);
+
+            var allCookedQuesitons = [];
+
+            for (let obj of chosenQues) {
+                console.log(obj.children[0].value);
+                console.log(obj.children[1].children[0].value);
+                console.log(obj.children[1].children[1].value);
+                console.log(obj.children[1].children[2].value);
+                console.log(obj.children[1].children[3].value);
+
+
+                console.log(obj.children[1].querySelector('.active'));
+                let correctAnsId = obj.children[1].querySelector('.active');
+                correctAnsId = (correctAnsId == null) ? '' : `option_${correctAnsId.id}`;
+                
+
+                var ques1 = {
+                    question: obj.children[0].value,
+                    option_a: obj.children[1].children[0].value,
+                    option_b: obj.children[1].children[1].value,
+                    option_c: obj.children[1].children[2].value,
+                    option_d: obj.children[1].children[3].value,
+                    correctAns: correctAnsId
+                }
+
+                console.log(ques1);
+                allCookedQuesitons.push(ques1);
+                console.log(allCookedQuesitons);
+
+                // send the cooked questions post request
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", '/cooked', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    allCookedQuesitons,
+                    username :`<%=username%>`,
+                    gender :`<%=gender%>`,
+                }));
+            }
+
+        })
+
+
+
     </script>
 
 </body>
