@@ -25,11 +25,11 @@ const userMap = new Map();
 // -----------------------------set a sample data
 userMap.set('abhisek', [
     {
-      question: 'favourite color',
-      option_a: 'option A',
-      option_b: 'option B',
-      option_c: 'option C',
-      option_d: 'option D',
+      question: 'favourite color of my painting book',
+      option_a: 'red',
+      option_b: 'pink',
+      option_c: 'blue',
+      option_d: 'orange',
       correctAns: 'option_a'
     }
   ]);
