@@ -18,8 +18,9 @@ const answers = [
     "6b",
 ];
 
-console.log('test');
-
+const userDefinedQuestions = {
+    
+}
 
 //routing part
 
@@ -53,9 +54,9 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login',(req,res)=>{
-    const {username, male, female} = req.body;
+    const {username, gender} = req.body;
     console.log(req.body);
-    res.render('play', {questions,answers, username, male, female});
+    res.render('selectQuestions', {questions,answers, username, gender});
 })
 
 app.get('/play', (req, res) => {
