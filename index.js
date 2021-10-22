@@ -18,6 +18,7 @@ const answers = [
     "6b",
 ];
 
+console.log('test');
 
 
 //routing part
