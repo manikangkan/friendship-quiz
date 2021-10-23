@@ -64,9 +64,7 @@
 
 
 
-    <form action="/play" id="submitForm" method="POST">
-        <input id="answerForm" type="text" name="score" value="">
-    </form>
+   <button id="shareScr">Go to Share screen</button>
 
     <script>
         const optionArr = document.querySelectorAll('.options');
@@ -80,7 +78,7 @@
             const buttonD = subOptions.children[3];
 
 
-            // FEATURE will show blank value on button focus and show optionA/b/c/d on leave focus  
+            // future implementation FEATURE will show blank value on button focus and show optionA/b/c/d on leave focus  
 
             buttonA.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -189,7 +187,10 @@
 
         })
 
-
+        const goToshareScr = document.querySelector("#shareScr");
+        goToshareScr.addEventListener('click',function(){
+            window.location.href = '/<%=username%>/cooked/share'
+        }); 
 
     </script>
 
