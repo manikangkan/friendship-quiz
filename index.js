@@ -18,20 +18,54 @@ const answers = [
     "6b",
 ];
 
-let cookedQs;
+// let cookedQs;
 
 const userMap = new Map();
 
 // -----------------------------set a sample data
 userMap.set('abhisek', [
     {
-      question: 'favourite color of my painting book',
+      question: 'test 1',
       option_a: 'red',
       option_b: 'pink',
       option_c: 'blue',
       option_d: 'orange',
       correctAns: 'option_a'
-    }
+    },
+    {
+      question: 'test 2',
+      option_a: 'redtttt',
+      option_b: 'ttttt',
+      option_c: 'bluettt',
+      option_d: 'orangetttt',
+      correctAns: 'option_a'
+    },
+    {
+      question: 'test_3',
+      option_a: 'redtttt',
+      option_b: 'pinktttt',
+      option_c: 'bluetttt',
+      option_d: 'orangettt',
+      correctAns: 'option_a'
+    },
+    {
+      question: 'test_4',
+      option_a: 'redtttt',
+      option_b: 'pinktttt',
+      option_c: 'bluetttt',
+      option_d: 'orangettt',
+      correctAns: 'option_a'
+    },
+    {
+      question: 'test_5',
+      option_a: 'redtttt',
+      option_b: 'pinktttt',
+      option_c: 'bluetttt',
+      option_d: 'orangettt',
+      correctAns: 'option_a'
+    },
+    
+    
   ]);
 // -----------------------------------------------------
 
@@ -84,11 +118,17 @@ app.post('/login',(req,res)=>{
 app.post('/cooked',(req,res)=>{
     const body =req.body;
     const username = body.username.valueOf();
-    cookedQs = body.allCookedQuesitons.valueOf();
+    const cookedQs = body.allCookedQuesitons.valueOf();
     // console.log(cookedQs, username);
     userMap.set(username,cookedQs);
     console.log(userMap);
     res.send('received the quesitons');
+})
+
+app.get('/:id/cooked/share',(req,res)=>{
+    const {id} = req.params;
+    // res.send(req.path);
+    res.render('share',{id});
 })
 
 app.get('/play', (req, res) => {
