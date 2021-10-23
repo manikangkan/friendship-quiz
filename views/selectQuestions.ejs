@@ -175,7 +175,11 @@
                 console.log(allCookedQuesitons);
 
                 // send the cooked questions post request
-                var xhr = new XMLHttpRequest();
+                
+
+            }
+
+            var xhr = new XMLHttpRequest();
                 xhr.open("POST", '/cooked', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({
@@ -183,9 +187,20 @@
                     username :`<%=username%>`,
                     gender :`<%=gender%>`,
                 }));
-            }
-
+                gottourl();
+            
         })
+
+
+        
+        function gottourl(){
+            window.location.href = '/<%=username%>/cooked/share';
+        }; 
+        
+        
+       
+
+
 
         const goToshareScr = document.querySelector("#shareScr");
         goToshareScr.addEventListener('click',function(){
