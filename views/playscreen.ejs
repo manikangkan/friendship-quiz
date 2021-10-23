@@ -15,49 +15,195 @@
     </style>
 </head>
 
-<body >
-
-    <h4 class="d-flex flex-column justify-content-center align-items-center mt-4 mb-5">
+<body>
+    <h4 class="
+                d-flex
+                flex-column
+                justify-content-center
+                align-items-center
+                mt-4
+                mb-5
+            ">
         <%=id%> has asked you these things dear client <%=clientName%>
     </h4>
-    <% for(let q of quesArr){ %>
-        <section id="questionArea" class="d-flex flex-column justify-content-center align-items-center">
-            <h4 class="mb-4 pb-4">
-                <%= q.question %>
-            </h4>
-            <div class="d-grid col-4 gap-3">
-    
-                <button type="button" class="text-start btn btn-secondary col">
-                    <%= q.option_a %>
-                </button>
-                <button type="button" class="text-start btn btn-secondary col">
-                    <%= q.option_b %>
-                </button>
-                <button type="button" class="text-start btn btn-secondary col">
-                    <%= q.option_c %>
-                </button>
-                <button type="button" class="text-start btn btn-secondary col">
-                    <%= q.option_d %>
-                </button>
-                <a href="share.html">
-                    <button type="button" class="btn btn-primary w-100">Next</button></a>
-                <button type="button" class="btn btn-light">Skip</button>
-            </div>
-        </section>
-        
+    <center>
+        <div class="btn-group" id="quesNavigator" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked value="0" />
+            <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
 
-    <% } %>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="1" />
+            <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="2" />
+            <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="3" />
+            <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="4" />
+            <label class="btn btn-outline-primary" for="btnradio5">Radio 5</label>
+        </div>
+    </center>
+
+    <section id="questionArea" class="
+                d-flex
+                flex-column
+                justify-content-center
+                align-items-center
+                mt-5
+            "></section>
+
+    <button id="printmap">printmap</button>
 
     <script>
         // script for generating quesitons
+        const answerMap = new Map();
+
+
+        var optionContainer;
+        var buttonA;
+        var buttonB;
+        var buttonC;
+        var buttonD;
+
+        function loadOptions() {
+            console.log('loaded');
+            const optionContainer = document.querySelector('.options');
+
+            const buttonA = optionContainer.children[0];
+            const buttonB = optionContainer.children[1];
+            const buttonC = optionContainer.children[2];
+            const buttonD = optionContainer.children[3];
+
+            // future implementation FEATURE will show blank value on button focus and show optionA/b/c/d on leave focus
+
+            buttonA.addEventListener('click', function (e) {
+                console.log('clicked');
+                buttonA.classList.add('active');
+                buttonB.classList.remove('active');
+                buttonC.classList.remove('active');
+                buttonD.classList.remove('active');
+
+
+                answerMap.set(index, '_option_a');
+                console.log(answerMap);
+            });
+
+            buttonB.addEventListener('click', function (e) {
+                e.stopPropagation();
+                buttonB.classList.add('active');
+                buttonA.classList.remove('active');
+                buttonC.classList.remove('active');
+                buttonD.classList.remove('active');
+
+                answerMap.set(index, '_option_b');
+
+            });
+
+            buttonC.addEventListener('click', function (e) {
+                e.stopPropagation();
+                buttonC.classList.add('active');
+                buttonA.classList.remove('active');
+                buttonB.classList.remove('active');
+                buttonD.classList.remove('active');
+
+                answerMap.set(index, '_option_c');
+
+
+            });
+
+            buttonD.addEventListener('click', function (e) {
+                e.stopPropagation();
+                buttonD.classList.add('active');
+                buttonA.classList.remove('active');
+                buttonB.classList.remove('active');
+                buttonC.classList.remove('active');
+
+                answerMap.set(index, '_option_d');
+
+            });
+        }
+
+
+        const radioNavigator = document.querySelectorAll('#quesNavigator input');
+        var index = 0;
+
+        for (let radio of radioNavigator) {
+            radio.addEventListener('click', function () {
+                console.log(radio.value);
+                index = parseInt(radio.value);
+                questionArea.innerHTML = quesGenerator(index);
+
+                loadOptions();
+                const chosenOpn = answerMap.get(index);
+                if (chosenOpn != null) {
+                    console.log(optionContainer.children[index]);
+                }
+            })
+        }
+
+
+        const quesList = <%-JSON.stringify(quesArr) %>;
+        const no_of_ques = quesList.length;
+        console.log(no_of_ques);
+
+        const questionArea = document.querySelector("#questionArea");
+        questionArea.innerHTML = quesGenerator(index);
+
+
+        function fetchNextQues() {
+            console.log('fetchnext indxbefore = ' + index);
+            if (index < no_of_ques - 1)
+                index += 1;
+            console.log('fetchnext indxafter = ' + index);
+            questionArea.innerHTML = quesGenerator(index);
+            loadOptions();
+            for (let radio of radioNavigator) {
+                radio.removeAttribute('checked');
+            }
+
+            radioNavigator[index].checked = true;
+        }
+
+        function quesGenerator(index) {
+            console.log('index passed = ' + index)
+
+            let html = `
+                                <h4 class="mb-4 pb-4">
+                                        ${quesList[index].question}
+                                    </h4>
+                                    <div class="d-grid col-4 gap-3 options">
+
+                                        <button type="button" class="text-start btn btn-secondary col" id="option_a" >
+                                            ${quesList[index].option_a}
+                                        </button>
+                                        <button type="button" class="text-start btn btn-secondary col" id="option_b" >
+                                            ${quesList[index].option_b}
+                                        </button>
+                                        <button type="button" class="text-start btn btn-secondary col" id="option_c" >
+                                            ${quesList[index].option_c}
+                                        </button>
+                                        <button type="button" class="text-start btn btn-secondary col" id="option_d" >
+                                            ${quesList[index].option_d}
+                                        </button>
+                                        <button id="nextBtn" onClick="fetchNextQues()" type="button" class="btn btn-primary w-100">Next</button>
+                                        <button id="skipBtn" type="button" class="btn btn-light">Skip</button>
+                                    </div>
+                                `;
+            // console.log(html);
+            return html;
+        }
+
+
+
+        // console.log(optionContainer);
 
 
     </script>
 
-
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

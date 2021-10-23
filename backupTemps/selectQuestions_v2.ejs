@@ -64,8 +64,6 @@
 
 
 
-   <button id="shareScr">Go to Share screen</button>
-
     <script>
         const optionArr = document.querySelectorAll('.options');
         const answerForm = document.querySelector('#answerForm');
@@ -78,7 +76,7 @@
             const buttonD = subOptions.children[3];
 
 
-            // future implementation FEATURE will show blank value on button focus and show optionA/b/c/d on leave focus  
+            // FEATURE will show blank value on button focus and show optionA/b/c/d on leave focus  
 
             buttonA.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -159,7 +157,7 @@
                 console.log(obj.children[1].querySelector('.active'));
                 let correctAnsId = obj.children[1].querySelector('.active');
                 correctAnsId = (correctAnsId == null) ? '' : `option_${correctAnsId.id}`;
-                
+
 
                 var ques1 = {
                     question: obj.children[0].value,
@@ -175,22 +173,45 @@
                 console.log(allCookedQuesitons);
 
                 // send the cooked questions post request
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", '/cooked', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({
-                    allCookedQuesitons,
-                    username :`<%=username%>`,
-                    gender :`<%=gender%>`,
-                }));
             }
+
+
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/cooked';
+            document.body.appendChild(form);
+
+            const submitButton = document.createElement('input');
+            submitButton.onclick=submitForm(form);
+            form.appendChild(submitButton);
+            form.submit();
+
+
+
+            function submitForm(form) {
+            console.log('submitting form');
+
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                allCookedQuesitons,
+                username: `<%=username%>`,
+                gender: `<%=gender%>`,
+            }));
+        }
 
         })
 
-        const goToshareScr = document.querySelector("#shareScr");
-        goToshareScr.addEventListener('click',function(){
-            window.location.href = '/<%=username%>/cooked/share'
-        }); 
+        
+
+       
+
+
+        // ...
+
+
 
     </script>
 
