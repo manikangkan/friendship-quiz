@@ -18,8 +18,27 @@ const answers = [
     "6b",
 ];
 
+let cookedQs;
+
+const userMap = new Map();
+
+// -----------------------------set a sample data
+userMap.set('abhisek', [
+    {
+      question: 'favourite color of my painting book',
+      option_a: 'red',
+      option_b: 'pink',
+      option_c: 'blue',
+      option_d: 'orange',
+      correctAns: 'option_a'
+    }
+  ]);
+// -----------------------------------------------------
 
 
+
+
+const { map } = require('async');
 //routing part
 
 const express = require('express');
@@ -52,14 +71,49 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login',(req,res)=>{
-    const {username, male, female} = req.body;
+    const {username, gender} = req.body;
+
+    userMap.set(username,{});
     console.log(req.body);
-    res.render('play', {questions,answers, username, male, female});
+    console.log(userMap);
+    userMap.set(username,"2424");
+    console.log(userMap);
+    res.render('selectQuestions', {questions,answers, username, gender});
+})
+
+app.post('/cooked',(req,res)=>{
+    const body =req.body;
+    const username = body.username.valueOf();
+    cookedQs = body.allCookedQuesitons.valueOf();
+    // console.log(cookedQs, username);
+    userMap.set(username,cookedQs);
+    console.log(userMap);
+    res.send('received the quesitons');
 })
 
 app.get('/play', (req, res) => {
-    res.render('play', {questions,answers});
+    res.send('enter playing link or code');
+    // res.render('play', {questions,answers});
 });
+
+app.get('/:id/play',(req,res)=>{
+    const {id} = req.params;
+    // console.log('found the set of questions');
+    // console.log(userMap.get(id));
+    // res.send('username is ' + id);
+    // res.render('play',userMap.get(id));
+    res.render('play',{id})
+
+})
+
+app.post('/:id/play',(req,res)=>{
+    const {id} = req.params;
+    console.log('found the set of questions');
+    console.log(userMap.get(id));
+    const {clientName} = req.body;
+    console.log(req.body);
+    res.render('playscreen',{quesArr: userMap.get(id), clientName, id})
+})
 
 app.post('/play',(req,res)=>{
     const {score} = req.body;

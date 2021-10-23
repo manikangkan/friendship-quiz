@@ -1,0 +1,51 @@
+:root {
+  --tc: white;
+  --bg: #293165;
+  --diselect: #2f3874;
+}
+
+* {
+  font-family: Inter;
+  color: var(--tc) !important;
+  border-radius: 2px !important;
+}
+
+body {
+  background: var(--bg);
+}
+
+.avatar {
+  position: relative;
+}
+.avatar-img {
+  width: 100px;
+  height: 100px;
+}
+.avatar-pulse {
+  mix-blend-mode: color-dodge;
+  opacity: 0.4;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  z-index: -1000;
+}
+
+.btn,
+.form-control {
+  background: var(--diselect) !important;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 0.2px solid var(--diselect);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #8100fd, #d800f7) !important;
+  border: none;
+}
+
+.form-control:focus,
+.btn:focus {
+  box-shadow: none !important;
+  border-color: var(--tc);
+}
