@@ -1,7 +1,7 @@
 const questions = [
     "favourite color",
     "favourite animal as pet",
-    "favourite gadget",
+    "favourite smartphone brand",
     "favourite season",
     "favourite TV serial",
     "my most delicious food",
@@ -9,13 +9,13 @@ const questions = [
 ];
 
 const answers = [
-    "0b",
-    "1a",
-    "2b",
-    "3a",
-    "4b",
-    "5a",
-    "6b",
+    ["orange", "pink", "yellow", "blue"],
+    ["cat", "rat", "bat", "ant"],
+    ["chinese", "samsung", "iPhone", "oneplus"],
+    ["spring", "summer", "winter", "autumn"],
+    ["Crime Patrol", "CID", "Cartoon", "Saas Bahu Beti"],
+    ["Aloo paratha", "South Indian", "Pizza", "Chinese"],
+    ["Bolo Zuba Kesari", "cappuchino", "BRU Gold", "Taj Mahal"],
 ];
 
 // let cookedQs;
