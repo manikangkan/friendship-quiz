@@ -54,11 +54,12 @@
             "></section>
 
     <button id="printmap">printmap</button>
+    <button id="fetchScore">submit and get score</button>
 
     <script>
         // script for generating quesitons
         const answerMap = new Map();
-
+        
 
         var optionContainer;
         var buttonA;
@@ -85,7 +86,7 @@
                 buttonD.classList.remove('active');
 
 
-                answerMap.set(index, '_option_a');
+                answerMap.set(index, 'option_a');
                 console.log(answerMap);
             });
 
@@ -96,7 +97,7 @@
                 buttonC.classList.remove('active');
                 buttonD.classList.remove('active');
 
-                answerMap.set(index, '_option_b');
+                answerMap.set(index, 'option_b');
 
             });
 
@@ -107,7 +108,7 @@
                 buttonB.classList.remove('active');
                 buttonD.classList.remove('active');
 
-                answerMap.set(index, '_option_c');
+                answerMap.set(index, 'option_c');
 
 
             });
@@ -119,7 +120,7 @@
                 buttonB.classList.remove('active');
                 buttonC.classList.remove('active');
 
-                answerMap.set(index, '_option_d');
+                answerMap.set(index, 'option_d');
 
             });
         }
@@ -137,10 +138,17 @@
                 loadOptions();
                 const chosenOpn = answerMap.get(index);
                 if (chosenOpn != null) {
-                    console.log(optionContainer.children[index]);
+                    // console.log(optionContainer.children[index]);
+                    const findopn = document.getElementById(chosenOpn);
+                    console.log('chosen option is');
+                    console.log(findopn);
+                    console.log(chosenOpn);
+                    findopn.click();
                 }
             })
         }
+
+        
 
 
         const quesList = <%-JSON.stringify(quesArr) %>;
@@ -194,9 +202,35 @@
             return html;
         }
 
-
+        loadOptions();
 
         // console.log(optionContainer);
+
+
+
+        const printmap = document.querySelector('#printmap');
+        printmap.addEventListener('click',()=>console.log(answerMap));
+
+        // answer checker and score fetcher
+
+        const submitAndGetScore = document.querySelector('#fetchScore');
+
+        submitAndGetScore.addEventListener('click',function(){
+            console.log('pressed');
+            let score = 0;
+            for(let [key,value] of answerMap){
+            if(quesList[key].correctAns == value)
+                score++;
+            }
+            console.log('congrats you scored '+ score);
+        })
+        
+
+
+        
+
+
+
 
 
     </script>
