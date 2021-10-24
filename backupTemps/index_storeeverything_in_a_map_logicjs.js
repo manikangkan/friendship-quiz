@@ -21,54 +21,70 @@ const answers = [
 // let cookedQs;
 
 const userMap = new Map();
-const answerMap = new Map();
 const answersheetMap = new Map();
 
 // -----------------------------set a sample data
-userMap.set('abhisek', [
-    {
-      question: 'test 1',
-      option_a: 'red',
-      option_b: 'pink',
-      option_c: 'blue',
-      option_d: 'orange',
-      correctAns: 'option_a'
-    },
-    {
-      question: 'test 2',
-      option_a: 'redtttt',
-      option_b: 'ttttt',
-      option_c: 'bluettt',
-      option_d: 'orangetttt',
-      correctAns: 'option_a'
-    },
-    {
-      question: 'test_3',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
-      correctAns: 'option_a'
-    },
-    {
-      question: 'test_4',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
-      correctAns: 'option_a'
-    },
-    {
-      question: 'test_5',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
-      correctAns: 'option_a'
-    },
-    
-    
-  ]);
+userMap.set('abhisek',JSON.stringify({
+    cookedQs : [
+        {
+          question: 'test 1',
+          option_a: 'red',
+          option_b: 'pink',
+          option_c: 'blue',
+          option_d: 'orange',
+          correctAns: 'option_a'
+        },
+        {
+          question: 'test 2',
+          option_a: 'redtttt',
+          option_b: 'ttttt',
+          option_c: 'bluettt',
+          option_d: 'orangetttt',
+          correctAns: 'option_a'
+        },
+        {
+          question: 'test_3',
+          option_a: 'redtttt',
+          option_b: 'pinktttt',
+          option_c: 'bluetttt',
+          option_d: 'orangettt',
+          correctAns: 'option_a'
+        },
+        {
+          question: 'test_4',
+          option_a: 'redtttt',
+          option_b: 'pinktttt',
+          option_c: 'bluetttt',
+          option_d: 'orangettt',
+          correctAns: 'option_a'
+        },
+        {
+          question: 'test_5',
+          option_a: 'redtttt',
+          option_b: 'pinktttt',
+          option_c: 'bluetttt',
+          option_d: 'orangettt',
+          correctAns: 'option_a'
+        },
+        
+        
+      ],
+      clientList : [
+        JSON.stringify({
+            answeSheet: {
+              '0': 'option_d',
+              '1': 'option_d',
+              '2': 'option_c',
+              '3': 'option_c',
+              '4': 'option_d'
+            },
+            clientName: 'nana paterar',
+            username: 'abhisek',
+            score: 0
+          })
+      ]
+
+}));
 // -----------------------------------------------------
 
 
@@ -79,7 +95,7 @@ userMap.set('abhisek', [
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 3000 || 3001;
+const port = 3000;
 
 
 //all static work
@@ -121,8 +137,8 @@ app.post('/cooked',(req,res)=>{
     const username = body.username.valueOf();
     const cookedQs = body.allCookedQuesitons.valueOf();
     // console.log(cookedQs, username);
-    userMap.set(username,cookedQs);
-    console.log(userMap);
+    userMap.set(username,JSON.stringify({cookedQs}));
+    console.log(JSON.parse(userMap.get(username)));
     res.send('received the quesitons');
 })
 
@@ -150,10 +166,10 @@ app.get('/:id/play',(req,res)=>{
 app.post('/:id/play',(req,res)=>{
     const {id} = req.params;
     console.log('found the set of questions');
-    console.log(userMap.get(id));
+    console.log(JSON.parse(userMap.get(id)).cookedQs);
     const {clientName} = req.body;
     console.log(req.body);
-    res.render('playscreen',{quesArr: userMap.get(id), clientName, id})
+    res.render('playscreen',{quesArr: JSON.parse(userMap.get(id)).cookedQs, clientName, id})
 })
 
 app.post('/:id/playscreen', (req,res)=>{
@@ -162,25 +178,26 @@ app.post('/:id/playscreen', (req,res)=>{
     // answersheetMap.set(username,cookedQs);
 
     console.log('received answersheet');
-    //  console.log(body);
-    answerMap.set(body.clientName,body);
-    console.log(answerMap);
+    
+    // console.log(body);
+    const userQuestionSet = JSON.parse(userMap.get(id)).cookedQs;
+    const userClientList = [];
+    userClientList.push(JSON.parse(JSON.parse(userMap.get(id)).clientList));
+    userClientList.push(body);
+    
+    // console.log(userQuestionSet);
+    userMap.set(id,{
+        cookedQs : userQuestionSet ,
+        clientList : JSON.stringify(userClientList)
+    });
+    // console.log(userClientList);
+    console.log('listing all the clients');
+    console.log(Object.fromEntries(userMap));
     res.send({message: 'we received your response'});
 })
 
 app.get('/:id/score',(req,res)=>{
-    const {clientName} = req.query;
-    console.log(clientName);
-    console.log(answerMap.get(clientName).username);
-    const username = answerMap.get(clientName).username;
-    console.log(userMap.get(username));
-    console.log(answerMap.get(clientName));
-    res.render('scoreSheet',{
-        clientName,
-        quesSheet_obj : userMap.get(username),
-        answerSheet: JSON.stringify(answerMap.get(clientName).answerSheet),
-        score : answerMap.get(clientName).score,
-    });
+    res.render('scoreSheet');
 })
 
 app.post('/play',(req,res)=>{

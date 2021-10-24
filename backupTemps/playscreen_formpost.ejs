@@ -229,65 +229,55 @@
             console.log('congrats you scored '+ score);
             // console.log(Object.fromEntries(answerMap));
             const jsonBody ={ 
-                answerSheet : Object.fromEntries(answerMap),
+                answeSheet : Object.fromEntries(answerMap),
                 clientName : '<%=clientName%>',
-                username : '<%=id%>',
                 score: score
             };
-            
+            // jsonBody.answeSheet = JSON.stringify(Object.fromEntries(answerMap));
+            // jsonBody.clientName = '<%=clientName%>';
+            // jsonBody.score = score;
+
+            post('/<%=id%>/playscreen',jsonBody);
+        })
         
-            
-
-            postData('/<%=id%>/playscreen', jsonBody)
-            .then(data => {
-                console.log(data);
-            });
-
-            gottourl('/<%=id%>/score');
-
-        });
 
 
-        function gottourl(url){
-            
-            // window.location.href = url;
-            const form = document.createElement('form');
-            form.method = 'GET';
-            form.action = url;
+        // -----------
+        const form = document.createElement('form');
+        form.method = 'GET';
+        form.action = '/<%=id%>/score?clientName=<%=clientName%>';
+        document.body.appendChild(form);
+        form.submit();
+        // -----------
+        
+        function post(path, params, method='post') {
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less verbose if you use one.
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+
+        for (const key in params) {
+        if (params.hasOwnProperty(key)) {
             const hiddenField = document.createElement('input');
             hiddenField.type = 'hidden';
-            hiddenField.name = 'clientName';
-            hiddenField.value = '<%=clientName%>';
+            hiddenField.name = key;
+            hiddenField.value = params[key];
 
             form.appendChild(hiddenField);
+        }
+        }
 
-            document.body.appendChild(form);
-            form.submit();
-        }; 
-
-        
-
-
-
-                // Example POST method implementation:
-        async function postData(url = '', data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
-            });
-            return response.json(); // parses JSON response into native JavaScript objects
+        document.body.appendChild(form);
+        form.submit();
         }
 
         
+
+
+
+
 
     </script>
 
