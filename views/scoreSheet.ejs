@@ -19,15 +19,25 @@
         <% for( let index=0; index < quesSheet_obj.length; index++ ) { %>
             <li class="list-group-item list-group-item-danger">
                 <%=quesSheet_obj[index].question%>
-                <h5>your choice <%= answerSheet%> </h5>
-                <h5>correct choice <%= quesSheet_obj[index].correctAns %>  </h5>
+                <h5>your choice <%-answerSheet%>[index] </h5>
+                <h5>correct choice <%=quesSheet_obj[index] %> 
+                </h5>
 
             </li>
         <% } %>
 
     </ul>
 
-
+    <script>
+        const answer =<%-answerSheet%>[0] ;
+        console.log(answer);
+        
+        // function getVal(){
+        //     const correct =
+        //     console.log(correct);
+        // }
+        
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

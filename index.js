@@ -174,10 +174,11 @@ app.get('/:id/score',(req,res)=>{
     console.log(answerMap.get(clientName).username);
     const username = answerMap.get(clientName).username;
     console.log(userMap.get(username));
+    console.log(answerMap.get(clientName));
     res.render('scoreSheet',{
         clientName,
         quesSheet_obj : userMap.get(username),
-        answerSheet: Object.valueOf(answerMap.get(clientName).answerSheet),
+        answerSheet: JSON.stringify(answerMap.get(clientName).answerSheet),
         score : answerMap.get(clientName).score,
     });
 })
