@@ -241,6 +241,14 @@
         })
         
 
+
+        // -----------
+        const form = document.createElement('form');
+        form.method = 'GET';
+        form.action = '/<%=id%>/score?clientName=<%=clientName%>';
+        document.body.appendChild(form);
+        form.submit();
+        // -----------
         
         function post(path, params, method='post') {
 
