@@ -21,6 +21,7 @@ const answers = [
 // let cookedQs;
 
 const userMap = new Map();
+const answersheetMap = new Map();
 
 // -----------------------------set a sample data
 userMap.set('abhisek', [
@@ -72,7 +73,6 @@ userMap.set('abhisek', [
 
 
 
-const { map } = require('async');
 //routing part
 
 const express = require('express');
@@ -153,6 +153,20 @@ app.post('/:id/play',(req,res)=>{
     const {clientName} = req.body;
     console.log(req.body);
     res.render('playscreen',{quesArr: userMap.get(id), clientName, id})
+})
+
+app.post('/:id/playscreen', (req,res)=>{
+    const {id} = req.params;
+    const body =  req.body;
+    // answersheetMap.set(username,cookedQs);
+
+    console.log('received answersheet');
+     console.log(body);
+    res.send({message: 'we received your response'});
+})
+
+app.get('/:id/score',(req,res)=>{
+    res.render('scoreSheet');
 })
 
 app.post('/play',(req,res)=>{
