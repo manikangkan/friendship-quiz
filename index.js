@@ -18,57 +18,70 @@ const answers = [
     ["Bolo Zuba Kesari", "cappuchino", "BRU Gold", "Taj Mahal"],
 ];
 
-// let cookedQs;
 
 const userMap = new Map();
 const answerMap = new Map();
-const answersheetMap = new Map();
 
-// -----------------------------set a sample data
+// -----------------------------set a sample QUestionSheet
 userMap.set('abhisek', [
     {
       question: 'test 1',
-      option_a: 'red',
-      option_b: 'pink',
-      option_c: 'blue',
-      option_d: 'orange',
-      correctAns: 'option_a'
+      option_a: '1redA',
+      option_b: '1pinkB',
+      option_c: '1blueC',
+      option_d: '1orangeD',
+      correctAns: 'option_b'
     },
     {
       question: 'test 2',
-      option_a: 'redtttt',
-      option_b: 'ttttt',
-      option_c: 'bluettt',
-      option_d: 'orangetttt',
+      option_a: '2redA',
+      option_b: '2pinkB',
+      option_c: '2blueC',
+      option_d: '2orangeD',
       correctAns: 'option_a'
     },
     {
       question: 'test_3',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
-      correctAns: 'option_a'
+      option_a: '3redA',
+      option_b: '3pinkB',
+      option_c: '3blueC',
+      option_d: '3orangeD',
+      correctAns: 'option_b'
     },
     {
       question: 'test_4',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
+      option_a: '4redA',
+      option_b: '4pinkB',
+      option_c: '4blueC',
+      option_d: '4orangeD',
       correctAns: 'option_a'
     },
     {
       question: 'test_5',
-      option_a: 'redtttt',
-      option_b: 'pinktttt',
-      option_c: 'bluetttt',
-      option_d: 'orangettt',
-      correctAns: 'option_a'
+      option_a: '5redA',
+      option_b: '5pinkB',
+      option_c: '5blueC',
+      option_d: '5orangeD',
+      correctAns: 'option_b'
     },
     
     
   ]);
+
+
+//--------------------------set a sample ANSWERSHEET
+answerMap.set('roku',{
+    answerSheet: {
+      '0': 'option_c',
+      '1': 'option_a',
+      '2': 'option_c',
+      '3': 'option_a',
+      '4': 'option_b',
+    },
+    clientName: 'roku',
+    username: 'abhisek',
+    score: 4
+});
 // -----------------------------------------------------
 
 
@@ -169,6 +182,7 @@ app.post('/:id/playscreen', (req,res)=>{
 })
 
 app.get('/:id/score',(req,res)=>{
+    const {id} = req.params;
     const {clientName} = req.query;
     console.log(clientName);
     console.log(answerMap.get(clientName).username);
@@ -176,9 +190,10 @@ app.get('/:id/score',(req,res)=>{
     console.log(userMap.get(username));
     console.log(answerMap.get(clientName));
     res.render('scoreSheet',{
+        userName : id,
         clientName,
-        quesSheet_obj : userMap.get(username),
-        answerSheet: JSON.stringify(answerMap.get(clientName).answerSheet),
+        quesSheet_objs_arr : userMap.get(username),
+        answerSheet: answerMap.get(clientName).answerSheet,
         score : answerMap.get(clientName).score,
     });
 })

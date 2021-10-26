@@ -14,29 +14,61 @@
 </head>
 
 <body>
-    <h2>You scored <%=score%> out of 5</h2>
-    <ul class="list-group">
-        <% for( let index=0; index < quesSheet_obj.length; index++ ) { %>
-            <li class="list-group-item list-group-item-danger">
-                <%=quesSheet_obj[index].question%>
-                <h5>your choice <%-answerSheet%>[index] </h5>
-                <h5>correct choice <%=quesSheet_obj[index] %> 
-                </h5>
-
-            </li>
-        <% } %>
-
+    <h1>Mr. <%=userName.toUpperCase()%>'S QUIZ</h1>
+    <h2> scored <%=score%> out of 5</h2>
+    <ul class="list-group" id="userResponsePanelList">
+        
     </ul>
 
     <script>
-        const answer =<%-answerSheet%>[0] ;
+
+        const answer =<%-JSON.stringify(answerSheet) %> ;
+        const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+
         console.log(answer);
+        console.log(quesSheet_objs_arr);
+
+        const urpl = document.querySelector("#userResponsePanelList");
         
-        // function getVal(){
-        //     const correct =
-        //     console.log(correct);
-        // }
+        for( let index=0; index < quesSheet_objs_arr.length; index++ ){
+            var successColor = "";
+            if(get_myChosenOption(index) == get_correctAns(index)){
+                successColor = 'list-group-item-success';
+            }
+            else
+                successColor = 'list-group-item-danger';
+
+            const html = `
+            <li class="list-group-item ${successColor}" id="${index}">
+                <h4>Q${index} ${get_questionString(index)}</h4>
+                <h4>Your choice: ${get_myChosenOption(index)}</h4>
+                <h4>Correct Ans: ${get_correctAns(index)} </h4>
+            </li>
+            `;
+            urpl.innerHTML+= html;
+        }
+
+
+
+
+
+        function get_questionString(Qindex){
+            return quesSheet_objs_arr[Qindex].question;
+        }
+
+        function get_correctAns(Qindex) {
+            const quesObj = new Map(Object.entries(quesSheet_objs_arr[Qindex]));
+            const correctAns = quesObj.get('correctAns');
+            return quesObj.get(quesObj.get('correctAns'));
+        }
+
+        function get_myChosenOption(Qindex){
+            const tempMap = new Map(Object.entries(quesSheet_objs_arr[Qindex]));
+            return tempMap.get(answer[Qindex]);
+        }
         
+
+
     </script>
 
 
