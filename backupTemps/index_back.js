@@ -95,16 +95,18 @@ function push_to_db(usr) {
     
                 var newRoomId = "";
     
-                newUser.save(function(err,room) {
-                    newRoomId = room._id;
-                    console.log(room.id);
-                    new Error(err);
-                });
-    
+                newUser.save()
+                .then(()=>console.log("successfully saved"))
+                .catch((e)=>console.log(e));
+                
+                // .then(()=>console.log('suyccef'))
+                // .catch(err=>console.log(err));
+                
+                console.log(newUser);
                 return newRoomId;
             }
                
-        });
+        }).catch((e)=>console.log(e));
         const { _id } =  User.findOne({ username: usr });
         if (_id != null) {
             
@@ -164,14 +166,23 @@ app.post('/cooked', async (req, res) => {
     const username = body.username.valueOf();
     const cookedQs = body.allCookedQuesitons.valueOf();
 
-    const {_id} = await User.findOne({username});
-    if(_id == null){
-        async
-        console.log("success account does not exist");
-        const newUser = new User({username,cookedQs});
-        await newUser.save();
-    }
-    else console.log("sorry account exists please try another name")
+    const user = await User.findOne({username});
+    console.log(user);
+    const newUser = new User({
+        username,
+        cookedQs: userMap.get(username),
+    });
+
+    newUser.save()
+                .then(()=>console.log("successfully saved"))
+                .catch((e)=>console.log(e));
+    // if(_id == null){
+    //     async
+    //     console.log("success account does not exist");
+    //     const newUser = new User({username,cookedQs});
+    //     await newUser.save();
+    // }
+    // else console.log("sorry account exists please try another name")
 
 
     // console.log(cookedQs, username);
