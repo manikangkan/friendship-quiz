@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
+
+const ACCOUNT_NAME = '';   //PUT MONGODB USERNAME HERE
+const PASS = '';           //PUT MONGODB PASSWORD HERE
+
 const uri1 =
-    'mongodb+srv://kal:lala@cluster0.p7xal.mongodb.net/quizdb?retryWrites=true&w=majority';
+    `mongodb+srv://${ACCOUNT_NAME}:${PASS}@cluster0.p7xal.mongodb.net/quizdb?retryWrites=true&w=majority`;
 
 mongoose.connect(uri1, {
         useNewUrlParser: true,
