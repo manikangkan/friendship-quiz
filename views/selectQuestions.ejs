@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1 class="title">Welcome to the quiz portal</h1>
-        <h3 class="title">Select the questions by highlighting them. Note: all 4 options are mandatory</h3>
+        <h3 class="title">Select 5 questions by highlighting them. Note: all 4 options are mandatory</h3>
         <center>
             <h2>
                 <%=gender=="male"? "Mr." : "Miss." %>
@@ -64,7 +64,6 @@
 
 
 
-   <button id="shareScr">Go to Share screen</button>
 
     <script>
         const optionArr = document.querySelectorAll('.options');
@@ -129,7 +128,7 @@
         const quesSections = document.querySelectorAll('#ques');
         for (let sec of quesSections) {
             sec.children[0].addEventListener('click', function (e) {
-                console.log('clicked');
+                // console.log('clicked');
                 e.stopPropagation();
             })
 
@@ -148,18 +147,21 @@
 
             var allCookedQuesitons = [];
 
+
             for (let obj of chosenQues) {
-                console.log(obj.children[0].value);
-                console.log(obj.children[1].children[0].value);
-                console.log(obj.children[1].children[1].value);
-                console.log(obj.children[1].children[2].value);
-                console.log(obj.children[1].children[3].value);
 
-
-                console.log(obj.children[1].querySelector('.active'));
+                // console.log(obj.children[1].querySelector('.active'));
                 let correctAnsId = obj.children[1].querySelector('.active');
-                correctAnsId = (correctAnsId == null) ? '' : `option_${correctAnsId.id}`;
+                correctAnsId = (correctAnsId == null) ? null : `option_${correctAnsId.id}`;
                 
+                
+                if(correctAnsId == null ){
+                    alert('please activate the correct option of all highlighted questions');
+                    return;
+                }
+
+                
+
 
                 var ques1 = {
                     question: obj.children[0].value,
@@ -170,15 +172,22 @@
                     correctAns: correctAnsId
                 }
 
-                console.log(ques1);
+                // console.log(ques1);
                 allCookedQuesitons.push(ques1);
-                console.log(allCookedQuesitons);
+                // console.log(allCookedQuesitons);
 
                 // send the cooked questions post request
                 
+               
+
 
             }
-            
+            const _l = allCookedQuesitons.length;
+            if(_l !=5){
+                    alert(`you have selected ${_l}. Select 5 questions exactly!`);
+                    console.log(_l);
+                    return;
+                }
 
             // this will be fixed in the future. Right now it gets the job done. nothing is asynchronous
             var xhr = new XMLHttpRequest();
@@ -204,10 +213,6 @@
 
 
 
-        const goToshareScr = document.querySelector("#shareScr");
-        goToshareScr.addEventListener('click',function(){
-            window.location.href = '/<%=username%>/cooked/share'
-        }); 
 
     </script>
 
