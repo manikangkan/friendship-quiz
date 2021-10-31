@@ -79,11 +79,11 @@ answerMap.set('roku', {
     score: 4,
 });
 // -----------------------------------------------------
-
 // DB PART
 require('./db/connect');
 const User = require('./models/user');
-const Client = require('./models/client');
+
+
 
 //routing part
 
@@ -116,7 +116,11 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, gender } = req.body;
-    userMap.set(username, 'empty_ques_set');
+
+    userMap.set(username, {});
+    console.log(req.body);
+    console.log(userMap);
+    console.log(userMap);
     res.render('selectQuestions', { questions, answers, username, gender });
 });
 
@@ -124,20 +128,32 @@ app.post('/cooked', async (req, res) => {
     const body = req.body;
     const username = body.username.valueOf();
     const cookedQs = body.allCookedQuesitons.valueOf();
+
+    const user = await User.findOne({username});
+    console.log(user);
+    const newUser = new User({
+        username,
+        cookedQs: userMap.get(username),
+    });
+
+    newUser.save()
+                .then(()=>console.log("successfully saved"))
+                .catch((e)=>console.log(e));
+    // if(_id == null){
+    //     async
+    //     console.log("success account does not exist");
+    //     const newUser = new User({username,cookedQs});
+    //     await newUser.save();
+    // }
+    // else console.log("sorry account exists please try another name")
+
+
+    // console.log(cookedQs, username);
     userMap.set(username, cookedQs);
-    // console.log(userMap);
-
-    const filter = { username};
-    const update = {username, cookedQs : userMap.get(username)};
-
-    let doc = await User.findOneAndUpdate(filter, update, {
-        new: true,
-        upsert: true,
-    })
-        .then(() => console.log('successfully Uploaded User QuestionSet'))
-        .catch((e) => console.log(e));
-
-
+    console.log('received ques set');
+    console.log(userMap);
+    const pushStatus =  push_to_db(username);
+    console.log("pushstatus" + pushStatus);
     res.send('received the quesitons');
 });
 
@@ -149,51 +165,48 @@ app.get('/:id/cooked/share', (req, res) => {
 
 app.get('/play', (req, res) => {
     res.send('enter playing link or code');
+    // res.render('play', {questions,answers});
 });
 
-app.get('/:id/play', (req, res) => {
+app.get('/:id/play', async (req, res) => {
     const { id } = req.params;
+    // console.log('found the set of questions');
+    // console.log(userMap.get(id));
+    // res.send('username is ' + id);
+    // res.render('play',userMap.get(id));
+    const user = await User.findById(id);
     res.render('play', { id });
 });
 
-app.post('/:id/play', async (req, res) => {
+app.post('/:id/play', (req, res) => {
     const { id } = req.params;
-    console.log('found the user from the DB');
-
-    //-----------------------> begin updating the usermap
-    const temp = await User.findOne({ username: id });
-    userMap.set(id, temp.cookedQs);
-    //-----------------------> end updating usermap
-
-    // console.log('found the set of questions');
-    // console.log(userMap.get(id));
+    console.log('found the set of questions');
+    console.log(userMap.get(id));
     const { clientName } = req.body;
+    console.log(req.body);
     res.render('playscreen', { quesArr: userMap.get(id), clientName, id });
 });
 
-app.post('/:id/playscreen', async (req, res) => {
+app.post('/:id/playscreen', (req, res) => {
     const { id } = req.params;
     const body = req.body;
+    // answersheetMap.set(username,cookedQs);
 
     console.log('received answersheet');
+    //  console.log(body);
     answerMap.set(body.clientName, body);
-
-    const filter = { clientName: body.clientName };
-    const update = answerMap.get(body.clientName);
-
-    let doc = await Client.findOneAndUpdate(filter, update, {
-        new: true,
-        upsert: true,
-    })
-        .then(() => console.log('successfully saved'))
-        .catch((e) => console.log(e));
+    console.log(answerMap);
     res.send({ message: 'we received your response' });
 });
 
 app.get('/:id/score', (req, res) => {
     const { id } = req.params;
     const { clientName } = req.query;
+    console.log(clientName);
+    console.log(answerMap.get(clientName).username);
     const username = answerMap.get(clientName).username;
+    console.log(userMap.get(username));
+    console.log(answerMap.get(clientName));
     res.render('scoreSheet', {
         userName: id,
         clientName,
