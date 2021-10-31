@@ -83,44 +83,7 @@ answerMap.set('roku', {
 require('./db/connect');
 const User = require('./models/user');
 
-function push_to_db(usr) {
-    if (userMap.has(usr)) {
-        User.findOne({ username: usr }).then(data =>{
-            console.log(data);
-            if(data == null){
-                const newUser = new User({
-                    username: usr,
-                    cookedQs: userMap.get(usr),
-                });
-    
-                var newRoomId = "";
-    
-                newUser.save()
-                .then(()=>console.log("successfully saved"))
-                .catch((e)=>console.log(e));
-                
-                // .then(()=>console.log('suyccef'))
-                // .catch(err=>console.log(err));
-                
-                console.log(newUser);
-                return newRoomId;
-            }
-               
-        }).catch((e)=>console.log(e));
-        const { _id } =  User.findOne({ username: usr });
-        if (_id != null) {
-            
-            console.log('sorry account exists already try another name');
-            return 0;
-        } 
-        else {
-            
-        }
-    }
-    
 
-    return 0;
-}
 
 //routing part
 
