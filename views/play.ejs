@@ -7,19 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Welcome dear user</title>
+    <link rel="stylesheet" href="../wow/animate.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        #welcome{
+            text-transform: capitalize;
+        }
+    </style>
+    <title>Welcome dear User!</title>
 </head>
 
-<body>
-    <h2>Welcome to the quiz of <%=id%>
-    </h2>
-    <h3>What should we call you?</h3>
-    <form action="/<%=id%>/play" method="POST">
-        <input type="text" name="clientName" placeholder="name">
-        <button type="submit">Let's play</button>
-    </form>
+<body class="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+        <div class="text-center my-5 lh-1">
+
+            <h2 id="welcome" class="fw-bold wow fadeInUp" data-wow-delay="300ms">
+                Welcome to <%=id%> 's Quiz
+            </h2>
+            <br>
+            <p class="wow fadeInUp" data-wow-delay="200ms">What's your name?</p>
+        </div>
+
+
+        <div class="w-100">
+            <form action="/<%=id%>/play" method="POST">
+
+                <div class="wow fadeInUp" data-wow-delay="600ms">
+                    <input type="text" name="clientName" class="form-control" id="clientName" placeholder="myName">
+                </div>
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="1200ms">
+                    Play
+                </button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
