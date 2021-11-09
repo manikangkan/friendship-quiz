@@ -1,3 +1,6 @@
+const port = 3000;
+
+
 const questions = [
     'favourite color',
     'favourite animal as pet',
@@ -90,7 +93,7 @@ const Client = require('./models/client');
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 3000 || 3001;
+
 
 //all static work
 app.use(express.static('public'));
@@ -113,7 +116,7 @@ app.get('', (req, res) => {
     res.render('index');
 });
 
-app.get('/play', (req, res) => {
+app.get('/new_client_or_user', (req, res) => {
     res.render('new_client_or_user');
 });
 
@@ -199,6 +202,19 @@ app.get('/:id/score', (req, res) => {
     const { id } = req.params;
     const { clientName } = req.query;
     const username = answerMap.get(clientName).username;
+    res.render('scoreDisp', {
+        userName: id,
+        clientName,
+        score: answerMap.get(clientName).score,
+    });
+});
+
+
+
+app.get('/:id/scoresheet', (req, res) => {
+    const { id } = req.params;
+    const { clientName } = req.query;
+    const username = answerMap.get(clientName).username;
     res.render('scoreSheet', {
         userName: id,
         clientName,
@@ -208,10 +224,7 @@ app.get('/:id/score', (req, res) => {
     });
 });
 
-app.post('/play', (req, res) => {
-    const { score } = req.body;
-    res.render('scoreDisp', { score });
-});
+
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
