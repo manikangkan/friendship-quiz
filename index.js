@@ -176,7 +176,7 @@ app.post('/:id/play', async (req, res) => {
     // console.log('found the set of questions');
     // console.log(userMap.get(id));
     const { clientName } = req.body;
-    res.render('playscreen', { quesArr: userMap.get(id), clientName, id });
+    res.render('playscreen', { quesArr: temp.cookedQs, clientName, id });
 });
 
 app.post('/:id/playscreen', async (req, res) => {
