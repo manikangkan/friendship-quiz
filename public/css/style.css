@@ -56,11 +56,11 @@ body {
     var(--lg-color-1),
     var(--lg-color-2)
   ) !important;
-  border: none !important;
+  border: 0.2px solid var(--diselect) !important;
 }
 
-.form-control:focus,
-.btn:focus {
+.form-control:focus
+ {
   box-shadow: none !important;
   border-color: linear-gradient(
     90deg,
@@ -68,6 +68,16 @@ body {
     var(--lg-color-2)
   ) !important;
 }
+
+/* abhisek tweaks BEGIN--------------- */
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* abhisek tweaks END--------------- */
+
 
 .rounded-circle {
   width: 80px !important;
@@ -108,12 +118,9 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 100% !important;
-  top: -30px;
   background: var(--bg);
-}
-
-.questions {
-  margin-bottom: 5rem;
+  cursor: pointer;
+  z-index: 10000;
 }
 
 .navigator_item {
@@ -124,7 +131,8 @@ body {
   margin-right: 20px;
 }
 
-.selected-question {
+.selected-question,
+.responder-question-number p:hover {
   background: linear-gradient(
     90deg,
     var(--lg-color-1),
@@ -200,4 +208,15 @@ body {
 
 object {
   pointer-events: none;
+}
+
+.ready-to-share {
+  margin-bottom: 10rem;
+}
+
+.copyright {
+  z-index: 1000000;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(transparent, var(--bg) 90%) !important;
 }
