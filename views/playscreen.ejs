@@ -7,16 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <title>3</title>
+    <link rel="stylesheet" href="/wow/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
     <style>
-        body {
-            height: 100vh;
+         /* abhisek custom experiment */
+        .btn:focus, .btn-light:focus{
+        outline: none;
+        box-shadow: none;
         }
     </style>
+
+    <title>question-responder</title>
 </head>
 
-<body>
-    <h4 class="
+<body class="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+        <h4 class="
                 d-flex
                 flex-column
                 justify-content-center
@@ -24,46 +31,82 @@
                 mt-4
                 mb-5
             ">
-        <%=id%> has asked you these things dear client <%=clientName%>
-    </h4>
-    <center>
-        <div class="btn-group" id="quesNavigator" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked value="0" />
-            <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+            <%=id%>'s question for <%=clientName%>
+        </h4>
 
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="1" />
-            <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+        <section id="quesNavigator_v2" class="d-flex justify-content-between mb-2 overflow-scroll ">
+        </section>
+<!-- 
+        <center>
+            <div class="btn-group" id="quesNavigator" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked
+                    value="0" />
+                <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
 
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="2" />
-            <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="1" />
+                <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
 
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="3" />
-            <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="2" />
+                <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
 
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="4" />
-            <label class="btn btn-outline-primary" for="btnradio5">Radio 5</label>
-        </div>
-    </center>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="3" />
+                <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
 
-    <section id="questionArea" class="
-                d-flex
-                flex-column
-                justify-content-center
-                align-items-center
-                mt-5
-            "></section>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="4" />
+                <label class="btn btn-outline-primary" for="btnradio5">Radio 5</label>
+            </div>
+        </center> -->
 
-    <button id="printmap">printmap</button>
-    <button id="fetchScore">submit and get score</button>
 
-    <form id="submForm" action="/<%=id%>/play" method="POST">
+        <section id="0" class="quesArea_version_2">
+            <div>
+                <h4 id="quesStr">
+                    Question Dummy
+                </h4>
+            </div>
 
-    </form>
+            <div id="options" class="w-100 my-3 options">
 
+                <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_a" >
+                   A
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp" id="option_b" >
+                    B
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_c" >
+                    C
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp" id="option_d" >
+                    D
+                </button>
+
+            </div>
+            <button id="nextBtn" type="button" class="btn w-100 my-3">Next
+                <div class="progress btn mt-3">
+                    <div id="nxtBtPrg" class="btn btn-primary progress-bar" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </button>
+        </section>
+
+        <!-- <section id="questionArea">
+        </section> -->
+
+        <button id="printmap">printmap</button>
+        <button id="fetchScore">submit and get score</button>
+
+        <form id="submForm" action="/<%=id%>/play" method="POST">
+
+        </form>
+    </div>
     <script>
+        const quesList = <%-JSON.stringify(quesArr) %>;
+        const no_of_ques = quesList.length;
+    </script>
+    <script src="/js/playScreen_backend.js"></script>
+    <!-- <script>
         // script for generating quesitons
         const answerMap = new Map();
-        
+
 
         var optionContainer;
         var buttonA;
@@ -152,7 +195,7 @@
             })
         }
 
-        
+
 
 
         const quesList = <%-JSON.stringify(quesArr) %>;
@@ -184,23 +227,23 @@
                                 <h4 class="mb-4 pb-4">
                                         ${quesList[index].question}
                                     </h4>
-                                    <div class="d-grid col-4 gap-3 options">
+                                    <section class="w-100 my-3 options">
 
-                                        <button type="button" class="text-start btn btn-secondary col" id="option_a" >
+                                        <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_a" >
                                             ${quesList[index].option_a}
                                         </button>
-                                        <button type="button" class="text-start btn btn-secondary col" id="option_b" >
+                                        <button type="button" class="btn btn-light w-100 fadeInUp" id="option_b" >
                                             ${quesList[index].option_b}
                                         </button>
-                                        <button type="button" class="text-start btn btn-secondary col" id="option_c" >
+                                        <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_c" >
                                             ${quesList[index].option_c}
                                         </button>
-                                        <button type="button" class="text-start btn btn-secondary col" id="option_d" >
+                                        <button type="button" class="btn btn-light w-100 fadeInUp" id="option_d" >
                                             ${quesList[index].option_d}
                                         </button>
-                                        <button id="nextBtn" onClick="fetchNextQues()" type="button" class="btn btn-primary w-100">Next</button>
+                                        <button id="nextBtn" onClick="fetchNextQues()" type="button" class="btn btn-primary w-100 my-5">Next</button>
                                         
-                                    </div>
+                                    </section>
                                 `;
             // console.log(html);
             return html;
@@ -213,43 +256,43 @@
 
 
         const printmap = document.querySelector('#printmap');
-        printmap.addEventListener('click',()=>console.log(answerMap));
+        printmap.addEventListener('click', () => console.log(answerMap));
 
         // answer checker and score fetcher
 
         const submitAndGetScore = document.querySelector('#fetchScore');
 
-        submitAndGetScore.addEventListener('click',function(){
+        submitAndGetScore.addEventListener('click', function () {
             console.log('pressed');
             let score = 0;
-            for(let [key,value] of answerMap){
-            if(quesList[key].correctAns == value)
-                score++;
+            for (let [key, value] of answerMap) {
+                if (quesList[key].correctAns == value)
+                    score++;
             }
-            console.log('congrats you scored '+ score);
+            console.log('congrats you scored ' + score);
             // console.log(Object.fromEntries(answerMap));
-            const jsonBody ={ 
-                answerSheet : Object.fromEntries(answerMap),
-                clientName : '<%=clientName%>',
-                username : '<%=id%>',
+            const jsonBody = {
+                answerSheet: Object.fromEntries(answerMap),
+                clientName: '<%=clientName%>',
+                username: '<%=id%>',
                 score: score
             };
-            
-        
-            
+
+
+
 
             postData('/<%=id%>/playscreen', jsonBody)
-            .then(data => {
-                console.log(data);
-            });
+                .then(data => {
+                    console.log(data);
+                });
 
             gottourl('/<%=id%>/score');
 
         });
 
 
-        function gottourl(url){
-            
+        function gottourl(url) {
+
             // window.location.href = url;
             const form = document.createElement('form');
             form.method = 'GET';
@@ -263,37 +306,40 @@
 
             document.body.appendChild(form);
             form.submit();
-        }; 
-
-        
+        };
 
 
 
-                // Example POST method implementation:
+
+
+        // Example POST method implementation:
         async function postData(url = '', data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
             });
             return response.json(); // parses JSON response into native JavaScript objects
         }
-
-        
-
-    </script>
+    </script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="/js/avatar-fetch.js"></script>
+    <script src="/wow/jquery.min.js"></script>
+    <script src="/wow/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 
 </html>
