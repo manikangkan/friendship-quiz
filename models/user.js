@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema({
     },
     cookedQs : {
         type: []
-    }
+    },
+    gender : String,
+    date : Date,
 });
 
 const User = mongoose.model('User', userSchema);
