@@ -1,0 +1,22 @@
+{
+  "limit": 7,
+  "questions": [
+    "favourite color",
+    "favourite animal as pet",
+    "favourite smartphone brand",
+    "favourite season",
+    "favourite TV serial",
+    "my most delicious food",
+    "tea or coffee?"
+  ],
+
+  "answers": [
+    ["orange", "pink", "yellow", "blue"],
+    ["cat", "rat", "bat", "ant"],
+    ["chinese", "samsung", "iPhone", "oneplus"],
+    ["spring", "summer", "winter", "autumn"],
+    ["Crime Patrol", "CID", "Cartoon", "Saas Bahu Beti"],
+    ["Aloo paratha", "South Indian", "Pizza", "Chinese"],
+    ["Bolo Zuba Kesari", "cappuchino", "BRU Gold", "Taj Mahal"]
+  ]
+}
