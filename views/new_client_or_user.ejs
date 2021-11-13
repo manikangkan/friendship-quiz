@@ -25,21 +25,21 @@
             <img src="assets/avatar.png" class="avatar-img" alt="" />
             <img src="assets/pulse.gif" alt="" class="avatar-pulse position-absolute" />
         </div>
-        
+
         <div class="w-100">
 
             <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="600ms">
-                <button type="button" id="newuser" class="btn btn-light col"  onclick="location.href = '/login';">Create A Quiz</button>
+                <button type="button" id="newuser" class="btn btn-light col" onclick="location.href = '/login';">Create
+                    A Quiz</button>
             </div>
 
-            <br>
             <div class="wow fadeInUp" data-wow-delay="600ms">
                 <label for="usercode" class="form-label">Have a code?</label>
                 <input type="text" class="form-control" name="usercode" id="usercode" placeholder="playcode">
-                
+
             </div>
             <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="600ms">
-                <button type="button" id="clientLogin" class="btn btn-light col" >Play</button>
+                <button type="button" id="clientLogin" class="btn btn-light col">Play</button>
             </div>
 
 
@@ -51,8 +51,7 @@
 
 
     <script>
-        // need to extract the username in case someone pastes a URL
-        // REGEX pattern can fix that
+
         const clientLoginBtn = document.querySelector('#clientLogin');
 
         clientLoginBtn.addEventListener('click', function () {
@@ -62,8 +61,41 @@
                 return;
             }
 
-            location.href = `/${usercode}/play`;
+            if (validURL(usercode)) {
+                usercode = usercode.split("/")[usercode.split("/").length - 3];
+                console.log("this is a url " + usercode);
+            }
+            if (hasLowerCase(usercode)) {
+                validate(usercode).then(data => {
+                    if (data.userExists)
+                        window.location.href = data.redirect;
+                    else
+                        alert('Sorry! This user does not exit')
+                });
+            }
+            else alert("invalid code");
+
+
         });
+
+        function hasLowerCase(str) {
+            return (/^[a-zA-Z]+$/.test(str));
+        }
+
+
+        async function validate(usercode) {
+            const response = await fetch(`/${usercode.toLowerCase()}/validate`, {
+                method: 'GET',
+                redirect: 'follow',
+            });
+            return response.json();
+        }
+
+        function validURL(str) {
+            var res = str.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+            return (res !== null)
+        }
+
     </script>
 </body>
 

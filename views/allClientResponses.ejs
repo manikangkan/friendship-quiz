@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="/wow/animate.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>score</title>
+    <title>leaderboard</title>
 </head>
 <!-- My code DOESN’T work, I have no idea why. My code WORKS, I have no idea why. -->
 
@@ -22,49 +22,62 @@
           avatar-wrapper
           wow
           fadeInUp
-        " data-wow-delay="300ms">
+        " data-wow-delay="100ms">
             <img src="/assets/avatar.png" class="avatar-img" alt="" />
             <img src="/assets/pulse.gif" alt="" class="avatar-pulse position-absolute" />
         </div>
-        <div class="text-center">
-            <p class="wow fadeInUp" data-wow-delay="600ms">
-                Congratulations, <%= clientName.toUpperCase() %> 
-            </p>
-            <h2 class="fw-bold wow fadeInUp" data-wow-delay="900ms">
-                You scrored <%= score %> out of 10
-            </h2>
-        </div>
-
-        <a href="scoresheet?clientName=<%=clientName%>">
-            <button type="button" class="btn btn-primary w-100 my-4 wow fadeInUp" data-wow-delay="1200ms">
-               View details
+        <div>
+            <a href="../../index.html">
+                <button type="button" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="200ms">
+                    Rahul knows Nikita the most!
+                </button>
+            </a>
+            <button type="button" class="
+            btn btn-light
+            w-100
+            wow
+            fadeInUp
+            mt-3
+            d-flex
+            justify-content-between
+          " data-wow-delay="300ms">
+                <span>Rahul</span>
+                <span>10 out of 10</span>
             </button>
-        </a>
-
-        <a href="./leaderboard">
-            <button type="button" class="btn btn-primary w-100 my-4 wow fadeInUp" data-wow-delay="1200ms">
-                See leaderboard
+            <button type="button" class="
+            btn btn-light
+            w-100
+            wow
+            fadeInUp
+            mt-3
+            d-flex
+            justify-content-between
+          " data-wow-delay="400ms">
+                <span>Ramesh</span>
+                <span>7 out of 10</span>
             </button>
-        </a>
-        
-        
-        <div class="text-center wow fadeInUp" data-wow-delay="1500ms">
-            <a href="asity.tech" class="fw-bold text-decoration-none">Exit</a>
+            <button type="button" class="
+            btn btn-light
+            w-100
+            wow
+            fadeInUp
+            mt-3
+            d-flex
+            justify-content-between
+          " data-wow-delay="500ms">
+                <span>Suresh</span>
+                <span>7 out of 10</span>
+            </button>
         </div>
-        <p class="fixed-bottom text-secondary text-center wow fadeInUp" data-wow-delay="1800ms">
+        <p class="fixed-bottom text-secondary wow fadeInUp text-center" data-wow-delay="600ms">
             Powered by
             <a href="asity.tech" class="fw-semibold text-decoration-none">asity.tech</a>
         </p>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-    <script src="https://www.wpromotions.eu/confetti.min.js"></script>
-    <script>
-        confetti.start();
-    </script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <script src="/js/avatar-fetch.js"></script>
     <script src="/wow/jquery.min.js"></script>
     <script src="/wow/wow.min.js"></script>
     <script>
@@ -73,7 +86,3 @@
 </body>
 
 </html>
-
-
-
-

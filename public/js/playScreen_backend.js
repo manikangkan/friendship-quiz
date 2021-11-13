@@ -24,7 +24,7 @@ function loadNavigator_v2(n = 1) {
 }
 
 function loadQuesArea_v2(index = 0) {
-//   console.log('loaded ' + index);
+  //   console.log('loaded ' + index);
   const qArea = document.querySelector('.quesArea_version_2');
   qArea.id = index;
   const radios = document.querySelector('#quesNavigator_v2').children;
@@ -136,7 +136,7 @@ function nextBtnMechanism() {
           (index + 1) % no_of_ques
         ]);
       futureNav.click();
-    } else {
+    } else if (progressPercent == 100) {
       submitMyAns();
     }
   });
@@ -163,61 +163,59 @@ function nextBtnMechanism() {
 }
 
 function submitMyAns() {
-  const submitAndGetScore = document.querySelector('#fetchScore');
+  let score = 0;
+  for (let [key, value] of answerMap) {
+    if (quesList[key].correctAns == value) score++;
+  }
 
-  submitAndGetScore.addEventListener('click', function () {
-    console.log('pressed');
-    let score = 0;
-    for (let [key, value] of answerMap) {
-      if (quesList[key].correctAns == value) score++;
-    }
-    console.log('congrats you scored ' + score);
-    // console.log(Object.fromEntries(answerMap));
-    const jsonBody = {
-      answerSheet: Object.fromEntries(answerMap),
-      clientName: '<%=clientName%>',
-      username: '<%=id%>',
-      score: score,
-    };
+  console.log('congrats you scored ' + score);
+  // console.log(Object.fromEntries(answerMap));
+  const jsonBody = {
+    answerSheet: Object.fromEntries(answerMap),
+    clientName,
+    username,
+    score,
+  };
 
-    postData('/<%=id%>/playscreen', jsonBody).then((data) => {
-      console.log(data);
-    });
-
-    gottourl('/<%=id%>/score');
+  postData(`/${username}/playscreen`, jsonBody).then((data) => {
+    console.log(data.message);
+    window.location.href = data.redirect;
   });
 
-  function gottourl(url) {
-    // window.location.href = url;
-    const form = document.createElement('form');
-    form.method = 'GET';
-    form.action = url;
-    const hiddenField = document.createElement('input');
-    hiddenField.type = 'hidden';
-    hiddenField.name = 'clientName';
-    hiddenField.value = '<%=clientName%>';
+}
 
-    form.appendChild(hiddenField);
+// depreciated
+function gottourl(url) {
+  // window.location.href = url;
+  const form = document.createElement('form');
+  form.method = 'GET';
+  form.action = url;
+  const hiddenField = document.createElement('input');
+  hiddenField.type = 'hidden';
+  hiddenField.name = 'clientName';
+  hiddenField.value = '<%=clientName%>';
 
-    document.body.appendChild(form);
-    form.submit();
-  }
+  form.appendChild(hiddenField);
 
-  // Example POST method implementation:
-  async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-  }
+  document.body.appendChild(form);
+  form.submit();
+}
+
+
+// Example POST method implementation:
+async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data), // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
 }
