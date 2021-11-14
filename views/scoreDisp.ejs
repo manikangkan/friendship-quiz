@@ -17,19 +17,38 @@
           avatar-wrapper
           wow
           fadeInUp
-        "
-        data-wow-delay="300ms"
-      >
-        <img src="../../assets/avatar.png" class="avatar-img" alt="" />
-        <img
-          src="../../assets/pulse.gif"
-          alt=""
-          class="avatar-pulse position-absolute"
-        />
-      </div>
-      <div class="text-center">
-        <p class="wow fadeInUp" data-wow-delay="600ms">
-          Congratulations, <%= clientName.toUpperCase() %>
+        " data-wow-delay="300ms">
+            <img src="/assets/avatar.png" class="avatar-img" alt="" />
+            <img src="/assets/pulse.gif" alt="" class="avatar-pulse position-absolute" />
+        </div>
+        <div class="text-center">
+            <p class="wow fadeInUp" data-wow-delay="600ms">
+                Congratulations, <%= clientName.toUpperCase() %> 
+            </p>
+            <h2 class="fw-bold wow fadeInUp" data-wow-delay="900ms">
+                You scrored <%= score %> out of 10
+            </h2>
+        </div>
+
+        <a href="scoresheet?clientName=<%=clientName%>">
+            <button type="button" class="btn btn-primary w-100 my-4 wow fadeInUp" data-wow-delay="1200ms">
+               View details
+            </button>
+        </a>
+
+        <a href="./leaderboard">
+            <button type="button" class="btn btn-primary w-100 my-4 wow fadeInUp" data-wow-delay="1200ms">
+                See leaderboard
+            </button>
+        </a>
+        
+        
+        <div class="text-center wow fadeInUp" data-wow-delay="1500ms">
+            <a href="asity.tech" class="fw-bold text-decoration-none">Exit</a>
+        </div>
+        <p class="fixed-bottom text-secondary text-center wow fadeInUp" data-wow-delay="1800ms">
+            Powered by
+            <a href="asity.tech" class="fw-semibold text-decoration-none">asity.tech</a>
         </p>
         <h2 class="fw-bold wow fadeInUp" data-wow-delay="900ms">
           You scrored <%= score %> out of 10
