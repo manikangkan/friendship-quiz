@@ -1,0 +1,41 @@
+.floating-btn-wrapper {
+  width: fit-content;
+}
+
+.floating-btn-wrapper img {
+  background: $diselect;
+  border-radius: 100% !important;
+  width: 46px;
+  cursor: pointer;
+}
+
+.floating-btn-wrapper img:active {
+  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+  transform: rotate(360deg);
+  transition: transform 0.8s ease-in-out;
+}
+
+.menu {
+  background: rgba(58, 59, 60, 0.4) !important;
+  backdrop-filter: blur(2px);
+  border-radius: 4px !important;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.menu p {
+  padding: 8px 24px !important;
+  cursor: pointer;
+}
+
+.menu p:hover {
+  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+}

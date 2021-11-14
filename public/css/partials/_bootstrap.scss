@@ -1,0 +1,26 @@
+// purpose of this scss partial file is to overite the default behaviour of some bootstrap classes
+
+*:hover,
+*:focus {
+  border: none !important;
+}
+.btn,
+.form-control {
+  padding: 12px;
+  font-weight: 600;
+  background: linear-gradient(90deg, $lg-color-1, $lg-color-2);
+  border: 0.2px solid $diselect;
+}
+
+.form-control {
+  background: none;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: linear-gradient(90deg, $lg-color-1, $lg-color-2);
+}

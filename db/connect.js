@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
 const ACCOUNT_NAME = "kal"; //PUT MONGODB USERNAME HERE
-const PASS = "lalu"; //PUT MONGODB PASSWORD HERE
-
-const ACCOUNT_NAME = "kal"; //PUT MONGODB USERNAME HERE
 const PASS = "ram"; //PUT MONGODB PASSWORD HERE
 const database_name = "quizdb";
 

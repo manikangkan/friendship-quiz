@@ -10,30 +10,26 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
-    <title>2</title>
-    <style>
-      body {
-        height: 100vh;
-      }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>avatar-fetch</title>
   </head>
-  <body class="d-flex flex-column justify-content-center align-items-center">
-    <div class="d-grid col-4 gap-3">
-      <div>
-        <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
+
+  <body
+    class="d-flex flex-column justify-content-center align-items-center gap-5"
+  >
+    <div class="avatar d-flex justify-content-center align-items-center pb-5">
+      <img src="../../assets/avatar.png" class="avatar-img" alt="" />
+      <img src="../../assets/pulse.gif" alt="" class="avatar-pulse" />
+    </div>
+    <div class="d-grid col-10 gap-5 mt-4">
+      <div class="d-flex gap-3">
+        <button type="button" class="btn btn-light col" name="female">
+          Female
+        </button>
+        <button type="button" class="btn btn-light col" name="male">
+          Male
+        </button>
       </div>
-      <button type="button" class="btn btn-primary col">Female</button>
-      <button type="button" class="btn btn-primary col">Male</button>
-      <a href="questions.html">
-        <button type="button" class="btn btn-primary w-100">Next</button></a
-      >
     </div>
 
     <script
@@ -41,5 +37,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="avatar-fetch.js"></script>
   </body>
 </html>

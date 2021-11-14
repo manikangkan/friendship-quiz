@@ -1,0 +1,15 @@
+.rounded_circle {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: $bg;
+  }
+  50% {
+    background: $diselect;
+  }
+  100% {
+    background: $bg;
+  }
+}
