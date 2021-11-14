@@ -1,9 +1,6 @@
 const port = 3000;
-<<<<<<< HEAD
-=======
-const moment = require('moment');
+const moment = require("moment");
 console.log();
->>>>>>> 4e8d69f6489824ada517c63cb75e7774ae2c0cbb
 
 const questions = [
   "favourite color",
@@ -127,29 +124,26 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.post('/login', (req, res) => {
-    let { username, gender } = req.body;
-    username = username.toLowerCase();
-    res.redirect(`/${username}/cook?gender=${gender}`);
+app.post("/login", (req, res) => {
+  let { username, gender } = req.body;
+  username = username.toLowerCase();
+  res.redirect(`/${username}/cook?gender=${gender}`);
 });
 
-app.get('/:id/cook', (req,res)=>{
-    const { id : username } = req.params;
-    const {gender} = req.query;
-    const date = moment(new Date()).format('YYYY-MM-DD');
-    res.render('cook', { username, gender, date });
+app.get("/:id/cook", (req, res) => {
+  const { id: username } = req.params;
+  const { gender } = req.query;
+  const date = moment(new Date()).format("YYYY-MM-DD");
+  res.render("cook", { username, gender, date });
 });
 
-app.post('/cooked', async (req, res) => {
-    const body = req.body;
-    const username = body.username;
-    console.log(body);
-    
-    const filter = {username};
-    const update = body;
+app.post("/cooked", async (req, res) => {
+  const body = req.body;
+  const username = body.username;
+  console.log(body);
 
   const filter = { username };
-  const update = { username, cookedQs: userMap.get(username) };
+  const update = body;
 
   let doc = await User.findOneAndUpdate(filter, update, {
     new: true,
@@ -158,7 +152,10 @@ app.post('/cooked', async (req, res) => {
     .then(() => console.log("successfully Uploaded User QuestionSet"))
     .catch((e) => console.log(e));
 
-    res.send({ message: 'we received your cooked questions', redirect: `/${username}/cooked/share`});
+  res.send({
+    message: "we received your cooked questions",
+    redirect: `/${username}/cooked/share`,
+  });
 });
 
 app.get("/:id/cooked/share", (req, res) => {
@@ -167,21 +164,16 @@ app.get("/:id/cooked/share", (req, res) => {
   res.render("share", { id });
 });
 
-
-
-app.get('/:id/validate', async (req, res) => {
-    const { id } = req.params;
-    const temp = await User.findOne({ username: id });
-    if(temp == null)
-        res.send({userExists : false});
-    else
-        res.send({userExists : true, redirect : `/${id}/play`});
-    
+app.get("/:id/validate", async (req, res) => {
+  const { id } = req.params;
+  const temp = await User.findOne({ username: id });
+  if (temp == null) res.send({ userExists: false });
+  else res.send({ userExists: true, redirect: `/${id}/play` });
 });
 
-app.get('/:id/play',(req,res)=>{
-    const {id} = req.params;
-    res.render('play', { id });
+app.get("/:id/play", (req, res) => {
+  const { id } = req.params;
+  res.render("play", { id });
 });
 
 app.post("/:id/play", async (req, res) => {
@@ -193,75 +185,74 @@ app.post("/:id/play", async (req, res) => {
   userMap.set(id, temp.cookedQs);
   //-----------------------> end updating usermap
 
-    const { clientName } = req.body;
-    res.render('playscreen', { quesArr: temp.cookedQs, clientName, id });
+  const { clientName } = req.body;
+  res.render("playscreen", { quesArr: temp.cookedQs, clientName, id });
 });
 
-app.post('/:id/playscreen', async (req, res) => {
-    const { id } = req.params;
-    const body = req.body;
-    const {clientName, score} = body;
-    console.log('received answersheet');
+app.post("/:id/playscreen", async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  const { clientName, score } = body;
+  console.log("received answersheet");
 
-    const filter = { clientName: body.clientName };
-    const update = body;
+  const filter = { clientName: body.clientName };
+  const update = body;
 
-    let doc = await Client.findOneAndUpdate(filter, update, {
-        new: true,
-        upsert: true,
-    })
-        .then(() => console.log('successfully saved'))
-        .catch((e) => console.log(e));
-    res.send({ message: 'we received your response', redirect: `/${id}/score?clientName=${clientName}&scr=${score}` });
+  let doc = await Client.findOneAndUpdate(filter, update, {
+    new: true,
+    upsert: true,
+  })
+    .then(() => console.log("successfully saved"))
+    .catch((e) => console.log(e));
+  res.send({
+    message: "we received your response",
+    redirect: `/${id}/score?clientName=${clientName}&scr=${score}`,
+  });
 });
 
-app.get('/:id/score', (req, res) => {
-    const { id } = req.params;
-    const { clientName } = req.query;
-    const { scr  : score } = req.query;
-    res.render('scoreDisp', {
-        userName: id,
-        clientName,
-        score: score,
-    });
+app.get("/:id/score", (req, res) => {
+  const { id } = req.params;
+  const { clientName } = req.query;
+  const { scr: score } = req.query;
+  res.render("scoreDisp", {
+    userName: id,
+    clientName,
+    score: score,
+  });
 });
 
+app.get("/:id/scoresheet", async (req, res) => {
+  const { id } = req.params;
+  const { clientName } = req.query;
 
+  const client = await Client.findOne({ clientName }, (err, obj) => {
+    if (err) throw err;
+    // else
+    //     console.log(obj);
+  })
+    .clone()
+    .catch((err) => console.log(err));
 
-app.get('/:id/scoresheet', async (req, res) => {
-    const { id } = req.params;
-    const { clientName } = req.query;
+  const user = await User.findOne({ username: id }, (err, obj) => {
+    if (err) throw err;
+    // else
+    //     console.log(obj);
+  })
+    .clone()
+    .catch((err) => console.log(err));
 
-    const client = await Client.findOne({clientName},(err,obj)=>{ 
-        if(err)
-            throw err;
-        // else
-        //     console.log(obj);
-     }).clone().catch((err)=>console.log(err));
-               
-                
-
-    const user = await User.findOne({ username: id },(err,obj)=>{ 
-        if(err)
-            throw err;
-        // else
-        //     console.log(obj);
-     }).clone().catch((err)=>console.log(err));
-
-    res.render('scoreSheet', {
-        userName: id,
-        clientName,
-        quesSheet_objs_arr: user.cookedQs,
-        answerSheet: client.answerSheet,
-        score: client.score,
-    });
+  res.render("scoreSheet", {
+    userName: id,
+    clientName,
+    quesSheet_objs_arr: user.cookedQs,
+    answerSheet: client.answerSheet,
+    score: client.score,
+  });
 });
 
-
-app.get('/:id/leaderboard',(req,res)=>{
-    res.render('allClientResponses');
-})
-
+app.get("/:id/leaderboard", (req, res) => {
+  res.render("allClientResponses");
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
