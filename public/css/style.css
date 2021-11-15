@@ -1,32 +1,29 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
-*:hover,
-*:focus {
+.btn,
+.form-control {
+  background: #3a3b3c !important;
+  border: none;
+  padding: 12px;
+  border: 0.2px solid #3a3b3c !important;
+}
+
+.form-control {
+  background: none !important;
+}
+
+.btn-primary {
+  font-weight: 600;
+  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
+  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
   border: none !important;
 }
 
-.btn,
-.form-control {
-  padding: 12px;
-  font-weight: 600;
-  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900));
-  background: linear-gradient(90deg, #fe0000, #fe8900);
-  border: 0.2px solid #3a3b3c;
-}
-
-.form-control {
-  background: none;
-}
-
+.form-control:focus,
 .btn:focus {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-}
-
-.form-control:focus {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-  border-color: linear-gradient(90deg, #fe0000, #fe8900);
+  border-color: linear-gradient(90deg, #fe0000, #fe8900) !important;
 }
 
 .floating-btn-wrapper {
