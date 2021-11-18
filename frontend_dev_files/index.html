@@ -11,12 +11,43 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="wow/animate.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
     <title>splash</title>
   </head>
   <body
     class="vh-100 d-flex flex-column justify-content-center align-items-center"
   >
+    <div
+      class="modal fade show d-block"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog text-center">
+        <div
+          class="
+            modal-content
+            position-relative
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            Dear, Manikangkan
+          </h5>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus nisl
+            justo pellentesque dui neque, amet vel. Sapien dolor velit, viverra
+            amet sed commodo gravida pharetra.
+          </div>
+          <button type="button" class="btn btn-primary modal-btn w-50">
+            O yeah, got it dear
+          </button>
+        </div>
+      </div>
+    </div>
     <div
       class="
         col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11
@@ -51,9 +82,7 @@
         data-wow-delay="500ms"
       >
         Powered by
-        <a href="asity.tech" class="fw-semibold text-decoration-none"
-          >asity.tech</a
-        >
+        <a href="asity.tech" class="text-decoration-none">asity.tech</a>
       </p>
     </div>
     <div class="floating-btn-wrapper mb-5 me-5 bottom-0 end-0 position-fixed">

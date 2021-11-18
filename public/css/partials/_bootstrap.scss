@@ -18,7 +18,14 @@
 }
 
 .form-control:focus,
-.btn:focus {
+.btn:focus,
+label {
+  outline: none !important;
   box-shadow: none !important;
   border-color: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+}
+
+.border-top,
+.border {
+  border-color: $diselect !important;
 }

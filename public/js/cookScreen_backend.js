@@ -26,26 +26,27 @@ loadSampleQuestions().then((data) => {
 });
 
 const qHTML = (index) => `
-    <div id="q${index}" class="row g-3 wow fadeInUp mb-5" data-wow-delay="${
+    <div id="q${index}" class="wow fadeInUp mb-5" data-wow-delay="${
   (index + 1) * 100
 }ms">
             <div class="
                   d-flex
                   justify-content-center
-                    align-items-center
+                  align-items-center
                   responder-question-number
-                  col-12
                 ">
-              <div class="border-top w-100 position-absolute mb-2 border-secondary"></div>
-              <p id="activeStatus" type="button" class="border d-flex justify-content-center align-items-center">
+                <div class="border-top w-100 position-absolute mb-2"></div>
+                <p id="activeStatus" type="button" class="border d-flex justify-content-center align-items-center">
                 ${index + 1}
-              </p>
-            </div>
-              <input type="text" id="qString" class="form-control mt-1 mb-3" value="${
-                questions[index]
-              }">
-
-            <div class="col-sm-12 col-md-6">
+                </p>
+                </div>
+                <div class="row g-3">
+                <div class="col-12">
+                <input type="text" id="qString" class="form-control" value="${
+                  questions[index]
+                }">
+</div>
+          <div class="col-sm-12 col-md-6">
                 <input type="text" id="option_a" class="opn btn btn-light w-100" value="${
                   answers[index][0]
                 }">
@@ -65,7 +66,7 @@ const qHTML = (index) => `
                   answers[index][3]
                 }">
             </div>
-            
+            </div>
           </div>
         
 `;

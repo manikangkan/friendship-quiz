@@ -1,5 +1,9 @@
 .floating-btn-wrapper {
   width: fit-content;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 100000;
 }
 
 .floating-btn-wrapper img {

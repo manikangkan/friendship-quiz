@@ -20,16 +20,27 @@
 }
 
 .form-control:focus,
-.btn:focus {
+.btn:focus,
+label {
+  outline: none !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
   border-color: linear-gradient(90deg, #fe0000, #fe8900) !important;
+}
+
+.border-top,
+.border {
+  border-color: #3a3b3c !important;
 }
 
 .floating-btn-wrapper {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 100000;
 }
 
 .floating-btn-wrapper img {
@@ -80,12 +91,31 @@
   background: linear-gradient(90deg, #fe0000, #fe8900) !important;
 }
 
-.copyright {
-  z-index: 1000000;
+.modal {
+  z-index: 100000;
+}
+
+.modal * {
+  border: none !important;
+}
+
+.modal-content {
+  background: rgba(24, 25, 26, 0.2) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+          backdrop-filter: blur(10px) !important;
+  padding: 2rem;
+}
+
+.modal-btn {
+  position: absolute;
+  bottom: -1.5rem;
+  cursor: pointer;
+}
+
+footer {
   width: 100%;
-  height: 20vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, #18191a)) !important;
-  background: linear-gradient(transparent, #18191a 90%) !important;
+  position: fixed;
+  bottom: 1rem;
 }
 
 * {

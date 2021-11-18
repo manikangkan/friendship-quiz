@@ -1,6 +1,5 @@
-.copyright {
-  z-index: 1000000;
+footer {
   width: 100%;
-  height: 20vh;
-  background: linear-gradient(transparent, $bg 90%) !important;
+  position: fixed;
+  bottom: 1rem;
 }
