@@ -9,12 +9,8 @@
 
 .form-control {
   background: none !important;
-}
-
-.btn-primary {
-  font-weight: 600;
-  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
-  border: none !important;
+  margin: 0 !important;
+  overflow: auto;
 }
 
 .form-control:focus,
@@ -28,4 +24,10 @@ label {
 .border-top,
 .border {
   border-color: $diselect !important;
+}
+
+.btn-primary {
+  font-weight: 600;
+  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+  border: none !important;
 }

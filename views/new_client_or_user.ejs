@@ -16,7 +16,7 @@
         "
         data-wow-delay="100ms"
       >
-        <img src="../../assets/avatar.png" class="avatar-img" alt="" />
+        <img src="assets/avatars/female1.svg" class="avatar-img" alt="" />
         <img
           src="../../assets/pulse.gif"
           alt=""
@@ -32,13 +32,55 @@
             class="form-control"
             name="usercode"
             id="usercode"
-            placeholder="playcode"
+            placeholder="Type your playcode here"
           />
         </div>
         <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms">
-          <button type="button" id="clientLogin" class="btn btn-primary col">
+          <button
+            type="button"
+            id="clientLogin"
+            class="btn btn-primary col"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             Play
           </button>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog text-center">
+              <div
+                class="
+                  modal-content
+                  position-relative
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                "
+              >
+                <h5 class="modal-title fw-bold" id="exampleModalLabel">
+                  Dear, Manikangkan
+                </h5>
+                <div class="modal-body">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Luctus nisl justo pellentesque dui neque, amet vel. Sapien
+                  dolor velit, viverra amet sed commodo gravida pharetra.
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-primary modal-btn w-50"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  O yeah, got it dear
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="400ms">
           <button
@@ -52,7 +94,7 @@
         </div>
       </div>
     </div>
-    <%- include('partials/gear.ejs')%>
+    <%- include('partials/menu.ejs')%> <%- include('partials/footer.ejs')%>
 
     <script>
       const clientLoginBtn = document.querySelector("#clientLogin");

@@ -13,9 +13,12 @@
       align-items-center
     "
   >
-    <div class="col-xxl-8 col-xl-8 col-lg-6 col-md-8 col-sm-10 col-11">
+    <div
+      class="col-xxl-8 col-xl-8 col-lg-6 col-md-8 col-sm-10 col-11 text-center"
+    >
       <div
         class="
+          mt-5
           d-flex
           justify-content-center
           align-items-center
@@ -25,33 +28,33 @@
         "
         data-wow-delay="100ms"
       >
-        <img src="/assets/avatar.png" class="avatar-img" alt="" />
+        <img src="/assets/avatars/female2.svg" class="avatar-img" alt="" />
         <img
           src="/assets/pulse.gif"
           alt=""
           class="avatar-pulse position-absolute"
         />
       </div>
-      <div class="text-center my-5 lh-1">
-        <p class="wow fadeInDown" data-wow-delay="200ms">Well done</p>
-        <h2 class="fw-bold lh-base fadeInDown" data-wow-delay="300ms">
-          <%= id.toUpperCase() %>
-        </h2>
-        <p class="wow fadeInDown mt-4" data-wow-delay="400ms">
-          Time to challenge my Friends 😏
-        </p>
+      <h2 class="fw-bold wow fadeInDown" data-wow-delay="300ms">
+        Damn Dear, <%= id %>
+      </h2>
+      <p class="wow fadeInDown" data-wow-delay="400ms">
+        Time to challenge my Friends, let's share the quiz by using below
+        options
+      </p>
 
-        <p id="copyURL" class="form-control mt-2"></p>
-
-        <p id="copyCode" class="form-control mt-3"><%= id.toLowerCase() %></p>
-        <button type="button" class="btn" onclick="copyEvent('copyCode')">
-          COPY PLAYCODE
-        </button>
+      <div class="row g-3 my-3">
+        <div class="col-sm-12 col-xl-6 wow fadeInDown" data-wow-delay="500ms">
+          <p id="copyURL" class="form-control"></p>
+        </div>
+        <div class="col-sm-12 col-xl-6 wow fadeInDown" data-wow-delay="600ms">
+          <p id="copyCode" class="form-control"><%= id.toLowerCase() %></p>
+        </div>
       </div>
       <div class="row g-3">
         <div
           class="col-6 col-sm-3 wow fadeInDown"
-          data-wow-delay="500ms"
+          data-wow-delay="700ms"
           id="shareButton"
         >
           <a
@@ -72,7 +75,7 @@
         </div>
         <div
           class="col-6 col-sm-3 wow fadeInDown"
-          data-wow-delay="500ms"
+          data-wow-delay="800ms"
           onclick="copyEvent('copyURL')"
         >
           <a
@@ -91,9 +94,13 @@
             ></object>
           </a>
         </div>
-        <div class="col-6 col-sm-3 wow fadeInDown" data-wow-delay="500ms">
+        <div
+          class="col-6 col-sm-3 wow fadeInDown"
+          data-wow-delay="900ms"
+          onclick="copyEvent('copyCode')"
+        >
           <a
-            href="../bidipta/starter-responder.html"
+            href="#"
             type="button"
             class="
               btn btn-secondary
@@ -108,7 +115,7 @@
             ></object>
           </a>
         </div>
-        <div class="col-6 col-sm-3 wow fadeInDown" data-wow-delay="500ms">
+        <div class="col-6 col-sm-3 wow fadeInDown" data-wow-delay="1000ms">
           <a
             href="../bidipta/starter-responder.html"
             type="button"
@@ -127,7 +134,7 @@
         </div>
       </div>
     </div>
-    <%- include('partials/gear.ejs')%> <%-include('partials/footer.ejs')%>
+    <%- include('partials/menu.ejs')%> <%-include('partials/footer.ejs')%>
     <script>
       new WOW().init();
       function copyEvent(id) {

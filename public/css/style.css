@@ -10,13 +10,8 @@
 
 .form-control {
   background: none !important;
-}
-
-.btn-primary {
-  font-weight: 600;
-  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
-  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
-  border: none !important;
+  margin: 0 !important;
+  overflow: auto;
 }
 
 .form-control:focus,
@@ -33,62 +28,39 @@ label {
   border-color: #3a3b3c !important;
 }
 
-.floating-btn-wrapper {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.btn-primary {
+  font-weight: 600;
+  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
+  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+  border: none !important;
+}
+
+.offcanvas {
+  width: 350px !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#18191a), to(rgba(24, 25, 26, 0.6))) !important;
+  background: linear-gradient(#18191a, rgba(24, 25, 26, 0.6)) !important;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-left: 0.6rem solid rgba(255, 255, 255, 0.2);
+  padding-top: 6rem !important;
+}
+
+.offcanvas li {
+  padding: 1rem 0;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.offcanvas li:hover {
+  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
+  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+}
+
+.hamburger-menu {
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  z-index: 100000;
-}
-
-.floating-btn-wrapper img {
-  background: #3a3b3c;
-  border-radius: 100% !important;
-  width: 46px;
-  cursor: pointer;
-}
-
-.floating-btn-wrapper img:active {
-  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
-  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-  -webkit-transition: -webkit-transform 0.8s ease-in-out;
-  transition: -webkit-transform 0.8s ease-in-out;
-  transition: transform 0.8s ease-in-out;
-  transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
-}
-
-.menu {
-  background: rgba(58, 59, 60, 0.4) !important;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-  border-radius: 4px !important;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transform: translateX(-20px);
-          transform: translateX(-20px);
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.menu.open {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-}
-
-.menu p {
-  padding: 8px 24px !important;
-  cursor: pointer;
-}
-
-.menu p:hover {
-  background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
-  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+  right: 0;
+  top: 0;
+  margin: 2rem 2rem 0 0;
 }
 
 .modal {
@@ -100,16 +72,17 @@ label {
 }
 
 .modal-content {
-  background: rgba(24, 25, 26, 0.2) !important;
+  background: rgba(58, 59, 60, 0.2) !important;
   -webkit-backdrop-filter: blur(10px) !important;
           backdrop-filter: blur(10px) !important;
+  border-bottom: 0.6rem solid rgba(255, 255, 255, 0.1) !important;
   padding: 2rem;
 }
 
 .modal-btn {
-  position: absolute;
-  bottom: -1.5rem;
+  margin-top: -2rem;
   cursor: pointer;
+  pointer-events: all;
 }
 
 footer {
@@ -122,9 +95,19 @@ footer {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  font-size: 14px;
   color: white !important;
   border-radius: 2px !important;
+  font-size: 0.86rem;
+}
+
+::-moz-selection {
+  background-color: #fe8900 !important;
+  color: white !important;
+}
+
+::selection {
+  background-color: #fe8900 !important;
+  color: white !important;
 }
 
 body {
@@ -133,7 +116,8 @@ body {
 
 .avatar-wrapper {
   margin-bottom: 6rem;
-  mix-blend-mode: lighten !important;
+  mix-blend-mode: screen !important;
+  background-blend-mode: screen !important;
 }
 
 .avatar-img {
@@ -226,5 +210,27 @@ object {
 
 .ready-to-share {
   margin-bottom: 10rem;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#fff), to(transparent)) !important;
+  background: linear-gradient(90deg, transparent, #fff, transparent) !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 /*# sourceMappingURL=style.css.map */

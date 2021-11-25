@@ -13,11 +13,107 @@
     <link rel="stylesheet" href="../../wow/animate.css" />
     <link rel="stylesheet" href="../../css/style.css" />
     <title>starter</title>
+    <style>
+      .offcanvas {
+        width: 350px !important;
+        background: rgba(24, 25, 26, 0.6) !important;
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+        border-left: 0.6rem solid rgba(255, 255, 255, 0.2);
+        padding-top: 6rem !important;
+      }
+
+      .offcanvas li {
+        padding: 1rem 0;
+        font-size: 0.8rem;
+        border-radius: 0 !important;
+        cursor: pointer;
+      }
+      .offcanvas li:hover {
+        background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+      }
+      .offcanvas p,
+      .offcanvas p a {
+        font-size: 0.8rem;
+      }
+
+      .hamburger-menu {
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin: 2rem 2rem 0 0;
+      }
+    </style>
   </head>
   <!-- My code DOESN’T work, I have no idea why. My code WORKS, I have no idea why. -->
   <body
     class="vh-100 d-flex flex-column justify-content-center align-items-center"
   >
+    <!-- canvas start -->
+    <img
+      src="../../assets/hamburger.svg"
+      alt=""
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+      class="hamburger-menu"
+    />
+
+    <div
+      class="offcanvas offcanvas-end show d-block text-center"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-body px-0">
+        <div>
+          <div
+            class="
+              d-flex
+              justify-content-center
+              align-items-center
+              avatar-wrapper
+              wow
+              fadeInUp
+            "
+            data-wow-delay="300ms"
+          >
+            <img src="../../assets/avatar.png" class="avatar-img" alt="" />
+            <img
+              src="../../assets/pulse.gif"
+              alt=""
+              class="avatar-pulse position-absolute"
+            />
+          </div>
+          <!-- avatar finish -->
+          <div class="text-center my-5 lh-1">
+            <p
+              class="wow fadeInUp text-secondary fw-bold"
+              data-wow-delay="200ms"
+            >
+              Hello,
+            </p>
+            <h2 class="fw-bold wow fadeInUp" data-wow-delay="300ms">
+              Manikangkan
+            </h2>
+          </div>
+          <!-- greet user end -->
+        </div>
+        <hr />
+        <ul class="p-0">
+          <li>Dev Info</li>
+          <li>Help & Support</li>
+          <li>Rules & Regulation</li>
+          <li>Know more about asity</li>
+          <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
+        </ul>
+        <p class="text-secondary fixed-bottom">
+          Proudly Designed & Developed by
+          <a href="asity.tech" class="text-decoration-none">asity.tech</a>
+        </p>
+      </div>
+    </div>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <div
         class="
@@ -38,7 +134,7 @@
         />
       </div>
 
-      <div class="w-100">
+      <div>
         <div class="wow fadeInUp" data-wow-delay="600ms">
           <label for="exampleInputEmail1" class="form-label">Username</label>
           <input
@@ -56,7 +152,7 @@
         <a href="../aijul/questions-creator.html">
           <button
             type="button"
-            class="btn btn-primary w-100 wow fadeInUp"
+            class="btn btn-primary wow fadeInUp"
             data-wow-delay="1200ms"
           >
             Next

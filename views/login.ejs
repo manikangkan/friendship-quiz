@@ -16,7 +16,7 @@
         "
         data-wow-delay="100ms"
       >
-        <img src="assets/avatar.png" class="avatar-img" alt="" />
+        <img src="assets/avatars/male1.svg" class="avatar-img" alt="" />
         <img
           src="assets/pulse.gif"
           alt=""
@@ -34,12 +34,9 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              placeholder="Type an username here"
             />
           </div>
-          <!-- <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="900ms">
-                    <input type="radio" class="btn btn-light col" value="Female">
-                    <button type="button" class="btn btn-light col">Male</button>
-                </div> -->
 
           <div
             class="btn-group d-flex gap-3 my-3 wow fadeInUp"
@@ -53,7 +50,7 @@
               id="btnradio1"
               value="male"
             />
-            <label class="btn col" for="btnradio1">Male</label>
+            <label class="btn click" for="btnradio1">Male</label>
             <input
               type="radio"
               class="btn-check"
@@ -61,7 +58,7 @@
               id="btnradio2"
               value="female"
             />
-            <label class="btn col" for="btnradio2">Female</label>
+            <label class="btn click" for="btnradio2">Female</label>
           </div>
           <button
             type="submit"
@@ -74,6 +71,19 @@
         </form>
       </div>
     </div>
-    <%- include('partials/gear.ejs')%>
+    <%- include('partials/menu.ejs')%> <%- include('partials/footer.ejs')%>
+    <script>
+      // const btn_check = document.querySelectorAll(".click");
+      // console.log(btn_check);
+      // btn_check.forEach((item) =>
+      //   item.addEventListener("click", () => {
+      //     console.log(item);
+      //     item.classList.toggle("btn-primary");
+      //   })
+      // );
+      // btn_check.addEventListener("click", () =>
+      //   btn_check.classList.toggle("btn-primary");
+      // );
+    </script>
   </body>
 </html>

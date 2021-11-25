@@ -4,14 +4,16 @@
     border: none !important;
   }
 }
+
 .modal-content {
-  background: transparentize($color: $bg, $amount: 0.8) !important;
+  background: transparentize($color: $diselect, $amount: 0.8) !important;
   backdrop-filter: blur(10px) !important;
+  border-bottom: 0.6rem solid rgba(255, 255, 255, 0.1) !important;
   padding: 2rem;
 }
 
 .modal-btn {
-  position: absolute;
-  bottom: -1.5rem;
+  margin-top: -2rem;
   cursor: pointer;
+  pointer-events: all;
 }

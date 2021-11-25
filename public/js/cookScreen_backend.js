@@ -26,14 +26,13 @@ loadSampleQuestions().then((data) => {
 });
 
 const qHTML = (index) => `
-    <div id="q${index}" class="wow fadeInUp mb-5" data-wow-delay="${
-  (index + 1) * 100
-}ms">
+    <div id="q${index}" class="wow fadeInUp mb-5" data-wow-delay="300ms">
             <div class="
                   d-flex
                   justify-content-center
                   align-items-center
                   responder-question-number
+                  my-5
                 ">
                 <div class="border-top w-100 position-absolute mb-2"></div>
                 <p id="activeStatus" type="button" class="border d-flex justify-content-center align-items-center">
