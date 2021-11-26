@@ -26,25 +26,23 @@ loadSampleQuestions().then((data) => {
 });
 
 const qHTML = (index) => `
-    <div id="q${index}" class="wow fadeInUp mb-5" data-wow-delay="300ms">
+    <div id="q${index}" class="border-top my-5 wow fadeInUp" data-wow-delay="300ms">
             <div class="
                   d-flex
                   justify-content-center
                   align-items-center
-                  responder-question-number
-                  my-5
+                  responder-question-number                  
                 ">
-                <div class="border-top w-100 position-absolute mb-2"></div>
                 <p id="activeStatus" type="button" class="border d-flex justify-content-center align-items-center">
                 ${index + 1}
                 </p>
                 </div>
-                <div class="row g-3">
+                <div class="row g-3 py-5">
                 <div class="col-12">
                 <input type="text" id="qString" class="form-control" value="${
                   questions[index]
                 }">
-</div>
+          </div>
           <div class="col-sm-12 col-md-6">
                 <input type="text" id="option_a" class="opn btn btn-light w-100" value="${
                   answers[index][0]
@@ -74,9 +72,13 @@ function optionMechanism(index) {
   const qActivateBtn = document.querySelector(
     `#qBoard #q${index} #activeStatus`
   );
-  qActivateBtn.addEventListener("click", () =>
-    qActivateBtn.classList.toggle("btn-primary")
-  );
+  qActivateBtn.addEventListener("click", () => {
+    qActivateBtn.classList.toggle("btn-primary");
+    qActivateBtn.parentElement.parentElement.classList.toggle(
+      "highlight-selected-question-background"
+    );
+    console.log(qActivateBtn.parentElement.parentElement);
+  });
 
   const options = document.querySelectorAll(`#qBoard #q${index} .opn`);
   // console.log(options);

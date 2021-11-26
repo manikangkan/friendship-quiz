@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('partials/head.ejs')%>
-  <body
-    class="
-      position-relative
-      d-flex
-      flex-column
-      justify-content-center
-      align-items-center
-    "
-  >
-    <div class="container col-lg-8 my-5">
+  <body class="d-flex flex-column justify-content-center align-items-center">
+    <div class="my-5">
       <div
         class="
           d-flex
@@ -35,7 +27,9 @@
         the quiz.
       </h2>
 
-      <section id="qBoard" class="mt-5"></section>
+      <section id="qBoard" class="pt-5">
+        <!-- inserting all the question here -->
+      </section>
 
       <button
         id="cook"

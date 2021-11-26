@@ -95,6 +95,14 @@ body {
   margin-right: 20px;
 }
 
+.highlight-selected-question-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent) !important;
+}
+
+.responder-question-number {
+  margin-top: -32px;
+}
+
 .selected-question,
 .responder-question-number p:hover {
   background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
@@ -125,12 +133,14 @@ object {
 }
 
 // hover shine effect
-.btn-primary {
+.btn-primary,
+.btn-light {
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::before {
+.btn-primary::before,
+.btn-light::before {
   content: "";
   position: absolute;
   top: 0;
@@ -141,6 +151,7 @@ object {
   transition: 0.5s;
 }
 
-.btn-primary:hover::before {
+.btn-primary:hover::before,
+.btn-light:hover::before {
   left: 100%;
 }
