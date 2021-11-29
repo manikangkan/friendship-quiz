@@ -258,6 +258,10 @@ app.get("/dev-info", (req, res) => {
   res.render("dev-info");
 });
 
+app.get("/instructions", (req, res) => {
+  res.render("instructions");
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

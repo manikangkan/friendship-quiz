@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head.ejs')%>
+  <body
+    class="
+      container
+      vh-100
+      d-flex
+      flex-column
+      justify-content-center
+      align-items-center
+    "
+  >
+    <div>
+      <h5 class="fw-bold wow fadeInUp" data-wow-delay="100ms">Instructions</h5>
+      <div class="my-5 wow fadeInUp" data-wow-delay="200ms">
+        <h5 class="fw-bold text-secondary">1. Create your own quiz</h5>
+        <p>
+          Make a quiz of atleast 5 questions by selecting the questions and
+          marking relevent answers.
+        </p>
+      </div>
+      <div class="wow fadeInUp" data-wow-delay="300ms"">
+        <h5 class="fw-bold text-secondary">
+          2. Share it with your friends
+        </h5>
+        <p>
+          Test your bonds by sharing the quiz via Whatsapp or telegram or use
+          the link provided.
+        </p>
+      </div>
+      <div class="my-5 wow fadeInUp" data-wow-delay="400ms">
+        <h5 class="fw-bold text-secondary">
+          3. Have fun
+        </h5>
+        <p>See the leaderboard to see who knows you best.</p>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary w-100 wow fadeInUp"
+        data-wow-delay="500ms"
+        onclick="location.href = '/new_client_or_user';"
+      >
+        Yo understood, let's go
+      </button>
+    </div>
+
+    <%- include('partials/head.ejs')%> <%- include('partials/offcanvas.ejs')%>
+    <%-include('partials/copyright.ejs')%> <%-include('partials/footer.ejs')%>
+  </body>
+</html>
