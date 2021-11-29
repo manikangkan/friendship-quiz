@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('partials/head.ejs')%>
-  <body class="d-flex flex-column justify-content-center align-items-center">
-    <div class="my-5">
-      <div
-        class="
-          d-flex
-          justify-content-center
-          align-items-center
-          avatar-wrapper
-          wow
-          fadeInUp
-          mt-5
-        "
-        data-wow-delay="100ms"
-      >
-        <img src="../../assets/avatars/male1.svg" class="avatar-img" alt="" />
-        <img
-          src="../../assets/pulse.gif"
-          alt=""
-          class="avatar-pulse position-absolute"
-        />
-      </div>
-      <h2 class="fw-bold text-center wow fadeInUp" data-wow-delay="200ms">
-        Dear <%=gender=="male"? "Mr." : "Miss." %> <%= username %> let's create
-        the quiz.
-      </h2>
-
-      <section id="qBoard" class="pt-5">
-        <!-- inserting all the question here -->
-      </section>
-
-      <button
-        id="cook"
-        type="button"
-        class="btn btn-primary w-100 mb-5 wow fadeInUp"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-        data-wow-delay="400ms"
-      >
-        Damn, let me share the quiz now
-      </button>
+  <body>
+    <div
+      class="
+        d-flex
+        justify-content-center
+        align-items-center
+        avatar-wrapper
+        wow
+        fadeInUp
+        mt-5
+      "
+      data-wow-delay="100ms"
+    >
+      <img src="../../assets/avatars/male1.svg" class="avatar-img" alt="" />
+      <img
+        src="../../assets/pulse.gif"
+        alt=""
+        class="avatar-pulse position-absolute"
+      />
     </div>
+    <h2 class="fw-bold text-center wow fadeInUp" data-wow-delay="200ms">
+      Dear <%=gender=="male"? "Mr." : "Miss." %> <%= username %> let's create
+      the quiz.
+    </h2>
+
+    <section id="qBoard" class="pt-5">
+      <!-- inserting all the question here -->
+    </section>
+
+    <button
+      id="cook"
+      type="button"
+      class="btn btn-primary w-100 rounded-0 wow fadeInUp"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      data-wow-delay="400ms"
+    >
+      Damn, let me share the quiz now
+    </button>
 
     <!-- Modal -->
 

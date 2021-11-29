@@ -27,7 +27,9 @@ loadSampleQuestions().then((data) => {
 
 const qHTML = (index) => `
     <div id="q${index}" class="border-top my-5 wow fadeInUp" data-wow-delay="300ms">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
             <div class="
+            mx-0 
                   d-flex
                   justify-content-center
                   align-items-center
@@ -65,7 +67,7 @@ const qHTML = (index) => `
             </div>
             </div>
           </div>
-        
+          </div>
 `;
 
 function optionMechanism(index) {
@@ -74,7 +76,7 @@ function optionMechanism(index) {
   );
   qActivateBtn.addEventListener("click", () => {
     qActivateBtn.classList.toggle("btn-primary");
-    qActivateBtn.parentElement.parentElement.classList.toggle(
+    qActivateBtn.parentElement.parentElement.parentElement.classList.toggle(
       "highlight-selected-question-background"
     );
     console.log(qActivateBtn.parentElement.parentElement);
