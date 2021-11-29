@@ -3,14 +3,18 @@
 .btn,
 .form-control {
   background: #3a3b3c !important;
-  padding: 12px;
-  border: 0.2px solid #3a3b3c !important;
+  padding: 12px 24px;
 }
 
 .form-control {
   background: none !important;
   margin: 0 !important;
   overflow: auto;
+  border: 0.2px solid #3a3b3c !important;
+}
+
+.btn {
+  border: none !important;
 }
 
 .form-control:focus,
@@ -35,6 +39,10 @@ label {
 
 .opn {
   border: none !important;
+}
+
+a {
+  text-decoration: none;
 }
 
 .offcanvas {
@@ -103,12 +111,12 @@ footer {
 }
 
 ::-moz-selection {
-  background-color: #fe8900 !important;
+  background-color: transparent !important;
   color: white !important;
 }
 
 ::selection {
-  background-color: #fe8900 !important;
+  background-color: transparent !important;
   color: white !important;
 }
 

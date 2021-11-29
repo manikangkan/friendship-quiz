@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="https://www.wpromotions.eu/confetti.min.js"></script>
-  <script>
-    confetti.start();
-  </script>
   <%- include('partials/head.ejs')%>
   <body
     class="vh-100 d-flex flex-column justify-content-center align-items-center"
@@ -46,9 +42,12 @@
     </div>
     <script src="https://www.wpromotions.eu/confetti.min.js"></script>
     <script>
-      confetti.start();
+        confetti.start();
+        setTimeout(() => {
+          confetti.stop();
+        }, 5000);
     </script>
-    <%- include('partials/menu.ejs')%>
+    <%- include('partials/offcanvas.ejs')%>
     <%- include('partials/footer.ejs')%>
   </body>
 </html>

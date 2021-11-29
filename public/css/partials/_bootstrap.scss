@@ -2,14 +2,18 @@
 .btn,
 .form-control {
   background: $diselect !important;
-  padding: 12px;
-  border: 0.2px solid $diselect !important;
+  padding: 12px 24px;
 }
 
 .form-control {
   background: none !important;
   margin: 0 !important;
   overflow: auto;
+  border: 0.2px solid $diselect !important;
+}
+
+.btn {
+  border: none !important;
 }
 
 .form-control:focus,
@@ -33,4 +37,8 @@ label {
 
 .opn {
   border: none !important;
+}
+
+a {
+  text-decoration: none;
 }

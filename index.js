@@ -254,6 +254,10 @@ app.get("/:id/leaderboard", (req, res) => {
   res.render("allClientResponses");
 });
 
+app.get("/dev-info", (req, res) => {
+  res.render("dev-info");
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

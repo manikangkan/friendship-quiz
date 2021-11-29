@@ -147,7 +147,7 @@ function nextBtnMechanism() {
 
     if (progressPercent == 100) {
       if (nextBtn.childElementCount != 0)
-        nextBtn.removeChild(nextBtn.querySelector(".progress"));
+        nextBtn.removeChild(nextBtn.querySelector(".prog"));
       qArea.removeEventListener("click", nextBtnFull());
       return;
     }
