@@ -101,6 +101,35 @@ footer {
   bottom: 1rem;
 }
 
+.avatar-img {
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+          animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background: #18191a;
+  }
+  50% {
+    background: #3a3b3c;
+  }
+  100% {
+    background: #18191a;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: #18191a;
+  }
+  50% {
+    background: #3a3b3c;
+  }
+  100% {
+    background: #18191a;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -131,11 +160,10 @@ body {
 }
 
 .avatar-img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 100% !important;
-  background: #000 !important;
-  background: #0000ff;
+  cursor: pointer;
 }
 
 .avatar-pulse {
@@ -151,32 +179,6 @@ body {
 
 /* abhisek tweaks BEGIN--------------- */
 /* abhisek tweaks END--------------- */
-.rounded-circle {
-  width: 80px !important;
-  height: 80px !important;
-  cursor: pointer;
-  /* skeleton loading for dynamic data */
-}
-
-.position-absolute {
-  width: 120px;
-  pointer-events: none;
-}
-
-.position-absolute {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.rounded-circle:hover ~ .position-absolute {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
 .responder-question-number p {
   width: 60px;
   height: 60px;
@@ -232,14 +234,12 @@ object {
   margin-bottom: 10rem;
 }
 
-.btn-primary,
-.btn-light {
+.btn-primary {
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::before,
-.btn-light::before {
+.btn-primary::before {
   content: "";
   position: absolute;
   top: 0;
@@ -252,8 +252,11 @@ object {
   transition: 0.5s;
 }
 
-.btn-primary:hover::before,
-.btn-light:hover::before {
+.btn-primary:hover::before {
   left: 100%;
+}
+
+.btn-light:hover {
+  background-color: #3f4041 !important;
 }
 /*# sourceMappingURL=style.css.map */

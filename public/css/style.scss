@@ -4,6 +4,7 @@
 @import "partials/menu";
 @import "partials/modal";
 @import "partials/footer";
+@import "partials/skeleton_loading";
 
 * {
   margin: 0;
@@ -30,11 +31,10 @@ body {
 }
 
 .avatar-img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 100% !important;
-  background: #000 !important;
-  background: #0000ff;
+  cursor: pointer;
 }
 
 .avatar-pulse {
@@ -55,28 +55,6 @@ body {
 // }
 
 /* abhisek tweaks END--------------- */
-
-.rounded-circle {
-  width: 80px !important;
-  height: 80px !important;
-  cursor: pointer;
-  /* skeleton loading for dynamic data */
-}
-
-.position-absolute {
-  width: 120px;
-  pointer-events: none;
-}
-
-.position-absolute {
-  transform: rotate(0deg);
-  transition: all 0.5s ease-in-out;
-}
-
-.rounded-circle:hover ~ .position-absolute {
-  transform: rotate(180deg);
-  transition: all 0.5s ease-in-out;
-}
 
 .responder-question-number p {
   width: 60px;
@@ -134,14 +112,12 @@ object {
 }
 
 // hover shine effect
-.btn-primary,
-.btn-light {
+.btn-primary {
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::before,
-.btn-light::before {
+.btn-primary::before {
   content: "";
   position: absolute;
   top: 0;
@@ -152,7 +128,10 @@ object {
   transition: 0.5s;
 }
 
-.btn-primary:hover::before,
-.btn-light:hover::before {
+.btn-primary:hover::before {
   left: 100%;
+}
+
+.btn-light:hover {
+  background-color: lighten($color: $diselect, $amount: 2) !important;
 }

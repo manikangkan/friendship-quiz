@@ -14,12 +14,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Manashjyoti Boro</p>
             </div>
@@ -29,12 +25,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Aijul Hussian</p>
             </div>
@@ -44,12 +36,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Venom Kage</p>
             </div>
@@ -59,12 +47,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Bidipta Saikia</p>
             </div>
@@ -74,12 +58,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Manikangkan Das</p>
             </div>
@@ -98,12 +78,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Abhisek Mandal</p>
             </div>
@@ -113,12 +89,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Ramjan Ali</p>
             </div>
@@ -136,12 +108,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Abhisek Samantaray</p>
             </div>
@@ -151,12 +119,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Priyangshu Pandey</p>
             </div>
@@ -166,12 +130,8 @@
               <div
                 class="d-flex justify-content-center align-items-center mb-4"
               >
-                <img src="" class="rounded-circle" />
-                <img
-                  src="assets/dev-info-border.png"
-                  alt=""
-                  class="position-absolute"
-                />
+                <img src="" class="avatar-img" />
+                
               </div>
               <p>Manikangkan Das</p>
             </div>
@@ -182,24 +142,5 @@
     <!-- Floating button -->
     <%- include('partials/offcanvas.ejs')%> 
     <%-include('partials/footer.ejs')%>
-    <script>
-        const avatars = document.querySelectorAll(".rounded-circle");
-        // random avatar generation
-        avatars.forEach(
-        (avatar, index) =>
-            (avatar.src = `https://avatars.dicebear.com/api/micah/${
-            Math.random() * (index + 1)
-            }.svg?background=%23f4d150`)
-        );
-
-        //fade up animation using wow.js
-        const items = document.querySelectorAll(".mani-kangkan");
-        items.forEach((item, index) => {
-        item.classList.add("wow", "fadeInDown");
-        item.setAttribute("data-wow-delay", (index + 1) * 200 + "ms");
-        item.classList.remove("mani-kangkan");
-        });
-
-    </script>
   </body>
 </html>

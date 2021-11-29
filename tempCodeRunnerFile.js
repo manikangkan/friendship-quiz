@@ -1,0 +1,1 @@
+avatar_varient[Math.floor(Math.random() * 10)]
