@@ -166,23 +166,23 @@ h5 {
 }
 
 /* custom scrollbar-------------------------------- */
-// ::-webkit-scrollbar {
-//   width: 2px;
-//   scroll-behavior: smooth;
-// }
+::-webkit-scrollbar {
+  width: 2px;
+  scroll-behavior: smooth;
+}
 
-// ::-webkit-scrollbar:hover {
-//   width: 0.8rem;
-// }
+::-webkit-scrollbar:hover {
+  width: 0.8rem;
+}
 
-// ::-webkit-scrollbar-track {
-//   background: $bg;
-// }
+::-webkit-scrollbar-track {
+  background: $bg;
+}
 
-// ::-webkit-scrollbar-thumb {
-//   background: $diselect;
-// }
+::-webkit-scrollbar-thumb {
+  background: $diselect;
+}
 
-// ::-webkit-scrollbar-thumb:hover {
-//   background: $linear-gradient-scrollbar;
-// }
+::-webkit-scrollbar-thumb:hover {
+  background: $linear-gradient-scrollbar;
+}

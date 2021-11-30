@@ -363,4 +363,25 @@ h5 {
 }
 
 /* custom scrollbar-------------------------------- */
+::-webkit-scrollbar {
+  width: 2px;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar:hover {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #18191a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3b3c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fe0000), to(#fe8900)) !important;
+  background: linear-gradient(#fe0000, #fe8900) !important;
+}
 /*# sourceMappingURL=style.css.map */
