@@ -41,10 +41,6 @@ label {
   border: none !important;
 }
 
-a {
-  text-decoration: none;
-}
-
 .offcanvas {
   width: 350px !important;
   background: -webkit-gradient(linear, left top, left bottom, from(#18191a), to(rgba(24, 25, 26, 0.6))) !important;
@@ -55,18 +51,19 @@ a {
   padding-top: 6rem !important;
 }
 
-.offcanvas li {
+li {
   padding: 1rem 0;
   border-radius: 0 !important;
   cursor: pointer;
 }
 
-.offcanvas li:hover {
+li:hover {
   background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
   background: linear-gradient(90deg, #fe0000, #fe8900) !important;
 }
 
 .hamburger-menu {
+  width: 1.8rem;
   position: fixed;
   right: 0;
   top: 0;
@@ -137,6 +134,7 @@ footer {
   color: white !important;
   border-radius: 2px !important;
   font-size: 0.86rem;
+  text-decoration: none !important;
 }
 
 ::-moz-selection {
@@ -154,6 +152,15 @@ body {
 }
 
 .avatar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 6rem;
   mix-blend-mode: screen !important;
   background-blend-mode: screen !important;
@@ -177,8 +184,6 @@ body {
   height: 25px;
 }
 
-/* abhisek tweaks BEGIN--------------- */
-/* abhisek tweaks END--------------- */
 .responder-question-number p {
   width: 60px;
   height: 60px;
@@ -258,5 +263,64 @@ object {
 
 .btn-light:hover {
   background-color: #3f4041 !important;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+p,
+label,
+::-webkit-input-placeholder,
+a {
+  font-size: 0.95rem !important;
+  font-weight: normal !important;
+}
+
+p,
+label,
+:-ms-input-placeholder,
+a {
+  font-size: 0.95rem !important;
+  font-weight: normal !important;
+}
+
+p,
+label,
+::-ms-input-placeholder,
+a {
+  font-size: 0.95rem !important;
+  font-weight: normal !important;
+}
+
+p,
+label,
+::placeholder,
+a {
+  font-size: 0.95rem !important;
+  font-weight: normal !important;
+}
+
+h4,
+h5 {
+  font-weight: bold !important;
+}
+
+.btn {
+  font-size: 0.95rem !important;
+  font-weight: bold !important;
 }
 /*# sourceMappingURL=style.css.map */

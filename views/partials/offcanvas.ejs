@@ -15,72 +15,25 @@
 >
   <div class="offcanvas-body px-0">
     <div>
-      <div
-        class="
-          d-flex
-          justify-content-center
-          align-items-center
-          avatar-wrapper
-          wow
-          fadeInUp
-        "
-        data-wow-delay="300ms"
-      >
-        <img src="../../assets/avatars/male1.svg" class="avatar-img" alt="" />
-        <img
-          src="../../assets/pulse.gif"
-          alt=""
-          class="avatar-pulse position-absolute"
-        />
-      </div>
+      <%- include('../partials/avatar.ejs')%>
       <!-- avatar finish -->
-      <div class="text-center my-5 lh-1">
-        <p class="wow fadeInUp text-secondary fw-bold" data-wow-delay="200ms">
-          Hello,
-        </p>
-        <h2 class="fw-bold wow fadeInUp" data-wow-delay="300ms">Manikangkan</h2>
+      <div class="my-5 lh-1">
+        <p class="wow fadeInUp text-secondary" data-wow-delay="200ms">Hello,</p>
+        <h4 class="wow fadeInUp" data-wow-delay="300ms">Manikangkan</h4>
       </div>
       <!-- greet user end -->
     </div>
     <ul class="p-0">
       <a href="/"><li>Home</li></a>
       <a href="/dev-info"><li>Dev Info</li></a>
-      <li>Help & Support</li>
+      <a href="#"><li>Help & Support</li></a>
       <a href="/instructions"><li>Crystal Clear Instructions</li></a>
-      <li>Know more about asity</li>
+      <a href="#"><li>Know more about asity</li></a>
       <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
     </ul>
     <p class="text-secondary fixed-bottom">
-      Proudly Designed & Developed by
-      <a href="asity.tech" class="text-decoration-none">asity.tech</a>
+      Proudly Designed & Developed by <br />
+      <a href="asity.tech">asity.tech</a>
     </p>
   </div>
 </div>
-
-<!-- <div class="floating-btn-wrapper">
-  <div class="menu p-2">
-    <a
-      href="../public/asitians/vipin/dev-info.html"
-      class="text-decoration-none"
-    >
-      <p class="mb-2">dev info</p></a
-    >
-    <p class="mb-2">light</p>
-
-    <p class="mb-0">help & support</p>
-  </div>
-  <img
-    src="../assets/gear.svg"
-    class="float-end mt-4 p-3 wow fadeInRight"
-    data-wow-delay="600ms"
-    alt=""
-  />
-</div>
-<script>
-  const floating_btn_gear = document.querySelector(".floating-btn-wrapper img");
-  const menu = document.querySelector(".menu");
-  floating_btn_gear.addEventListener("click", () => {
-    menu.classList.toggle("open");
-    floating_btn_gear.classList.toggle("selected-question");
-  });
-</script> -->

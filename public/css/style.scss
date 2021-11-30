@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 @import "partials/theme";
 @import "partials/bootstrap";
-@import "partials/menu";
+@import "partials/offcanvas";
 @import "partials/modal";
 @import "partials/footer";
 @import "partials/skeleton_loading";
@@ -13,6 +13,7 @@
   color: $tc !important;
   border-radius: 2px !important;
   font-size: 0.86rem;
+  text-decoration: none !important;
 }
 
 ::selection {
@@ -25,6 +26,9 @@ body {
 }
 
 .avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 6rem;
   mix-blend-mode: screen !important;
   background-blend-mode: screen !important;
@@ -46,15 +50,6 @@ body {
 .award-img {
   height: 25px;
 }
-
-/* abhisek tweaks BEGIN--------------- */
-
-// .btn:focus {
-//   outline: none;
-//   box-shadow: none;
-// }
-
-/* abhisek tweaks END--------------- */
 
 .responder-question-number p {
   width: 60px;
@@ -134,4 +129,30 @@ object {
 
 .btn-light:hover {
   background-color: lighten($color: $diselect, $amount: 2) !important;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p,
+label,
+::placeholder,
+a {
+  font-size: 0.95rem !important;
+  font-weight: normal !important;
+}
+
+h4,
+h5 {
+  font-weight: bold !important;
+}
+
+.btn {
+  font-size: 0.95rem !important;
+  font-weight: bold !important;
 }

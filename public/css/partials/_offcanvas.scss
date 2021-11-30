@@ -11,16 +11,17 @@
   padding-top: 6rem !important;
 }
 
-.offcanvas li {
+li {
   padding: 1rem 0;
   border-radius: 0 !important;
   cursor: pointer;
-}
-.offcanvas li:hover {
-  background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+  &:hover {
+    background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+  }
 }
 
 .hamburger-menu {
+  width: 1.8rem;
   position: fixed;
   right: 0;
   top: 0;
