@@ -1,0 +1,11 @@
+@mixin dg {
+  display: grid;
+  place-content: center;
+}
+
+@mixin df {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content;
+}

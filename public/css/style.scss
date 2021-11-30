@@ -5,6 +5,7 @@
 @import "partials/modal";
 @import "partials/footer";
 @import "partials/skeleton_loading";
+@import "partials/utilities";
 
 * {
   margin: 0;
@@ -23,6 +24,11 @@
 
 body {
   background: $bg !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatar-wrapper {
@@ -92,12 +98,6 @@ body {
   background: transparent;
 }
 
-/* btn hover effect */
-/* “Websites promote you 24/7: No employee will do that.” - Paul Cookson */
-/* Show your skills below */
-
-/* For floating button */
-
 object {
   pointer-events: none;
 }
@@ -131,14 +131,6 @@ object {
   background-color: lighten($color: $diselect, $amount: 2) !important;
 }
 
-body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 p,
 label,
 ::placeholder,
@@ -152,7 +144,45 @@ h5 {
   font-weight: bold !important;
 }
 
-.btn {
+.btn-primary {
   font-size: 0.95rem !important;
   font-weight: bold !important;
 }
+
+.fab {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 100% !important;
+  background: $linear-gradient;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 0 2rem 2rem 0;
+  cursor: pointer;
+  @include dg;
+  img {
+    width: 1.6rem;
+  }
+}
+
+/* custom scrollbar-------------------------------- */
+// ::-webkit-scrollbar {
+//   width: 2px;
+//   scroll-behavior: smooth;
+// }
+
+// ::-webkit-scrollbar:hover {
+//   width: 0.8rem;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: $bg;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: $diselect;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $linear-gradient-scrollbar;
+// }

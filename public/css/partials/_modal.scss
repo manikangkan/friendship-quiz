@@ -1,3 +1,5 @@
+@import "utilities";
+
 .modal {
   z-index: 100000;
   * {
@@ -5,7 +7,15 @@
   }
 }
 
+.modal-dialog {
+  @include df {
+    flex-direction: column;
+  }
+}
+
 .modal-content {
+  @include df;
+  position: relative;
   background: transparentize($color: $diselect, $amount: 0.8) !important;
   backdrop-filter: blur(10px) !important;
   border-bottom: 0.6rem solid rgba(255, 255, 255, 0.1) !important;

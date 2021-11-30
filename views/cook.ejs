@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('partials/head.ejs')%>
-  <body>
-    <%- include('partials/avatar.ejs')%>
-    <h2 class="fw-bold text-center wow fadeInUp" data-wow-delay="200ms">
+  <body class="py-5">
+    <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
+    <h4 class="text-center wow fadeInUp" data-wow-delay="200ms">
       Dear <%=gender=="male"? "Mr." : "Miss." %> <%= username %> let's create
       the quiz.
-    </h2>
+    </h4>
 
-    <section id="qBoard" class="pt-5">
+    <section id="qBoard" class="w-100 pt-5">
       <!-- inserting all the question here -->
     </section>
-
-    <button
-      id="cook"
-      type="button"
-      class="btn btn-primary w-100 rounded-0 wow fadeInUp"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-      data-wow-delay="400ms"
-    >
-      Damn, let me share the quiz now
-    </button>
+    <div class="container row col-sm-6 col-md-10">
+      <button
+        id="cook"
+        type="button"
+        class="btn btn-primary wow fadeInUp"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        data-wow-delay="400ms"
+      >
+        Damn, let me share the quiz now
+      </button>
+    </div>
 
     <!-- Modal -->
-
-    <%- include('partials/modal.ejs')%> <%- include('partials/footer.ejs')%>
+    <%- include('partials/fab.ejs')%> <%- include('partials/modal.ejs')%> <%-
+    include('partials/footer.ejs')%>
 
     <script>
       const gender = "<%=gender%>";

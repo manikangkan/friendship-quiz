@@ -40,10 +40,10 @@ const qHTML = (index) => `
                 </p>
                 </div>
                 <div class="row g-3 py-5">
-                <div class="col-12">
-                <input type="text" id="qString" class="form-control" value="${
-                  questions[index]
-                }">
+        <div class="col-12">
+              <input type="text" id="qString" class="form-control" value="${
+                questions[index]
+              }">
           </div>
           <div class="col-sm-12 col-md-6">
                 <input type="text" id="option_a" class="opn btn btn-light w-100" value="${
