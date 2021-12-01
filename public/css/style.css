@@ -130,25 +130,25 @@ footer {
 
 @-webkit-keyframes skeleton-loading {
   0% {
-    background: #18191a;
+    background: #242526;
   }
   50% {
     background: #3a3b3c;
   }
   100% {
-    background: #18191a;
+    background: #242526;
   }
 }
 
 @keyframes skeleton-loading {
   0% {
-    background: #18191a;
+    background: #242526;
   }
   50% {
     background: #3a3b3c;
   }
   100% {
-    background: #18191a;
+    background: #242526;
   }
 }
 
@@ -173,7 +173,7 @@ footer {
 }
 
 body {
-  background: #18191a !important;
+  background: #242526 !important;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -227,7 +227,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 100% !important;
-  background: #18191a;
+  background: #242526;
   cursor: pointer;
   z-index: 10000;
 }
@@ -304,7 +304,6 @@ p,
 label,
 ::-webkit-input-placeholder,
 a {
-  font-size: 0.95rem !important;
   font-weight: normal !important;
 }
 
@@ -312,7 +311,6 @@ p,
 label,
 :-ms-input-placeholder,
 a {
-  font-size: 0.95rem !important;
   font-weight: normal !important;
 }
 
@@ -320,7 +318,6 @@ p,
 label,
 ::-ms-input-placeholder,
 a {
-  font-size: 0.95rem !important;
   font-weight: normal !important;
 }
 
@@ -328,7 +325,6 @@ p,
 label,
 ::placeholder,
 a {
-  font-size: 0.95rem !important;
   font-weight: normal !important;
 }
 
@@ -338,7 +334,6 @@ h5 {
 }
 
 .btn-primary {
-  font-size: 0.95rem !important;
   font-weight: bold !important;
 }
 
@@ -373,7 +368,7 @@ h5 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #18191a;
+  background: #242526;
 }
 
 ::-webkit-scrollbar-thumb {
