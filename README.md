@@ -1,2 +1,2 @@
 # friendship-quiz Development branch
-Play screen under construction
+on the edge of deployment
