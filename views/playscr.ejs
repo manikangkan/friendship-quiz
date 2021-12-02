@@ -1,77 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head.ejs')%>
+<%- include('partials/head.ejs')%>
 
-  <body>
-    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
-      <h2 class="fw-bold"><%=id%>'s question for <%=clientName%></h2>
+    <body>
+        <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+            <h2 class="fw-bold">
+                <%=id%>'s question for <%=clientName%>
+            </h2>
 
-      <section
-        id="quesNavigator_v2"
-        class="d-flex justify-content-between mb-2 overflow-scroll"
-      ></section>
+            <section id="quesNavigator_v2" class="d-flex justify-content-between mb-2 overflow-scroll"></section>
 
-      <section id="0" class="quesArea_version_2 text-center">
-        <div>
-          <p id="quesStr" class="fw-bold">Question Dummy</p>
+            <section id="0" class="quesArea_version_2 text-center">
+                <div>
+                    <p id="quesStr" class="fw-bold">Question Dummy</p>
+                </div>
+
+                <div id="options" class="w-100 my-3 options">
+                    <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_a">
+                        A
+                    </button>
+                    <button type="button" class="btn btn-light w-100 fadeInUp" id="option_b">
+                        B
+                    </button>
+                    <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_c">
+                        C
+                    </button>
+                    <button type="button" class="btn btn-light w-100 fadeInUp" id="option_d">
+                        D
+                    </button>
+                </div>
+                <button id="nextBtn" type="button" class="btn w-100 position-relative px-0 prog">
+                    <div id="nxtBtPrg" class="btn btn-primary position-absolute h-100 top-0 start-0" aria-valuenow="30"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    <span class="text-center position-relative">Next</span>
+                </button>
+            </section>
+
+            <form id="submForm" action="/<%=id%>/play" method="POST"></form>
         </div>
+        <script>
+            const quesList = <% -JSON.stringify(quesArr) %>;
+            const no_of_ques = quesList.length;
+            const clientName = '<%=clientName%>';
+            const username = '<%=id%>';
+        </script>
+        <script src="/js/playscr.js"></script>
+        <%-include('partials/footer.ejs')%>
+    </body>
 
-        <div id="options" class="w-100 my-3 options">
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
-            id="option_a"
-          >
-            A
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp"
-            id="option_b"
-          >
-            B
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
-            id="option_c"
-          >
-            C
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp"
-            id="option_d"
-          >
-            D
-          </button>
-        </div>
-        <button
-          id="nextBtn"
-          type="button"
-          class="btn w-100 position-relative px-0 prog"
-        >
-          <div
-            id="nxtBtPrg"
-            class="btn btn-primary position-absolute h-100 top-0 start-0"
-            aria-valuenow="30"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style="width: 0%"
-          ></div>
-          <span class="text-center position-relative">Next</span>
-        </button>
-      </section>
-
-      <form id="submForm" action="/<%=id%>/play" method="POST"></form>
-    </div>
-    <script>
-      const quesList = <%-JSON.stringify(quesArr) %>;
-      const no_of_ques = quesList.length;
-      const clientName = '<%=clientName%>';
-      const username =  '<%=id%>';
-    </script>
-    <script src="/js/playScreen_backend.js"></script>
-    <%-include('partials/footer.ejs')%>
-  </body>
 </html>
