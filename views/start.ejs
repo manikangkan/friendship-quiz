@@ -13,31 +13,30 @@
                             placeholder="Type your playcode here" />
                     </div>
                     <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms">
-                        <button type="button" id="clientLogin" class="btn btn-primary col" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" id="clientLogin" class="btn btn-primary col">
                             Play
                         </button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog text-center">
                                 <div class="
-                  modal-content
-                  position-relative
-                  d-flex
-                  justify-content-center
-                  align-items-center
-                ">
+                                    modal-content
+                                    position-relative
+                                    d-flex
+                                    justify-content-center
+                                    align-items-center
+                                    ">
                                     <h5 class="modal-title" id="exampleModalLabel">
-                                        Dear, Manikangkan
+                                        Warning!
                                     </h5>
-                                    <div class="modal-body">
+                                    <div class="modal-body mt-3 mb-2">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                         Luctus nisl justo pellentesque dui neque, amet vel. Sapien
                                         dolor velit, viverra amet sed commodo gravida pharetra.
                                     </div>
-                                    <button type="button" class="btn btn-primary modal-btn w-50" data-bs-dismiss="modal"
+                                    <button type="button" class="btn btn-primary modal-btn w-50 mt-2" data-bs-dismiss="modal"
                                         aria-label="Close">
-                                        O yeah, got it dear
+                                        Alright!
                                     </button>
                                 </div>
                             </div>
@@ -59,7 +58,8 @@
                     clientLoginBtn.addEventListener("click", function () {
                         let usercode = document.querySelector("#usercode").value;
                         if (usercode == null || usercode == "") {
-                            alert("Quiz Code Can't be empty");
+                            document.querySelector('.modal-body').innerText = "Quiz code can't be empty" ;
+                            $('#exampleModal').modal('show');
                             return;
                         }
 
@@ -70,9 +70,21 @@
                         if (hasLowerCase(usercode)) {
                             validate(usercode).then((data) => {
                                 if (data.userExists) window.location.href = data.redirect;
-                                else alert("Sorry! This user does not exit");
+                                else {
+                                    document.querySelector('.modal-title').innerText = "No such user exists!" ;
+                                    document.querySelector('.modal-body').innerText = "Did you type Correctly?" ;
+                                    document.querySelector('.modal-btn').innerText = "Try Again";
+                                    $('#exampleModal').modal('show');
+                                }
+                                
+                                
                             });
-                        } else alert("invalid code");
+                        } else {
+                            document.querySelector('.modal-title').innerText = "You entered a wrong code!" ;
+                                    document.querySelector('.modal-body').innerText = "Did you type Correctly?" ;
+                                    document.querySelector('.modal-btn').innerText = "Try Again" ;
+                                    $('#exampleModal').modal('show');
+                        }
                     });
 
                     function hasLowerCase(str) {
