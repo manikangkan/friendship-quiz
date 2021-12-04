@@ -357,6 +357,11 @@ h5 {
   width: 1.6rem;
 }
 
+.fab.active{
+    background: -webkit-gradient(linear, left top, right top, from(#fe000085), to(#fe870085)) !important;
+    background: linear-gradient(90deg, #fe000085, #fe890085) !important;
+    border: 0.5px solid #575757;
+}
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
   width: 2px;
