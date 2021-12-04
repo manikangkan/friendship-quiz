@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.ejs')%>
+<%-include('partials/head.ejs')%>
+<% 
+const toSentenceCase = function(str){
+    return str.split(' ')
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(' ')
+}
+%>
 
     <body>
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
             <h2 class="fw-bold">
-                <%=id%>'s question for <%=clientName%>
+                <%=toSentenceCase(id)%>'s question for <%=toSentenceCase(clientName)%>
             </h2>
 
             <section id="quesNavigator_v2" class="d-flex justify-content-between mb-2 overflow-scroll"></section>
 
-            <section id="0" class="quesArea_version_2 text-center">
-                <div>
+            <section id="0" class="ques-container text-center">
+                <div class="form-control">
                     <p id="quesStr" class="fw-bold">Question Dummy</p>
                 </div>
 
@@ -39,7 +46,7 @@
             <form id="submForm" action="/<%=id%>/play" method="POST"></form>
         </div>
         <script>
-            const quesList = <% -JSON.stringify(quesArr) %>;
+            const quesList = <%-JSON.stringify(quesArr)%>;
             const no_of_ques = quesList.length;
             const clientName = '<%=clientName%>';
             const username = '<%=id%>';
