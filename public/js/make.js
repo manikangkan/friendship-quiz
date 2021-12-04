@@ -73,9 +73,24 @@ function optionMechanism(index) {
 	const qActivateBtn = document.querySelector(`#quesListParent #q${index} #activeStatus`);
 	qActivateBtn.addEventListener('click', () => {
 		qActivateBtn.classList.toggle('btn-primary');
-		qActivateBtn.parentElement.parentElement.parentElement.classList.toggle(
+        const selectedQuesBkg = qActivateBtn.parentElement.parentElement.parentElement;
+		selectedQuesBkg.classList.toggle(
 			'highlight-selected-question-background'
 		);
+
+        if(!qActivateBtn.classList.contains('btn-primary')){
+            selectedQuesBkg.querySelectorAll('.opn').forEach(opn => {
+                opn.classList.add('btn-disabled');
+            })
+            
+        }
+        else {
+            selectedQuesBkg.querySelectorAll('.opn').forEach(opn => {
+                opn.classList.remove('btn-disabled');
+            })
+        }
+
+
 		console.log(qActivateBtn.parentElement.parentElement);
 	});
 

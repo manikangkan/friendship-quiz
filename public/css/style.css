@@ -357,11 +357,23 @@ h5 {
   width: 1.6rem;
 }
 
+/* -------------- BEGIN abhisek tweaks ------------- */
+
 .fab.active{
     background: -webkit-gradient(linear, left top, right top, from(#fe000085), to(#fe870085)) !important;
     background: linear-gradient(90deg, #fe000085, #fe890085) !important;
     border: 0.5px solid #575757;
 }
+
+.btn-primary.btn-disabled{
+    background: -webkit-gradient(linear, left top, right top, from(#fe000070), to(#fe890070)) !important;
+    background: linear-gradient(90deg, #fe000070, #fe890070) !important;
+}
+
+
+/* -------------- END abhisek tweaks ------------- */
+
+
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
   width: 2px;
