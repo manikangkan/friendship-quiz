@@ -73,23 +73,18 @@ function optionMechanism(index) {
 	const qActivateBtn = document.querySelector(`#quesListParent #q${index} #activeStatus`);
 	qActivateBtn.addEventListener('click', () => {
 		qActivateBtn.classList.toggle('btn-primary');
-        const selectedQuesBkg = qActivateBtn.parentElement.parentElement.parentElement;
-		selectedQuesBkg.classList.toggle(
-			'highlight-selected-question-background'
-		);
+		const selectedQuesBkg = qActivateBtn.parentElement.parentElement.parentElement;
+		selectedQuesBkg.classList.toggle('highlight-selected-question-background');
 
-        if(!qActivateBtn.classList.contains('btn-primary')){
-            selectedQuesBkg.querySelectorAll('.opn').forEach(opn => {
-                opn.classList.add('btn-disabled');
-            })
-            
-        }
-        else {
-            selectedQuesBkg.querySelectorAll('.opn').forEach(opn => {
-                opn.classList.remove('btn-disabled');
-            })
-        }
-
+		if (!qActivateBtn.classList.contains('btn-primary')) {
+			selectedQuesBkg.querySelectorAll('.opn').forEach((opn) => {
+				opn.classList.add('btn-disabled');
+			});
+		} else {
+			selectedQuesBkg.querySelectorAll('.opn').forEach((opn) => {
+				opn.classList.remove('btn-disabled');
+			});
+		}
 
 		console.log(qActivateBtn.parentElement.parentElement);
 	});
@@ -137,11 +132,6 @@ function optionMechanism(index) {
 	});
 }
 
-const cookBtn = document.querySelector('#cook');
-cookBtn.addEventListener('click', () => {
-	cook();
-});
-
 function cook() {
 	const allCookedQuesitons = [];
 	for (let index = 0; index < n; index++) {
@@ -150,7 +140,11 @@ function cook() {
 
 		console.log(qSection);
 		if (qSection.querySelector('.opn.btn-primary') == null) {
-			alert(`option on Question ${index + 1} not selected`);
+            modalTrigger(
+                'Warning!',
+                `You need to activate an option on Question ${index + 1}`,
+                'Got It 👍'
+            );
 			return;
 		}
 
@@ -160,14 +154,18 @@ function cook() {
 			option_b: qSection.querySelector('#option_b').value,
 			option_c: qSection.querySelector('#option_c').value,
 			option_d: qSection.querySelector('#option_d').value,
-			correctAns: qSection.querySelector('.btn-primary').id,
+			correctAns: qSection.querySelector('.opn.btn-primary').id,
 		};
 
 		allCookedQuesitons.push(qsObj);
 	}
 
 	if (allCookedQuesitons.length < hard_ques_limit) {
-		alert('please select minimum ' + hard_ques_limit + ' questions');
+        modalTrigger(
+            'Warning!',
+            'Activate minimum ' + hard_ques_limit + ' questions',
+            'Got It 👍'
+        );
 		return;
 	}
 
@@ -202,11 +200,10 @@ async function postData(url = '', data = {}) {
 	return response.json(); // parses JSON response into native JavaScript objects
 }
 
-
-function editButtonToggle(){
-    EDIT_FLAG = !EDIT_FLAG;
-    document.querySelector('#editToggle').classList.toggle('active');
-    quesListParent.querySelectorAll("input").forEach(item =>{
-        item.readOnly = !item.readOnly;
-    })
+function editButtonToggle() {
+	EDIT_FLAG = !EDIT_FLAG;
+	document.querySelector('#editToggle').classList.toggle('active');
+	quesListParent.querySelectorAll('input').forEach((item) => {
+		item.readOnly = !item.readOnly;
+	});
 }

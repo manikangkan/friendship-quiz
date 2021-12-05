@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.ejs')%>
+    <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
 <% 
 const toSentenceCase = function(str){
     return str.split(' ')
@@ -22,8 +22,7 @@ const toSentenceCase = function(str){
             <!-- inserting all the question here -->
         </section>
         <div class="container row col-sm-6 col-md-10">
-            <button id="cook" type="button" class="btn btn-primary wow fadeInUp" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" data-wow-delay="400ms">
+            <button id="cook" type="button" class="btn btn-primary wow fadeInUp"  data-wow-delay="400ms" onclick="cook()">
                 Share with my friends 
             </button>
         </div>

@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head.ejs')%>
+<%-include('partials/head', {title: `${id}'s Quiz`})%>
+    <% const toSentenceCase=function(str){ return str.split(' ')
+        .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+        .join(' ')
+        }
+    %>
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
-      <%- include('partials/avatar.ejs')%>
-      <h2
-        id="welcome"
-        class="fw-bold text-center wow fadeInUp"
-        data-wow-delay="300ms"
-      >
-        Welcome to <%=id%> 's Quiz
-      </h2>
+      <%- include('partials/avatar')%>
+        <h2 id="welcome" class="fw-bold text-center wow fadeInUp" data-wow-delay="300ms">
+            Welcome to <%=toSentenceCase(id)%> 's Quiz
+        </h2>
 
-      <div class="w-100 mt-5">
-        <form action="/<%=id%>/play" method="POST">
-          <div class="wow fadeInUp" data-wow-delay="600ms">
-            <label for="" class="form-label">Put your name here</label>
-            <input
-              type="text"
-              name="clientName"
-              class="form-control"
-              id="clientName"
-              placeholder="Hello there, type your good name here"
-            />
-          </div>
-          <br />
+        <div class="w-100 mt-5">
+            <form action="/<%=id%>/play" method="POST">
+                <div class="wow fadeInUp" data-wow-delay="600ms">
+                    <label for="" class="form-label">Put your name here</label>
+                    <input type="text" name="clientName" class="form-control" id="clientName"
+                        placeholder="Hello there, type your good name here" />
+                </div>
+                <br />
 
-          <button
-            type="submit"
-            class="btn btn-primary w-100 wow fadeInUp"
-            data-wow-delay="1200ms"
-          >
-            Play
-          </button>
-        </form>
-      </div>
-    </div>
-    <%-include('partials/offcanvas.ejs')%> <%-include('partials/footer.ejs')%>
-  </body>
+                <button type="submit" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="1200ms">
+                    Play
+                </button>
+            </form>
+        </div>
+        </div>
+        <%-include('partials/offcanvas.ejs')%>
+            <%-include('partials/footer.ejs')%>
+                </body>
+
 </html>
