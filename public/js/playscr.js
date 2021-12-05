@@ -60,7 +60,6 @@ function btnGroupAction() {
 	const buttonD = qArea.querySelector('#option_d');
 
 	buttonA.addEventListener('click', function (e) {
-		console.log('clicked');
 		buttonA.classList.add('btn-primary');
 
 		buttonB.classList.remove('btn-primary');
@@ -72,7 +71,6 @@ function btnGroupAction() {
 	});
 
 	buttonB.addEventListener('click', function (e) {
-		console.log('clicked');
 		buttonB.classList.add('btn-primary');
 
 		buttonA.classList.remove('btn-primary');
@@ -84,7 +82,6 @@ function btnGroupAction() {
 	});
 
 	buttonC.addEventListener('click', function (e) {
-		console.log('clicked');
 		buttonC.classList.add('btn-primary');
 
 		buttonB.classList.remove('btn-primary');
@@ -96,7 +93,6 @@ function btnGroupAction() {
 	});
 
 	buttonD.addEventListener('click', function (e) {
-		console.log('clicked');
 		buttonD.classList.add('btn-primary');
 
 		buttonB.classList.remove('btn-primary');
@@ -142,19 +138,13 @@ function nextBtnMechanism() {
 		progressPercent = (answerMap.size / no_of_ques) * 100;
 
 		if (progressPercent == 100) {
-			if (nextBtn.childElementCount != 0) nextBtn.removeChild(nextBtn.querySelector('.prog'));
-			qArea.removeEventListener('click', nextBtnFull());
-			return;
+			$('#nextBtnTxt').text('Submit my Answer');
 		}
 
 		nextBtn.querySelector('#nxtBtPrg').style.width = `${progressPercent}%`;
-		console.log(progressPercent);
 	});
 
-	function nextBtnFull() {
-		nextBtn.innerText = "what's my score?";
-		nextBtn.classList.add('btn-primary');
-	}
+	
 }
 
 function submitMyAns() {
@@ -163,7 +153,6 @@ function submitMyAns() {
 		if (quesList[key].correctAns == value) score++;
 	}
 
-	console.log('congrats you scored ' + score);
 	const jsonBody = {
 		answerSheet: Object.fromEntries(answerMap),
 		clientName,

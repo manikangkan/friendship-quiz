@@ -3,8 +3,8 @@
 
     <%-include('partials/head', {title: "🍁Leaderboard🍁"})%>
 
-<body class="vh-100 d-flex flex-column justify-content-center align-items-center">
-    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+<body class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11 pt-5" style="margin-top: 150px;">
         <%- include('partials/avatar')%>
 
         <a href="/">
@@ -13,7 +13,7 @@
             </button>
         </a>
 
-        <div class="d-grid gap-3 mt-3" id="clientList">
+        <div class="d-grid gap-3 mt-3" id="clientList" style="margin-bottom: 80px;">
             <div class="btn btn-light w-100 wow fadeInUp mt-3 d-flex justify-content-between" "data-wow-delay="300ms">
                 <span>Rahul</span>
                 <span>10 out of 10</span>
