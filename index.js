@@ -137,38 +137,52 @@ app.get('/:id/score', (req, res) => {
 	});
 });
 
-app.get('/:id/scoresheet', async (req, res) => {
+app.get('/:id/response/:clientName', async (req, res) => {
 	const { id } = req.params;
-	const { clientName } = req.query;
+	const { clientName } = req.params;
 
 	const client = await Client.findOne({ clientName }, (err, obj) => {
 		if (err) throw err;
-		// else
-		//     console.log(obj);
 	})
 		.clone()
 		.catch((err) => console.log(err));
 
 	const user = await User.findOne({ username: id }, (err, obj) => {
 		if (err) throw err;
-		// else
-		//     console.log(obj);
 	})
 		.clone()
 		.catch((err) => console.log(err));
 
-	res.render('scoreSheet', {
+	res.render('responseDetails', {
 		userName: id,
 		clientName,
 		quesSheet_objs_arr: user.cookedQs,
 		answerSheet: client.answerSheet,
 		score: client.score,
-        gender: user.gender,
+		gender: user.gender,
 	});
 });
 
-app.get('/:id/response', (req, res) => {
-	res.render('allClientResponses');
+app.get('/:username/response/', async (req, res) => {
+    const { username } = req.params;
+
+	const user = await User.findOne({ username }, (err, obj) => {
+		if (err) throw err;
+	})
+		.clone()
+		.catch((err) => console.log(err));
+
+	const clients = await Client.find({ username }, (err, obj) => {
+		if (err) throw err;
+	})
+		.clone()
+		.catch((err) => console.log(err));
+    console.log([...clients]);
+
+	res.render('response',{
+        clients: [...clients],
+        clientCount: clients.length,
+    });
 });
 
 app.get('/dev-info', (req, res) => {
