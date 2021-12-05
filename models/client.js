@@ -20,6 +20,7 @@ const clientSchema = new mongoose.Schema({
         
     },
     score: Number,
+    max: Number,
 });
 
 const Client = mongoose.model('Client', clientSchema);

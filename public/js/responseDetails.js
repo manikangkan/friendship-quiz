@@ -27,8 +27,6 @@ for (let index = 0; index < quesSheet_objs_arr.length; index++) {
 }
 
 function generateCardHTML(index,color) {
-    console.log("color",cardProps.headerImage[color]);
-    
 
 	const card = `
         <div class="col" id="${index}>

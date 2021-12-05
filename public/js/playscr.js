@@ -169,6 +169,7 @@ function submitMyAns() {
 		clientName,
 		username,
 		score,
+        max : no_of_ques,
 	};
 
 	postData(`/${username}/playscr`, jsonBody).then((data) => {
