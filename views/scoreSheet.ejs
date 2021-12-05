@@ -1,76 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
+    <%-include('partials/head', {title: `Score of ${clientName}`})%>
 
-    <title>Score of <%=clientName%></title>
-  </head>
-
+    <% 
+    const toSentenceCase = function(str){
+        return str.split(' ')
+        .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+        .join(' ')
+    }
+    %>
   <body>
-    <h1>Mr. <%=userName.toUpperCase()%>'S QUIZ</h1>
-    <h2>scored <%=score%> out of 5</h2>
-    <ul class="list-group" id="userResponsePanelList"></ul>
+    <div class="container mt-5">
+        <h1 class="text-center"><%=`${toSentenceCase(clientName)}'s scoresheet for ${gender=="male"? "Mr." : "Miss."} ${toSentenceCase(userName)}'S Quiz `%> </h1>
+        <h2 class="text-center"><%=`in which ${gender=="male"? "he" : "she"} scored ${score}/${quesSheet_objs_arr.length}`%> </h2>
+
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="answerCards">
+                <!-- All the answer cards appear here -->
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <a href="/usrlogin" type="button" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="400ms" >
+            Create your own Quiz?
+        </a>
+    </div>
+    
 
     <script>
-
         const answer =<%-JSON.stringify(answerSheet)%>;
         const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
-
-      console.log(answer);
-      console.log(quesSheet_objs_arr);
-
-      const urpl = document.querySelector("#userResponsePanelList");
-
-      for( let index=0; index < quesSheet_objs_arr.length; index++ ){
-          var successColor = "";
-          if(get_myChosenOption(index) == get_correctAns(index)){
-              successColor = 'list-group-item-success';
-          }
-          else
-              successColor = 'list-group-item-danger';
-
-          const html = `
-          <li class="list-group-item ${successColor}" id="${index}">
-              <h4>Q${index} ${get_questionString(index)}</h4>
-              <h4>Your choice: ${get_myChosenOption(index)}</h4>
-              <h4>Correct Ans: ${get_correctAns(index)} </h4>
-          </li>
-          `;
-          urpl.innerHTML+= html;
-      }
-
-
-
-
-
-      function get_questionString(Qindex){
-          return quesSheet_objs_arr[Qindex].question;
-      }
-
-      function get_correctAns(Qindex) {
-          const quesObj = new Map(Object.entries(quesSheet_objs_arr[Qindex]));
-          const correctAns = quesObj.get('correctAns');
-          return quesObj.get(quesObj.get('correctAns'));
-      }
-
-      function get_myChosenOption(Qindex){
-          const tempMap = new Map(Object.entries(quesSheet_objs_arr[Qindex]));
-          return tempMap.get(answer[Qindex]);
-      }
     </script>
+    <script src="/js/scoreSheet.js"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+    <%- include('partials/offcanvas.ejs')%>
+    <%- include('partials/footer.ejs')%>
   </body>
 </html>

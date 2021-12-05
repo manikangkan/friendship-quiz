@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%-include('partials/head.ejs')%>
+    <%-include('partials/head', {title: `${id}'s Quiz`})%>
 <% 
 const toSentenceCase = function(str){
     return str.split(' ')
@@ -12,7 +12,7 @@ const toSentenceCase = function(str){
     <body>
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
             <h2 class="fw-bold">
-                <%=toSentenceCase(id)%>'s question for <%=toSentenceCase(clientName)%>
+                <%=toSentenceCase(id)%>'s questions for <%=toSentenceCase(clientName)%>
             </h2>
 
             <section id="quesNavigator_v2" class="d-flex justify-content-between mb-2 overflow-scroll"></section>

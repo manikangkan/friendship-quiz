@@ -163,10 +163,11 @@ app.get('/:id/scoresheet', async (req, res) => {
 		quesSheet_objs_arr: user.cookedQs,
 		answerSheet: client.answerSheet,
 		score: client.score,
+        gender: user.gender,
 	});
 });
 
-app.get('/:id/leaderboard', (req, res) => {
+app.get('/:id/response', (req, res) => {
 	res.render('allClientResponses');
 });
 

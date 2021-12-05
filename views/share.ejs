@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.ejs')%>
+    <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
 
 
     <body class="
@@ -33,7 +33,9 @@
 
             <div class="row g-3 my-3">
                 <div class="col-sm-12 col-xl-6 wow fadeInDown" data-wow-delay="500ms">
-                    <p id="copyURL" class="form-control"></p>
+                    <p id="copyURL" class="form-control">
+                        <%=`http://localhost:3000/${id.toLowerCase()}/play`%>
+                    </p>
                 </div>
                 <div class="col-sm-12 col-xl-6 wow fadeInDown" data-wow-delay="600ms">
                     <p id="copyCode" class="form-control">
@@ -93,8 +95,6 @@
                         window.getSelection().selectAllChildren(str);
                         document.execCommand("Copy");
                     }
-                    const urlText = document.querySelector("#copyURL");
-                    urlText.innerText = window.location.href;
 
                     const shareButton = document.querySelector("#shareButton");
                     shareButton.addEventListener("click", (event) => {

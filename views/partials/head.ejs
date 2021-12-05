@@ -10,5 +10,7 @@
   />
   <link rel="stylesheet" href="/wow/animate.css" />
   <link rel="stylesheet" href="/css/style.css" />
-  <title>Share My Quiz</title>
+  <title><%=title.split(' ')
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(' ')%> </title>
 </head>
