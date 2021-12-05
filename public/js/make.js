@@ -158,6 +158,10 @@ function cook() {
   }
 
   if (allCookedQuesitons.length < hard_ques_limit) {
+    // trigger bootstrap modal using javascirpt is little bit tricky so for the time being now we are using jquery to do the same.
+    $("#cook").on("click", function () {
+      $(".modal").modal("show");
+    });
     alert("please select minimum " + hard_ques_limit + " questions");
     return;
   }

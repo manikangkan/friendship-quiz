@@ -1,59 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.ejs')%>
+  <%- include('partials/head.ejs')%>
 
-    <body>
-        <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
-            <%- include('partials/avatar.ejs')%>
-            <div class="w-100">
-                <form action="/usrlogin" autocomplete="off" method="POST">
-                    <div class="wow fadeInUp" data-wow-delay="200ms">
-                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Type an username here" />
-                    </div>
+  <body>
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+      <%- include('partials/avatar.ejs')%>
+      <div class="w-100">
+        <form action="/usrlogin" autocomplete="off" method="POST">
+          <div class="wow fadeInUp" data-wow-delay="200ms">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input
+              type="text"
+              name="username"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Type an username here"
+            />
+          </div>
 
-                    <div class="btn-group d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms" role="group">
-                        <input type="radio" class="btn-check" name="gender" id="male" value="male" checked=true />
-                        <label class="btn btn-primary w-100 male" for="male">I'm a boy</label>
-                        <input type="radio" class="btn-check" name="gender" id="female" value="female" />
-                        <label class="btn w-100 female" for="female">I'm a girl</label>
-                    </div>
+          <div
+            class="btn-group d-flex gap-3 my-3 wow fadeInUp"
+            data-wow-delay="300ms"
+            role="group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="gender"
+              id="male"
+              value="male"
+              checked="true"
+            />
+            <label class="btn btn-primary w-100 male" for="male"
+              >I'm a boy</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="gender"
+              id="female"
+              value="female"
+            />
+            <label class="btn w-100 female" for="female">I'm a girl</label>
+          </div>
 
+          <button
+            type="submit"
+            class="btn btn-primary w-100 wow fadeInUp"
+            data-wow-delay="400ms"
+          >
+            Next
+          </button>
+        </form>
+      </div>
+    </div>
 
-                    <button type="submit" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="400ms">
-                        Next
-                    </button>
-                </form>
-            </div>
-        </div>
+    <script>
+      const mRadio = document.querySelector("input#male");
+      const fRadio = document.querySelector("input#female");
+      const mLabel = document.querySelector("label.male");
+      const fLabel = document.querySelector("label.female");
 
-        <script>
-            const mRadio = document.querySelector('input#male');
-            const fRadio = document.querySelector('input#female');
-            const mLabel = document.querySelector('label.male');
-            const fLabel = document.querySelector('label.female');
+      mLabel.addEventListener("click", () => {
+        mRadio.checked = true;
+        fRadio.checked = false;
+        mLabel.classList.add("btn-primary");
+        fLabel.classList.remove("btn-primary");
+      });
 
-            mLabel.addEventListener('click', () => {
-                mRadio.checked = true;
-                fRadio.checked = false;
-                mLabel.classList.add('btn-primary');
-                fLabel.classList.remove('btn-primary');
-            });
+      fLabel.addEventListener("click", () => {
+        fRadio.checked = true;
+        mRadio.checked = false;
+        fLabel.classList.add("btn-primary");
+        mLabel.classList.remove("btn-primary");
+      });
+    </script>
 
-            fLabel.addEventListener('click', () => {
-                fRadio.checked = true;
-                mRadio.checked = false;
-                fLabel.classList.add('btn-primary');
-                mLabel.classList.remove('btn-primary');
-            })
-
-
-        </script>
-
-        <%- include('partials/offcanvas.ejs')%>
-            <%- include('partials/footer.ejs')%>
-
-    </body>
-
+    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+  </body>
 </html>
