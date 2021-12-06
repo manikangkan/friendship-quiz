@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('partials/head', {title: `Score of ${clientName}`})%>
+
+    <% 
+    const toSentenceCase = function(str){
+        return str.split(' ')
+        .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+        .join(' ')
+    }
+    %>
+  <body>
+    <div class="container mt-5">
+        <h1 class="text-center"><%=`${toSentenceCase(clientName)}'s scoresheet for ${gender=="male"? "Mr." : "Miss."} ${toSentenceCase(userName)}'S Quiz `%> </h1>
+        <h2 class="text-center"><%=`in which ${gender=="male"? "he" : "she"} scored ${score}/${quesSheet_objs_arr.length}`%> </h2>
+
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="answerCards">
+                <!-- All the answer cards appear here -->
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <a href="/usrlogin" type="button" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="400ms" >
+            Create your own Quiz?
+        </a>
+    </div>
+    
+
+    <script>
+        const answer =<%-JSON.stringify(answerSheet)%>;
+        const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+    </script>
+    <script src="/js/responseDetails.js"></script>
+
+    <%- include('partials/offcanvas.ejs')%>
+    <%- include('partials/footer.ejs')%>
+  </body>
+</html>

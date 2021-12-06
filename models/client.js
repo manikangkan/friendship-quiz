@@ -17,9 +17,22 @@ const clientSchema = new mongoose.Schema({
         '2' : String,
         '3' : String,
         '4' : String,
+        '5' : String,
+        '6' : String,
+        '7' : String,
+        '8' : String,
+        '9' : String,
+        '10' : String,
+        '11' : String,
+        '12' : String,
+        '13' : String,
+        '14' : String,
+        '15' : String,
         
     },
     score: Number,
+    max: Number,
+    date: Date,
 });
 
 const Client = mongoose.model('Client', clientSchema);

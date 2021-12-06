@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.ejs')%>
+    <%-include('partials/head', {title: `${id}'s Quiz`})%>
+<% 
+const toSentenceCase = function(str){
+    return str.split(' ')
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(' ')
+}
+%>
 
     <body>
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
             <h2 class="fw-bold">
-                <%=id%>'s question for <%=clientName%>
+                <%=toSentenceCase(id)%>'s questions for <%=toSentenceCase(clientName)%>
             </h2>
 
             <section id="quesNavigator_v2" class="d-flex justify-content-between mb-2 overflow-scroll"></section>
 
-            <section id="0" class="quesArea_version_2 text-center">
-                <div>
+            <section id="0" class="ques-container text-center">
+                <div class="form-control">
                     <p id="quesStr" class="fw-bold">Question Dummy</p>
                 </div>
 
@@ -30,16 +37,15 @@
                     </button>
                 </div>
                 <button id="nextBtn" type="button" class="btn w-100 position-relative px-0 prog">
-                    <div id="nxtBtPrg" class="btn btn-primary position-absolute h-100 top-0 start-0" aria-valuenow="30"
+                    <div id="nxtBtPrg" class="progress-bar btn btn-primary btn-progress position-absolute h-100 top-0 start-0" role="progressbar" aria-valuenow="0"
                         aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-                    <span class="text-center position-relative">Next</span>
+                    <span id="nextBtnTxt" class="text-center position-relative">Next</span>
                 </button>
             </section>
 
-            <form id="submForm" action="/<%=id%>/play" method="POST"></form>
         </div>
         <script>
-            const quesList = <% -JSON.stringify(quesArr) %>;
+            const quesList = <%-JSON.stringify(quesArr)%>;
             const no_of_ques = quesList.length;
             const clientName = '<%=clientName%>';
             const username = '<%=id%>';

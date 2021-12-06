@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/head.ejs')%>
+  <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%> <% const
+  toSentenceCase = function(str){ return str.split(' ') .map(w =>
+  w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
 
   <body class="py-5">
     <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
     <h4 class="text-center wow fadeInUp" data-wow-delay="200ms">
-      Dear <%=gender=="male"? "Mr." : "Miss." %> <%= username %> let's create
-      the quiz.
+      Welcome to <%=gender=="male"? "Mr." : "Miss." %> <%=
+      toSentenceCase(username) %>'s' quiz kitchen
     </h4>
 
-    <section id="qBoard" class="w-100 pt-5">
+    <section id="quesListParent" class="w-100 pt-5">
       <!-- inserting all the question here -->
     </section>
-
     <div class="container row col-sm-6 col-md-10">
       <button
         id="cook"
         type="button"
-        class="btn btn-primary wow fadeInUp w-100 h-100"
+        class="btn btn-primary wow fadeInUp"
         data-wow-delay="400ms"
+        onclick="cook()"
       >
-        Damn, let me share the quiz now
+        Share with my friends
       </button>
     </div>
+
+    <!-- Modal -->
+    <div class="fab" id="editToggle" onclick="editButtonToggle()">
+      <img src="../assets/edit.svg" alt="" />
+    </div>
+
+    <%- include('partials/modal.ejs')%> <%- include('partials/footer.ejs')%>
 
     <!-- Modal -->
     <%- include('partials/fab.ejs')%> <%- include('partials/modal.ejs')%> <%-
