@@ -17,11 +17,6 @@
   text-decoration: none !important;
 }
 
-::selection {
-  background-color: transparent !important;
-  color: white !important;
-}
-
 body {
   background: $bg !important;
   min-height: 100vh;

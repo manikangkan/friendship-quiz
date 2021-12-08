@@ -162,16 +162,6 @@ footer {
   text-decoration: none !important;
 }
 
-::-moz-selection {
-  background-color: transparent !important;
-  color: white !important;
-}
-
-::selection {
-  background-color: transparent !important;
-  color: white !important;
-}
-
 body {
   background: #242526 !important;
   min-height: 100vh;
@@ -357,27 +347,6 @@ h5 {
   width: 1.6rem;
 }
 
-/* -------------- BEGIN abhisek tweaks ------------- */
-
-.fab.active{
-    background: -webkit-gradient(linear, left top, right top, from(#fe000085), to(#fe870085)) !important;
-    background: linear-gradient(90deg, #fe000085, #fe890085) !important;
-    border: 0.5px solid #575757;
-}
-
-.btn-primary.btn-disabled{
-    background: -webkit-gradient(linear, left top, right top, from(#fe000070), to(#fe890070)) !important;
-    background: linear-gradient(90deg, #fe000070, #fe890070) !important;
-}
-
-
-.btn.btn-primary.btn-progress{
-    padding: 0 0;
-}
-
-/* -------------- END abhisek tweaks ------------- */
-
-
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
   width: 2px;
@@ -388,7 +357,7 @@ h5 {
   width: 0.8rem;
 }
 
-::-webkit-scrollbar-track {
+s ::-webkit-scrollbar-track {
   background: #242526;
 }
 
