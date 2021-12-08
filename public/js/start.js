@@ -5,8 +5,8 @@ clientLoginBtn.addEventListener("click", function () {
   if (usercode == null || usercode == "") {
     modalTrigger(
       "Hello there!",
-      "How can you imagine to play quiz without a code",
-      "Let's type a code below yaa"
+      "How can you imagine to play quiz without a code, Let's type a code below yaaay!",
+      "Let's go"
     );
     return;
   }
@@ -22,7 +22,7 @@ clientLoginBtn.addEventListener("click", function () {
         modalTrigger(
           "We're unable to find the code you've entered",
           "Let's try again",
-          "Ok, I'll try again"
+          "Ok"
         );
       }
     });
