@@ -195,9 +195,8 @@ app.get("/instructions", (req, res) => {
   res.render("instructions");
 });
 
-// create route demo
-app.get("/demo", (req, res) => {
-  res.render("demo");
+app.get("/t&c", (req, res) => {
+  res.render("t&c");
 });
 
 app.get("/details", (req, res) => {
