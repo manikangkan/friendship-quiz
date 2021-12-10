@@ -45,8 +45,8 @@ label {
   background: -webkit-gradient(linear, left top, left bottom, from(#18191a), to(rgba(24, 25, 26, 0.6))) !important;
   background: linear-gradient(#18191a, rgba(24, 25, 26, 0.6)) !important;
   backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  border-left: 0.6rem solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 0.2rem solid rgba(255, 255, 255, 0.2);
   padding-top: 6rem !important;
 }
 
@@ -248,7 +248,7 @@ body {
 }
 
 .row a {
-  aspect-ratio: 1;
+  height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -347,9 +347,20 @@ h5 {
   width: 1.6rem;
 }
 
+.btn-border-for-choosed-wrong-option {
+  border: 1px solid red !important;
+}
+
+.btn:active {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transform: scale(0.995);
+          transform: scale(0.995);
+}
+
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 1px;
   scroll-behavior: smooth;
 }
 
@@ -357,7 +368,7 @@ h5 {
   width: 0.8rem;
 }
 
-s ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #242526;
 }
 
@@ -366,7 +377,7 @@ s ::-webkit-scrollbar-track {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#fe0000), to(#fe8900)) !important;
-  background: linear-gradient(#fe0000, #fe8900) !important;
+  background: #3a3b3c;
+  border-radius: 100px !important;
 }
 /*# sourceMappingURL=style.css.map */

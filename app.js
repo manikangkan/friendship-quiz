@@ -200,6 +200,14 @@ app.get("/demo", (req, res) => {
   res.render("demo");
 });
 
+app.get("/details", (req, res) => {
+  res.render("details");
+});
+
+app.get("/404", (req, res) => {
+  res.render("404");
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

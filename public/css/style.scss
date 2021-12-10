@@ -85,7 +85,7 @@ body {
 }
 
 .row a {
-  aspect-ratio: 1;
+  height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -158,16 +158,25 @@ h5 {
   }
 }
 
+.btn-border-for-choosed-wrong-option {
+  border: 1px solid red !important;
+}
+
+.btn:active {
+  transition: all 0.2s;
+  transform: scale(0.995);
+}
+
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 1px;
   scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar:hover {
   width: 0.8rem;
 }
-s ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: $bg;
 }
 
@@ -176,5 +185,6 @@ s ::-webkit-scrollbar-track {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $linear-gradient-scrollbar;
+  background: $diselect;
+  border-radius: 100px !important;
 }
