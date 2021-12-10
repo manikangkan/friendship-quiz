@@ -58,8 +58,10 @@ function liveValidate(code) {
   if (code != null && code != "") {
     validate(code).then((data) => {
       if (data.userExists) {
-        $("#clientLogin").text("Cool, let's play");
+        $("#clientLogin").addClass('btn-primary');
+        $("#clientLogin").text("let's play");
       } else {
+        $("#clientLogin").removeClass('btn-primary');
         $("#clientLogin").text("play");
       }
     });
