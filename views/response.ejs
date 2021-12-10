@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%-include('partials/head', {title: "🍁Leaderboard🍁"})%>
 
-    <%-include('partials/head', {title: "🍁Leaderboard🍁"})%>
-
-<body class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11 pt-5" style="margin-top: 150px;">
-        <%- include('partials/avatar')%>
-
-        <a href="/">
-            <button type="button" class="btn btn-primary w-100 wow fadeInUp" data-wow-delay="200ms">
-               Go to Home Screen
-            </button>
-        </a>
-
-        <div class="d-grid gap-3 mt-3" id="clientList" style="margin-bottom: 80px;">
-            <div class="btn btn-light w-100 wow fadeInUp mt-3 d-flex justify-content-between" "data-wow-delay="300ms">
-                <span>Rahul</span>
-                <span>10 out of 10</span>
-            </div>
-        </div>
-
-        <p class="fixed-bottom text-secondary wow fadeInUp text-center" data-wow-delay="600ms">
-            Powered by
-            <a href="asity.tech" class="fw-semibold text-decoration-none">asity.tech</a>
-        </p>
+  <body>
+    <div
+      class="
+        container
+        col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11
+        pt-5
+      "
+    >
+      <%- include('partials/avatar')%>
+      <div class="" id="clientList"></div>
+      <a href="/">
+        <button
+          type="button"
+          class="btn btn-primary w-100 mt-3 wow fadeInUp"
+          data-wow-delay="200ms"
+        >
+          Go back to Home
+        </button>
+      </a>
     </div>
-
     <script>
-        const clients = <%-JSON.stringify(clients)%>;
-        const clientCount = '<%=clientCount%>';
+      const clients = <%-JSON.stringify(clients)%>;
+      const clientCount = '<%=clientCount%>';
     </script>
     <script src="/js/response.js"></script>
 
-    <%- include('partials/footer.ejs')%>
-</body>
-
+    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+  </body>
 </html>

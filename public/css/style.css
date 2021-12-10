@@ -12,6 +12,10 @@
   border: 0.2px solid #3a3b3c !important;
 }
 
+.form-label {
+  margin-bottom: 8px !important;
+}
+
 .btn {
   border: none !important;
 }
@@ -227,7 +231,36 @@ body {
   width: 50px !important;
   height: 50px !important;
   aspect-ratio: 1;
-  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigator_item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.quesNavigator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+  overflow: auto !important;
+}
+
+.quesNavigator::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .highlight-selected-question-background {
@@ -295,6 +328,7 @@ label,
 ::-webkit-input-placeholder,
 a {
   font-weight: normal !important;
+  margin: 0 !important;
 }
 
 p,
@@ -302,6 +336,7 @@ label,
 :-ms-input-placeholder,
 a {
   font-weight: normal !important;
+  margin: 0 !important;
 }
 
 p,
@@ -309,6 +344,7 @@ label,
 ::-ms-input-placeholder,
 a {
   font-weight: normal !important;
+  margin: 0 !important;
 }
 
 p,
@@ -316,6 +352,7 @@ label,
 ::placeholder,
 a {
   font-weight: normal !important;
+  margin: 0 !important;
 }
 
 h4,

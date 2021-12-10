@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
+  <body
+    class="vh-100 d-flex flex-column justify-content-center align-items-center"
+  >
+    <div
+      class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11 text-center"
+    >
+      <object
+        data="assets/illustration-404.svg"
+        type="image/svg+xml"
+        class="img-fluid wow fadeInUp w-75"
+        data-wow-delay="100ms"
+      ></object>
+      <a href="/">
+        <button
+          class="w-100 btn btn-primary mt-4 wow fadeInUp"
+          data-wow-delay="600ms"
+        >
+          Go back to Home
+        </button>
+      </a>
+    </div>
+    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+  </body>
+</html>
