@@ -1,87 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: `${id}'s Quiz`})%> <% const toSentenceCase
-  = function(str){ return str.split(' ') .map(w => w[0].toUpperCase() +
+<%-include('partials/head', {title: `${id}'s Quiz`})%>
+    <% const toSentenceCase=function(str){ return str.split(' ') .map(w => w[0].toUpperCase() +
   w.substr(1).toLowerCase()) .join(' ') } %>
 
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <h4>
-        <%=toSentenceCase(id)%>'s questions for <%=toSentenceCase(clientName)%>
-      </h4>
+        <%=toSentenceCase(id)%>' s questions for <%=toSentenceCase(clientName)%>
+        </h4>
 
-      <section id="quesNavigator_v2" class="quesNavigator"></section>
+        <section id="quesNavigator_v2" class="quesNavigator"></section>
 
-      <section id="0" class="ques-container text-center">
-        <div class="form-control">
-          <p id="quesStr" class="fw-bold">Question Dummy</p>
+        <section id="0" class="ques-container text-center">
+            <div class="form-control">
+                <p id="quesStr" class="fw-bold">Question Dummy</p>
+            </div>
+
+            <div id="options" class="w-100 my-3 options">
+                <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_a">
+                    A
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp" id="option_b">
+                    B
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp my-3" id="option_c">
+                    C
+                </button>
+                <button type="button" class="btn btn-light w-100 fadeInUp" id="option_d">
+                    D
+                </button>
+            </div>
+            <button id="nextBtn" type="button" class="btn w-100 position-relative px-0 prog">
+                <div id="nxtBtPrg" class="
+                    progress-bar
+                    btn btn-primary btn-progress
+                    position-absolute
+                    h-100
+                    top-0
+                    start-0
+                    rounded-0 rounded-start
+                    " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                <span id="nextBtnTxt" class="text-center position-relative">Next</span>
+            </button>
+        </section>
         </div>
+        <script>
+            const quesList = <%-JSON.stringify(quesArr)%>;
+            const no_of_ques = quesList.length;
+            const clientName = '<%=clientName%>';
+            const username = '<%=id%>';
+        </script>
+        <script src="/js/playscr.js"></script>
+        <%-include('partials/footer.ejs')%>
+    </body>
 
-        <div id="options" class="w-100 my-3 options">
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
-            id="option_a"
-          >
-            A
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp"
-            id="option_b"
-          >
-            B
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
-            id="option_c"
-          >
-            C
-          </button>
-          <button
-            type="button"
-            class="btn btn-light w-100 fadeInUp"
-            id="option_d"
-          >
-            D
-          </button>
-        </div>
-        <button
-          id="nextBtn"
-          type="button"
-          class="btn w-100 position-relative px-0 prog"
-        >
-          <div
-            id="nxtBtPrg"
-            class="
-              progress-bar
-              btn btn-primary btn-progress
-              position-absolute
-              h-100
-              top-0
-              start-0
-              rounded-0 rounded-start
-            "
-            role="progressbar"
-            aria-valuenow="0"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style="width: 0%"
-          ></div>
-          <span id="nextBtnTxt" class="text-center position-relative"
-            >Next</span
-          >
-        </button>
-      </section>
-    </div>
-    <script>
-      const quesList = <%-JSON.stringify(quesArr)%>;
-      const no_of_ques = quesList.length;
-      const clientName = '<%=clientName%>';
-      const username = '<%=id%>';
-    </script>
-    <script src="/js/playscr.js"></script>
-    <%-include('partials/footer.ejs')%>
-  </body>
 </html>
