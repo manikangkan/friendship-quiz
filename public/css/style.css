@@ -395,6 +395,17 @@ h5 {
           transform: scale(0.995);
 }
 
+/* -------------- BEGIN abhisek patch ------------- */
+.btn.btn-primary.btn-progress{
+    padding: 0 0;
+}
+
+.btn-border {
+    border: 1px solid red !important;
+}
+/* -------------- END abhisek patch ------------- */
+
+
 /* custom scrollbar-------------------------------- */
 ::-webkit-scrollbar {
   width: 1px;
