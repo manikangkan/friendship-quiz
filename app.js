@@ -1,4 +1,3 @@
-// const port = 3000;
 const port = process.env.PORT || 3000;
 
 const moment = require("moment");
@@ -199,11 +198,7 @@ app.get("/t&c", (req, res) => {
   res.render("t&c");
 });
 
-app.get("/details", (req, res) => {
-  res.render("details");
-});
-
-app.use((req, res) => {
+app.get("/404", (req, res) => {
   res.render("404");
 });
 

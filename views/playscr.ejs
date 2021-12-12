@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: `${id}'s Quiz`})%> <% const toSentenceCase
-  = function(str){ return str.split(' ') .map(w => w[0].toUpperCase() +
-  w.substr(1).toLowerCase()) .join(' ') } %>
+  <%-include('partials/head', {title: `${id}'s Quiz`})%> <% const
+  toSentenceCase=function(str){ return str.split(' ') .map(w =>
+  w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
 
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <h4>
-        <%=toSentenceCase(id)%>'s questions for <%=toSentenceCase(clientName)%>
+        <%=toSentenceCase(id)%>' s questions for <%=toSentenceCase(clientName)%>
       </h4>
 
       <section id="quesNavigator_v2" class="quesNavigator"></section>
@@ -50,7 +50,7 @@
         <button
           id="nextBtn"
           type="button"
-          class="btn w-100 position-relative px-0 prog"
+          class="btn w-100 position-relative px-0 prog overflow-hidden"
         >
           <div
             id="nxtBtPrg"
@@ -61,7 +61,7 @@
               h-100
               top-0
               start-0
-              rounded-0 rounded-start
+              rounded-0
             "
             role="progressbar"
             aria-valuenow="0"

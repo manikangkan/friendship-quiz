@@ -20,15 +20,15 @@ clientLoginBtn.addEventListener("click", function () {
       if (data.userExists) window.location.href = data.redirect;
       else {
         modalTrigger(
-          "We're unable to find the code you've entered",
-          "Let's try again",
+          "Hello there!",
+          "You know, this code actually doesn't exist, Let's try again!",
           "Ok"
         );
       }
     });
   } else {
     modalTrigger(
-      "Hey there!",
+      "Hello there!",
       "That's seems a invalid code, can you reenter a correct code",
       "Yes I do"
     );
@@ -58,8 +58,12 @@ function liveValidate(code) {
   if (code != null && code != "") {
     validate(code).then((data) => {
       if (data.userExists) {
-        $("#clientLogin").text("Cool, let's play");
+        $("#clientLogin").addClass("btn-primary");
+        $("#clientLogin").removeClass("btn-border");
+        $("#clientLogin").text("let's play");
       } else {
+        $("#clientLogin").removeClass("btn-primary");
+        $("#clientLogin").addClass("btn-border");
         $("#clientLogin").text("play");
       }
     });

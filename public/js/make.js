@@ -82,16 +82,16 @@ function optionMechanism(index) {
     selectedQuesBkg.classList.toggle("highlight-selected-question-background");
 
     if (!qActivateBtn.classList.contains("btn-primary")) {
-      selectedQuesBkg.querySelectorAll(".opn").forEach((opn) => {
-        opn.classList.add("btn-disabled");
+      selectedQuesBkg.querySelectorAll(".opn.btn-primary").forEach((opn) => {
+        opn.classList.add("btn-border");
+        opn.classList.remove("btn-primary");
       });
     } else {
-      selectedQuesBkg.querySelectorAll(".opn").forEach((opn) => {
-        opn.classList.remove("btn-disabled");
+      selectedQuesBkg.querySelectorAll(".opn.btn-border").forEach((opn) => {
+        opn.classList.remove("btn-border");
+        opn.classList.add("btn-primary");
       });
     }
-
-    console.log(qActivateBtn.parentElement.parentElement);
   });
 
   const options = document.querySelectorAll(`#quesListParent #q${index} .opn`);
@@ -106,6 +106,8 @@ function optionMechanism(index) {
 
   buttonA.addEventListener("click", function (e) {
     e.stopPropagation();
+    if (!isQuesActive(this)) return;
+
     buttonA.classList.add("btn-primary");
     buttonB.classList.remove("btn-primary");
     buttonC.classList.remove("btn-primary");
@@ -114,6 +116,8 @@ function optionMechanism(index) {
 
   buttonB.addEventListener("click", function (e) {
     e.stopPropagation();
+    if (!isQuesActive(this)) return;
+
     buttonB.classList.add("btn-primary");
     buttonA.classList.remove("btn-primary");
     buttonC.classList.remove("btn-primary");
@@ -122,6 +126,8 @@ function optionMechanism(index) {
 
   buttonC.addEventListener("click", function (e) {
     e.stopPropagation();
+    if (!isQuesActive(this)) return;
+
     buttonC.classList.add("btn-primary");
     buttonA.classList.remove("btn-primary");
     buttonB.classList.remove("btn-primary");
@@ -130,6 +136,8 @@ function optionMechanism(index) {
 
   buttonD.addEventListener("click", function (e) {
     e.stopPropagation();
+    if (!isQuesActive(this)) return;
+
     buttonD.classList.add("btn-primary");
     buttonA.classList.remove("btn-primary");
     buttonB.classList.remove("btn-primary");
@@ -149,9 +157,9 @@ function cook() {
     console.log(qSection);
     if (qSection.querySelector(".opn.btn-primary") == null) {
       modalTrigger(
-        "Warning!",
-        `You need to activate an option on Question ${index + 1}`,
-        "Got It 👍"
+        "Hello there",
+        `I guess you forget to activate an option on question ${index + 1}`,
+        "Really, let me check"
       );
       return;
     }
@@ -170,9 +178,11 @@ function cook() {
 
   if (allCookedQuesitons.length < hard_ques_limit) {
     modalTrigger(
-      "Warning!",
-      "Activate minimum " + hard_ques_limit + " questions",
-      "Got It 👍"
+      "Hello there!",
+      "Please create atlest " +
+        hard_ques_limit +
+        " questions, that will make your quiz more interesting",
+      "Yaa, that's true"
     );
     return;
   }
@@ -215,3 +225,8 @@ function editButtonToggle() {
     item.readOnly = !item.readOnly;
   });
 }
+
+const isQuesActive = (element) =>
+  element.parentElement.parentElement.parentElement
+    .querySelector("#activeStatus")
+    .classList.contains("btn-primary");
