@@ -208,3 +208,13 @@ h5 {
   background: $diselect;
   border-radius: 100px !important;
 }
+
+/* -------------- BEGIN abhisek patch ------------- */
+.btn.btn-primary.btn-progress {
+  padding: 0 0;
+}
+
+.btn-border {
+  border: 1px solid red !important;
+}
+/* -------------- END abhisek patch ------------- */
