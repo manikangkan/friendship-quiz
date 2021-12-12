@@ -203,7 +203,7 @@ app.get("/details", (req, res) => {
   res.render("details");
 });
 
-app.get("/404", (req, res) => {
+app.use((req, res) => {
   res.render("404");
 });
 
