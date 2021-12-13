@@ -154,6 +154,7 @@ h5 {
   bottom: 0;
   margin: 0 2rem 2rem 0;
   cursor: pointer;
+  box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.1);
   @include dg;
   img {
     width: 1.4rem;

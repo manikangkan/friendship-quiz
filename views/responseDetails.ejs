@@ -3,7 +3,7 @@
   <%-include('partials/head', {title: `Score of ${clientName}`})%> <% const
   toSentenceCase = function(str){ return str.split(' ') .map(w =>
   w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
-  <body class="my-5">
+  <body class="mt-5">
     <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
     <div class="my-5 text-center">
       <p class="form-label wow fadeInUp" data-wow-delay="200ms">
@@ -20,16 +20,14 @@
       <!-- All the answer cards appear here -->
     </section>
 
-    <div class="container mb-5">
-      <a
-        href="/usrlogin"
-        type="button"
-        class="btn btn-primary shine-hover w-100 wow fadeInUp"
-        data-wow-delay="500ms"
-      >
-        Damn, let me create a new quiz for myself
-      </a>
-    </div>
+    <a
+      href="/usrlogin"
+      type="button"
+      class="btn btn-primary shine-hover w-100 wow fadeInUp"
+      data-wow-delay="500ms"
+    >
+      Damn, let me create a new quiz for myself
+    </a>
 
     <script>
       const answer =<%-JSON.stringify(answerSheet)%>;
