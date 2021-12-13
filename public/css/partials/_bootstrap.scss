@@ -9,7 +9,7 @@
   background: none !important;
   margin: 0 !important;
   overflow: auto;
-  border: 0.2px solid $diselect !important;
+  border: 0.2px solid $border !important;
 }
 
 .form-label {
@@ -25,17 +25,16 @@
 label {
   outline: none !important;
   box-shadow: none !important;
-  // border-color: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
 }
 
 .border-top,
 .border {
-  border-color: $diselect !important;
+  border-color: $border !important;
 }
 
 .btn-primary {
   font-weight: 600;
-  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+  background: linear-gradient(90deg, $lgColor1, $lgColor2) !important;
   border: none !important;
 }
 

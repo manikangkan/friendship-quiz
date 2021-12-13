@@ -178,10 +178,10 @@ function cook() {
 
   if (allCookedQuesitons.length < hard_ques_limit) {
     modalTrigger(
-      "Hello there!",
+      "My friends, Username",
       "Please create atlest " +
         hard_ques_limit +
-        " questions, that will make your quiz more interesting",
+        " questions, that will make your quiz more interesting, trust me",
       "Yaa, that's true"
     );
     return;

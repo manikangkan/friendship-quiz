@@ -15,7 +15,7 @@ li {
   border-radius: 0 !important;
   cursor: pointer;
   &:hover {
-    background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+    background: linear-gradient(90deg, $lgColor1, $lgColor2) !important;
   }
 }
 

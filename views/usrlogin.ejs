@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
-
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <%- include('partials/avatar.ejs')%>
-      <div class="w-100">
+      <div>
         <form action="/usrlogin" autocomplete="off" method="POST">
           <div class="wow fadeInUp" data-wow-delay="200ms">
             <label for="exampleInputEmail1" class="form-label">Username</label>
@@ -47,7 +46,7 @@
 
           <button
             type="submit"
-            class="btn btn-primary w-100 wow fadeInUp"
+            class="btn btn-primary shine-hover w-100 wow fadeInUp"
             data-wow-delay="400ms"
           >
             Next
@@ -55,7 +54,6 @@
         </form>
       </div>
     </div>
-
     <script>
       const mRadio = document.querySelector("input#male");
       const fRadio = document.querySelector("input#female");

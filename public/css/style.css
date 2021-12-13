@@ -9,7 +9,7 @@
   background: none !important;
   margin: 0 !important;
   overflow: auto;
-  border: 0.2px solid #303134 !important;
+  border: 0.2px solid #4a4a4a !important;
 }
 
 .form-label {
@@ -30,7 +30,7 @@ label {
 
 .border-top,
 .border {
-  border-color: #303134 !important;
+  border-color: #4a4a4a !important;
 }
 
 .btn-primary {
@@ -118,6 +118,7 @@ li:hover {
   margin-top: -2rem;
   cursor: pointer;
   pointer-events: all;
+  z-index: 100000;
 }
 
 footer {
@@ -153,6 +154,28 @@ footer {
   100% {
     background: #202124;
   }
+}
+
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#fff), to(transparent)) !important;
+  background: linear-gradient(90deg, transparent, #fff, transparent) !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.shine-hover:hover::before {
+  left: 100%;
 }
 
 * {
@@ -295,28 +318,6 @@ object {
   margin-bottom: 10rem;
 }
 
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#fff), to(transparent)) !important;
-  background: linear-gradient(90deg, transparent, #fff, transparent) !important;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
-}
-
 .btn-light:hover {
   background-color: #353639 !important;
 }
@@ -384,10 +385,6 @@ h5 {
 .fab:active {
   background: -webkit-gradient(linear, left top, right top, from(#fe0000), to(#fe8900)) !important;
   background: linear-gradient(90deg, #fe0000, #fe8900) !important;
-}
-
-.btn-border-for-choosed-wrong-option {
-  border: 1px solid red !important;
 }
 
 .btn:active {
