@@ -59,11 +59,9 @@ function liveValidate(code) {
     validate(code).then((data) => {
       if (data.userExists) {
         $("#clientLogin").addClass("btn-primary");
-        $("#clientLogin").removeClass("btn-border");
         $("#clientLogin").text("let's play");
       } else {
-        $("#clientLogin").removeClass("btn-primary");
-        $("#clientLogin").addClass("btn-border");
+        // $("#clientLogin").removeClass("btn-primary");
         $("#clientLogin").text("play");
       }
     });
