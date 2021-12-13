@@ -42,27 +42,27 @@ const qHTML = (index) => `
                   </div>
                   <div class="row g-3 py-5">
                   <div class="col-12">
-                  <input type="text" id="qString" class="form-control" value="${
+                  <input type="text" id="qString" class="form-control" readonly value="${
                     questions[index]
                   }">
             </div>
             <div class="col-sm-12 col-md-6">
-                  <input type="text" id="option_a" class="opn btn btn-light w-100" value="${
+                  <input type="text" id="option_a" class="opn btn btn-light w-100" readonly value="${
                     answers[index][0]
                   }">
               </div>
               <div class="col-sm-12 col-md-6">
-                  <input type="text" id="option_b" class="opn btn btn-light w-100" value="${
+                  <input type="text" id="option_b" class="opn btn btn-light w-100" readonly value="${
                     answers[index][1]
                   }">
               </div>
               <div class="col-sm-12 col-md-6">
-                  <input type="text" id="option_c" class="opn btn btn-light w-100" value="${
+                  <input type="text" id="option_c" class="opn btn btn-light w-100" readonly value="${
                     answers[index][2]
                   }">
               </div>
               <div class="col-sm-12 col-md-6">
-                  <input type="text" id="option_d" class="opn btn btn-light w-100" value="${
+                  <input type="text" id="option_d" class="opn btn btn-light w-100" readonly value="${
                     answers[index][3]
                   }">
               </div>
@@ -92,6 +92,21 @@ function optionMechanism(index) {
         opn.classList.add("btn-primary");
       });
     }
+
+    selectedQuesBkg.querySelectorAll("input").forEach((item) => {
+      if (isQuesActive(item) && EDIT_FLAG == true) item.readOnly = false;
+      else item.readOnly = true;
+
+      if (item.value == "") {
+        if (item.id.includes("qString")) item.value = questions[index];
+
+        if (item.id.includes("option"))
+          item.value =
+            answers[index][
+              parseInt(item.id.toString().charCodeAt(7) - "a".charCodeAt(0))
+            ];
+      }
+    });
   });
 
   const options = document.querySelectorAll(`#quesListParent #q${index} .opn`);
@@ -178,10 +193,10 @@ function cook() {
 
   if (allCookedQuesitons.length < hard_ques_limit) {
     modalTrigger(
-      "My friends, Username",
+      "Hello there!",
       "Please create atlest " +
         hard_ques_limit +
-        " questions, that will make your quiz more interesting, trust me",
+        " questions, that will make your quiz more interesting",
       "Yaa, that's true"
     );
     return;
@@ -218,11 +233,12 @@ async function postData(url = "", data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function editButtonToggle() {
+function editButtonToggle(element) {
+  element.classList.toggle("btn-primary");
   EDIT_FLAG = !EDIT_FLAG;
-  document.querySelector("#editToggle").classList.toggle("active");
   quesListParent.querySelectorAll("input").forEach((item) => {
-    item.readOnly = !item.readOnly;
+    if (isQuesActive(item)) item.readOnly = !item.readOnly;
+    if (EDIT_FLAG == false) item.readOnly = true;
   });
 }
 
