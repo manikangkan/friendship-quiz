@@ -86,6 +86,11 @@ body {
   }
 }
 
+.form-control::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
 .highlight-selected-question-background {
   width: 100% !important;
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent) !important;

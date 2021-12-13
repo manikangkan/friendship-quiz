@@ -44,6 +44,11 @@ label {
   border: none !important;
 }
 
+#button-addon2 {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
 .offcanvas {
   background: -webkit-gradient(linear, left top, left bottom, from(#18191a), to(rgba(24, 25, 26, 0.6))) !important;
   background: linear-gradient(#18191a, rgba(24, 25, 26, 0.6)) !important;
@@ -282,6 +287,11 @@ body {
 .quesNavigator::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+.form-control::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .highlight-selected-question-background {

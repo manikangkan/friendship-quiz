@@ -139,7 +139,7 @@ function nextBtnMechanism() {
     progressPercent = (answerMap.size / no_of_ques) * 100;
 
     if (progressPercent == 100) {
-      $("#nextBtnTxt").text("Submit my Answer");
+      $("#nextBtnTxt").text("Submit my answer");
     }
 
     nextBtn.querySelector("#nxtBtPrg").style.width = `${progressPercent}%`;
