@@ -1,48 +1,39 @@
-<img
-  src="/assets/hamburger.svg"
-  alt=""
-  type="button"
-  data-bs-toggle="offcanvas"
-  data-bs-target="#offcanvasRight"
-  aria-controls="offcanvasRight"
-  class="hamburger-menu"
-/>
-<div
-  class="offcanvas offcanvas-end"
-  tabindex="-1"
-  id="offcanvasRight"
-  aria-labelledby="offcanvasRightLabel"
->
+<img src="/assets/hamburger.svg" alt="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+  aria-controls="offcanvasRight" class="hamburger-menu" />
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="position-absolute bottom-0 end-0">
     <%-include('animatedColorPulse.ejs')%>
   </div>
-  <div
-    class="d-flex flex-column justify-content-between align-items-center vh-100"
-  >
+  <div class="d-flex flex-column justify-content-between align-items-center vh-100">
     <div class="mt-4">
-      <%- include('avatar.ejs')%>
-      <!-- avatar finish -->
-      <div class="my-5 lh-1 pt-4">
-        <p
-          class="wow fadeInUp form-label text-secondary"
-          data-wow-delay="200ms"
-        >
-          Hello,
-        </p>
-        <h4 class="wow fadeInUp" data-wow-delay="300ms">Manikangkan</h4>
-      </div>
-      <!-- greet user end -->
+      <%-include('avatar.ejs')%>
+        <!-- avatar finish -->
+        <div class="my-5 lh-1 pt-4">
+          <p class="wow fadeInUp form-label text-secondary" data-wow-delay="200ms">
+            Hello,
+          </p>
+          <h4 class="wow fadeInUp" data-wow-delay="300ms" id="offCanvasName"><%=name%> </h4>
+        </div>
+        <!-- greet user end -->
     </div>
     <ul class="p-0">
-      <a href="/"><li>Home</li></a>
-      <a href="/devInfo"><li>Gorgeous Team</li></a>
-      <a href="/instructions"><li>Crystal Clear Instructions</li></a>
-      <a href="www.asity.tech" target="_blank"
-        ><li>Know more about asity</li></a
-      >
-      <a href="/t&c"><li>Terms & Conditions</li></a>
+      <a href="/">
+        <li>Home</li>
+      </a>
+      <a href="/devInfo">
+        <li>Gorgeous Team</li>
+      </a>
+      <a href="/instructions">
+        <li>Crystal Clear Instructions</li>
+      </a>
+      <a href="www.asity.tech" target="_blank">
+        <li>Know more about asity</li>
+      </a>
+      <a href="/t&c">
+        <li>Terms & Conditions</li>
+      </a>
       <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
     </ul>
   </div>
-  <%- include('copyright.ejs')%>
+  <%-include('copyright.ejs')%>
 </div>
