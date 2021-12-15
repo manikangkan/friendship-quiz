@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <%-include('partials/head', {title: `${clientName} 's score`})%>
+    <% const
+  toSentenceCase=function(str){ return str.split(' ') .map(w =>
+  w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
   <body>
     
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
         <%- include('partials/avatar.ejs')%>
         <div class="text-center pt-4">
             <p class="form-label wow fadeInUp" data-wow-delay="200ms">
-                Congratulations, <%= clientName %> 
+                Congratulations, <%= toSentenceCase(clientName) %> 
             </p>
             <h4 class="wow fadeInUp" data-wow-delay="300ms">
                 You scrored <%= score %> out of 10
@@ -29,13 +32,19 @@
 
     </div>
     <script src="https://www.wpromotions.eu/confetti.min.js"></script>
+    
+    <%- include('partials/offcanvas.ejs' , {name: toSentenceCase(clientName)})%>
+    <%- include('partials/footer.ejs')%>
+
     <script>
         confetti.start();
         setTimeout(() => {
           confetti.stop();
         }, 5000);
+
+        const element = document.querySelectorAll('.avatar-img');
+        avatarGen(element[0], '<%=avatarCode%>', '<%=clientName%>');
+        avatarGen(element[1], '<%=avatarCode%>', '<%=clientName%>');
     </script>
-    <%- include('partials/offcanvas.ejs')%>
-    <%- include('partials/footer.ejs')%>
   </body>
 </html>

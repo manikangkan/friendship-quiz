@@ -37,6 +37,7 @@
     </script>
     <script src="/js/responseDetails.js"></script>
 
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas.ejs',{name: toSentenceCase(clientName)})%> 
+    <%- include('partials/footer.ejs')%>
   </body>
 </html>
