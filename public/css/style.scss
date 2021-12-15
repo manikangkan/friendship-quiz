@@ -1,19 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 @import "partials/theme";
 @import "partials/bootstrap";
-@import "partials/offcanvas";
 @import "partials/modal";
 @import "partials/footer";
 @import "partials/skeletonLoading";
 @import "partials/utilities";
 @import "partials/shineHover";
+@import "partials/animatedColorPulse";
+@import "partials/offcanvas";
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
   color: $tc !important;
-  border-radius: 2px !important;
+  border-radius: 3px !important;
   font-size: 0.86rem;
   text-decoration: none !important;
 }
@@ -45,8 +46,8 @@ body {
 
 .avatar-pulse {
   opacity: 0.2;
-  width: 250px !important;
-  height: 250px !important;
+  width: 240px !important;
+  height: 240px !important;
   z-index: -1000;
 }
 .award-img {

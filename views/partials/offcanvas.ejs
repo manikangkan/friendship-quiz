@@ -8,16 +8,21 @@
   class="hamburger-menu"
 />
 <div
-  class="offcanvas offcanvas-end text-center"
+  class="offcanvas offcanvas-end"
   tabindex="-1"
   id="offcanvasRight"
   aria-labelledby="offcanvasRightLabel"
 >
-  <div class="offcanvas-body px-0">
-    <div>
-      <%- include('../partials/avatar.ejs')%>
+  <div class="position-absolute bottom-0 end-0">
+    <%-include('animatedColorPulse.ejs')%>
+  </div>
+  <div
+    class="d-flex flex-column justify-content-between align-items-center vh-100"
+  >
+    <div class="mt-4">
+      <%- include('avatar.ejs')%>
       <!-- avatar finish -->
-      <div class="my-5 lh-1">
+      <div class="my-5 lh-1 pt-4">
         <p
           class="wow fadeInUp form-label text-secondary"
           data-wow-delay="200ms"
@@ -38,9 +43,6 @@
       <a href="/t&c"><li>Terms & Conditions</li></a>
       <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
     </ul>
-    <p class="text-secondary fixed-bottom mb-4">
-      Proudly Designed & Developed by <br />
-      <a href="asity.tech">asity.tech</a>
-    </p>
   </div>
+  <%- include('copyright.ejs')%>
 </div>

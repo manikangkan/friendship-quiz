@@ -1,3 +1,6 @@
+<div class="position-absolute top-0 start-0">
+  <%-include('animatedColorPulse.ejs')%>
+</div>
 <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -8,13 +11,9 @@
   // random avatar generation
   const avatar_varient = [
     "adventurer",
-    "adventurer-neutral",
     "avataaars",
     "big-ears",
-    "big-ears-neutral",
     "big-smile",
-    "croodles",
-    "croodles-neutral",
     "micah",
     "miniavs",
     "personas",
@@ -22,7 +21,7 @@
   avatars.forEach(
     (avatar, index) =>
       (avatar.src = `https://avatars.dicebear.com/api/${
-        avatar_varient[Math.floor(Math.random() * 11)]
+        avatar_varient[Math.floor(Math.random() * 5)]
       }/${Math.random() * (index + 1)}.svg?background=%23f4d150`)
   );
 
@@ -34,9 +33,10 @@
     item.classList.remove("mani-kangkan");
   });
 </script>
+
 <script src="/wow/jquery.min.js"></script>
 <script src="/wow/wow.min.js"></script>
-<!-- <script src="wow/placeholdem.min.js"></script> -->
+<script src="wow/placeholdem.min.js"></script>
 <script>
   new WOW().init();
 </script>

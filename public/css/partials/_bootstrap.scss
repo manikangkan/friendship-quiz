@@ -1,8 +1,9 @@
 // purpose of this scss partial file is to overite the default behaviour of some bootstrap classes
+
 .btn,
 .form-control {
   background: $diselect !important;
-  padding: 12px 24px;
+  padding: 14px 28px;
 }
 
 .form-control {
