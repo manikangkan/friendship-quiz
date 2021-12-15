@@ -1,26 +1,36 @@
-.circle {
-  width: 16rem;
-  height: 16rem;
-  background: $linearGradient;
+.circle,
+.circle-offcanvas {
+  position: absolute;
+  width: 8rem;
+  height: 48rem;
+  background: $linearGradientScrollbar;
   border-radius: 100% !important;
-  filter: blur(20rem);
-  animation: custom-pulse 5s infinite;
+  filter: blur(16rem);
+  animation: custom-pulse 5s infinite ease-in-out;
+  z-index: -10000000000000000000000000;
+}
+
+.circle {
+  top: 0;
+  left: 0;
+}
+
+.circle-offcanvas {
+  bottom: 0;
+  right: 0;
 }
 
 @keyframes custom-pulse {
   0% {
     transform: scale(1);
     opacity: 1;
-    background: $linearGradient;
   }
   50% {
-    transform: scale(0.85);
-    opacity: 0.5;
-    background: $linearGradientScrollbar;
+    transform: scale(0.8);
+    opacity: 0.2;
   }
   100% {
     transform: scale(1);
     opacity: 1;
-    background: $linearGradient;
   }
 }
