@@ -6,43 +6,47 @@
 
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
-      <h4 class="my-4 py-4 text-center wow fadeInUp" data-wow-delay="200ms">
+      <h4 class="my-4 py-4 text-center wow fadeInUp" data-wow-delay="100ms">
         <%=toSentenceCase(id)%>' s questions for <%=toSentenceCase(clientName)%>
       </h4>
 
       <section id="quesNavigator_v2" class="quesNavigator"></section>
 
       <section id="0" class="ques-container text-center">
-        <div class="form-control">
+        <div class="form-control wow fadeInUp" data-wow-delay="200ms">
           <p id="quesStr" class="fw-bold">Question Dummy</p>
         </div>
 
         <div id="options" class="w-100 my-3 options">
           <button
             type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
+            class="btn btn-light w-100 wow fadeInUp my-3"
             id="option_a"
+            data-wow-delay="300ms"
           >
             A
           </button>
           <button
             type="button"
-            class="btn btn-light w-100 fadeInUp"
+            class="btn btn-light w-100 wow fadeInUp"
             id="option_b"
+            data-wow-delay="400ms"
           >
             B
           </button>
           <button
             type="button"
-            class="btn btn-light w-100 fadeInUp my-3"
+            class="btn btn-light w-100 wow fadeInUp my-3"
             id="option_c"
+            data-wow-delay="500ms"
           >
             C
           </button>
           <button
             type="button"
-            class="btn btn-light w-100 fadeInUp"
+            class="btn btn-light w-100 wow fadeInUp"
             id="option_d"
+            data-wow-delay="500ms"
           >
             D
           </button>
@@ -50,7 +54,17 @@
         <button
           id="nextBtn"
           type="button"
-          class="btn w-100 position-relative px-0 prog overflow-hidden"
+          class="
+            btn
+            w-100
+            position-relative
+            px-0
+            prog
+            overflow-hidden
+            wow
+            fadeInUp
+          "
+          data-wow-delay="600ms"
         >
           <div
             id="nxtBtPrg"

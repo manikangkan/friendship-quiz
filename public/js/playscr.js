@@ -14,7 +14,9 @@ function loadNavigator_v2(n = 1) {
     let html = `
         <button type="button" 
         name="btnradio" id="btnradio${i + 1}" value="${i}" 
-        class="btn btn-light wow fadeInUp navigator_item" data-wow-delay="200ms"
+        class="btn btn-light wow fadeInUp navigator_item" data-wow-delay="${
+          (i + 1) * 100
+        }ms"
         onclick="loadQuesArea_v2(${i});"
         >
         ${i + 1}
