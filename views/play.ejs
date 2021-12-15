@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: `${id}'s Quiz`})%> <% const
-  toSentenceCase=function(str){ return str.split(' ') .map(w =>
+<%-include('partials/head', {title: `${id}'s Quiz`})%>
+  <% const toSentenceCase=function(str){ return str.split(' ') .map(w =>
   w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
   <body>
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <%- include('partials/avatar')%>
-      <h4
-        id="welcome"
-        class="pt-4 text-center wow fadeInUp"
-        data-wow-delay="200ms"
-      >
-        Welcome to <%=toSentenceCase(id)%> 's Quiz
-      </h4>
+    <h4 id="welcome" class="pt-4 text-center wow fadeInUp" data-wow-delay="200ms">
+      Welcome to <%=toSentenceCase(id)%> 's Quiz
+    </h4>
 
-      <div class="w-100 mt-5">
-        <form action="/<%=id%>/play" method="POST">
-          <div class="wow fadeInUp" data-wow-delay="300ms">
-            <label for="" class="form-label">Put your name here</label>
-            <input
-              type="text"
-              name="clientName"
-              class="form-control"
-              id="clientName"
-              placeholder="Hello there, type your good name here"
-            />
-          </div>
-          <br />
+    <div class="w-100 mt-5">
+      <form onsubmit="return validate($('#clientName').val())" action="/<%=id%>/play" method="POST">
+        <div class="wow fadeInUp" data-wow-delay="300ms">
+          <label for="" class="form-label">Put your name here</label>
+          <input type="text" name="clientName" class="form-control" id="clientName"
+            placeholder="Hello there, type your good name here" oninput="liveAvatarGen(this.value)" />
+        </div>
+        <br />
+        <input type="hidden" name="avatarCode" id="userAvatarCode">
+        <button type="submit" class="btn btn-primary shine-hover w-100 wow fadeInUp" data-wow-delay="400ms">
+          Play
+        </button>
+      </form>
 
-          <button
-            type="submit"
-            class="btn btn-primary shine-hover w-100 wow fadeInUp"
-            data-wow-delay="400ms"
-          >
-            Play
-          </button>
-        </form>
-      </div>
+      
     </div>
-    <%-include('partials/offcanvas.ejs')%> <%-include('partials/footer.ejs')%>
-  </body>
+    </div>
+    <%-include('partials/modal')%>
+        </body>
+
+        <script>
+          const validate = (name) => {
+            if (name == '' || name == null || name.length < 4) {
+              modalTrigger('Warning!', 'You must enter a name of atleast 4 characters', 'Try Again');
+              return false;
+            } else return true;
+
+          };
+        </script>
+        <script src="/js/avatarGen.js"></script>
+        <%-include('partials/offcanvas', {name: 'asity'})%>
+         <%-include('partials/footer')%>
 </html>
