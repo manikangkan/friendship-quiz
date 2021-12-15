@@ -160,6 +160,7 @@ function submitMyAns() {
     username,
     score,
     max: no_of_ques,
+    avatarCode,
   };
 
   postData(`/${username}/playscr`, jsonBody).then((data) => {
