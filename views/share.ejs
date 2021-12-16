@@ -9,43 +9,16 @@
       class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-10 col-11 text-center"
     >
       <%-include('partials/avatar')%>
-      <div class="my-5 pt-4">
+      <div class="my-5 mx-2 pt-4">
         <h2 class="fw-bold wow fadeInDown" data-wow-delay="100ms">
           Great! An exciting quiz of <%= toSentenceCase(id) %>.
         </h2>
         <p class="text-secondary wow fadeInDown" data-wow-delay="200ms">
-          you've successphully create your quiz, time to challenge your
-          friends,<br />
+          you've successphully create your quiz, time to challenge your friends,
           let's share the quiz by using options below
         </p>
       </div>
       <div class="row gap-2 d-flex justify-content-center">
-        <div class="col-md-6 col-sm-12 m-0 p-0">
-          <div class="input-group mb-2 wow fadeInDown" data-wow-delay="300ms">
-            <p id="copyURL" class="form-control">
-              <%=encodeURI(`http://friendshipquiz.herokuapp.com/${id}/play`)%>
-            </p>
-            <button
-              class="btn btn-primary shine-hover"
-              type="button"
-              id="button-addon2"
-              onclick="copyEvent('copyURL')"
-            >
-              Copy
-            </button>
-          </div>
-          <div class="input-group wow fadeInDown" data-wow-delay="400ms">
-            <p id="copyCode" class="form-control"><%= id.toLowerCase()%></p>
-            <button
-              class="btn btn-primary shine-hover"
-              type="button"
-              id="button-addon2"
-              onclick="copyEvent('copyCode')"
-            >
-              Copy
-            </button>
-          </div>
-        </div>
         <div class="row gap-2 d-flex justify-content-center">
           <div class="col-md-6 col-sm-12 m-0 p-0">
             <div class="input-group mb-2 wow fadeInDown" data-wow-delay="300ms">
