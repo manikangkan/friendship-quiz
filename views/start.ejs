@@ -29,14 +29,17 @@
           >
             Play
           </button>
-          <%- include('partials/modal.ejs')%>
+          <%-include('partials/modal.ejs')%>
         </div>
         <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="400ms">
           <a class="btn btn-light col" href="/usrlogin"> Create a quiz </a>
         </div>
       </div>
     </div>
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+
     <script src="/js/start.js"></script>
+    <script src="/js/avatarGen.js"></script>
+    <%- include('partials/offcanvas.ejs', {name: "Asity"})%> <%-
+    include('partials/footer.ejs')%>
   </body>
 </html>

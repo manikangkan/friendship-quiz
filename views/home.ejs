@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
+  <%-include('partials/head', {title: "🍁Friendship Quiz🍁" })%>
 
   <body>
     <div
@@ -32,6 +32,7 @@
         Play
       </a>
     </div>
-    <%- include('partials/offcanvas.ejs')%> <%-include('partials/footer.ejs')%>
+    <%-include('partials/offcanvas.ejs', {name: 'Asity'})%>
+    <%-include('partials/footer.ejs')%>
   </body>
 </html>
