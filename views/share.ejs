@@ -23,7 +23,7 @@
       <div class="col-md-6 col-sm-12 m-0 p-0">
         <div class="input-group mb-2 wow fadeInDown" data-wow-delay="300ms">
           <p id="copyURL" class="form-control">
-            <%=`http: //friendshipquiz.herokuapp.com/${id.toLowerCase()}/play`%>
+            <%=encodeURI(`http://friendshipquiz.herokuapp.com/${id}/play`)%>
           </p>
           <button class="btn btn-primary shine-hover" type="button" id="button-addon2" onclick="copyEvent('copyURL')">
             Copy
@@ -31,7 +31,7 @@
         </div>
         <div class="input-group wow fadeInDown" data-wow-delay="400ms">
           <p id="copyCode" class="form-control">
-            <%= id.toLowerCase() %>
+            <%= id.toLowerCase()%>
           </p>
           <button class="btn btn-primary shine-hover" type="button" id="button-addon2" onclick="copyEvent('copyCode')">
             Copy
@@ -62,7 +62,7 @@
       </div>
     </div>
     </div>
-    <%- include('partials/offcanvas.ejs', {name: id})%>
+    <%- include('partials/offcanvas.ejs', {name: toSentenceCase(id)})%>
       <%- include('partials/footer.ejs')%>
         <script>
           new WOW().init();
