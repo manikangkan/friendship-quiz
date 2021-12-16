@@ -102,7 +102,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-.avatar-img {
+.skeleton-loading {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
           animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -301,10 +301,11 @@ body {
 }
 
 .avatar-pulse {
-  opacity: 0.2;
-  width: 240px !important;
-  height: 240px !important;
+  opacity: 0.6;
+  width: 200px !important;
+  height: 200px !important;
   z-index: -1000;
+  margin-bottom: 2px;
 }
 
 .award-img {

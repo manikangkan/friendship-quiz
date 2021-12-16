@@ -45,10 +45,11 @@ body {
 }
 
 .avatar-pulse {
-  opacity: 0.2;
-  width: 240px !important;
-  height: 240px !important;
+  opacity: 0.6;
+  width: 200px !important;
+  height: 200px !important;
   z-index: -1000;
+  margin-bottom: 2px;
 }
 .award-img {
   height: 25px;

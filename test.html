@@ -6,15 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .circle {
-        width: 10rem;
-        height: 10rem;
-        background: red;
-        backdrop-filter: blur(100px);
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .svg {
+        width: 400px;
       }
     </style>
   </head>
   <body>
-    <div class="circle"></div>
+    <div class="container">
+      <div class="svg hide" id="svg"></div>
+      <button>boom blast</button>
+    </div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.8.1/lottie.min.js"
+        integrity="sha512-V1YyTKZJrzJNhcKthpNAaohFXBnu5K9j7Qiz6gv1knFuf13TW/3vpgVVhJu9fvbdW8lb5J6czIhD4fWK2iHKXA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+    <script>
+      const play = document.querySelector("button");
+      const svgContainer = document.querySelector("#svg");
+      const animItem = bodymovin.loadAnimation({
+        wrapper: svgContainer,
+        animType: "svg",
+        loop: false,
+        autoplay: false,
+        path: "https://assets3.lottiefiles.com/datafiles/U1I3rWEyksM9cCH/data.json",
+      });
+      play.addEventListener("click", () => {
+        animItem.goToAndPlay(0, true);
+      });
+    </script>
   </body>
 </html>
