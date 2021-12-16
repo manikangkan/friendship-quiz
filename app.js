@@ -167,6 +167,8 @@ app.get('/:id/response/:clientName', async (req, res) => {
 		answerSheet: client.answerSheet,
 		score: client.score,
 		gender: user.gender,
+        clientAvatarCode: client.avatarCode,
+        userAvatarCode: user.avatarCode,
 	});
 });
 
@@ -189,6 +191,8 @@ app.get('/:username/response/', async (req, res) => {
 	res.render('response', {
 		clients: [...clients],
 		clientCount: clients.length,
+        username,
+        userAvatarCode: user.avatarCode,
 	});
 });
 
