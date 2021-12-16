@@ -31,13 +31,20 @@
       Damn, let me create a new quiz for myself
     </a>
 
+    <%- include('partials/offcanvas.ejs',{name: toSentenceCase(clientName)})%>
     <script>
       const answer =<%-JSON.stringify(answerSheet)%>;
       const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+      const clientAvatarCode = '<%=clientAvatarCode%>';
+      const userAvatarCode = '<%=userAvatarCode%>';
+
+      const element = document.querySelectorAll('.avatar-img');
+      avatarGen(element[0], clientAvatarCode, '<%=clientName%>');
+		  avatarGen(element[1], clientAvatarCode, '<%=clientName%>');
     </script>
     <script src="/js/responseDetails.js"></script>
 
-    <%- include('partials/offcanvas.ejs',{name: toSentenceCase(clientName)})%> 
+     
     <%- include('partials/footer.ejs')%>
   </body>
 </html>
