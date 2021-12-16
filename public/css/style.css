@@ -301,7 +301,7 @@ body {
 }
 
 .avatar-pulse {
-  opacity: 0.6;
+  opacity: 0.4;
   width: 200px !important;
   height: 200px !important;
   z-index: -1000;
