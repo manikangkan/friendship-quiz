@@ -1,4 +1,5 @@
 .offcanvas {
+  text-align: center;
   background: linear-gradient(
     rgba(24, 25, 26, 1),
     rgba(24, 25, 26, 0.6)
@@ -6,16 +7,19 @@
 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-left: 0.2rem solid rgba(255, 255, 255, 0.2);
+  border: none !important;
+  // border-left: 0.2rem solid rgba(255, 255, 255, 0.2);
   padding-top: 6rem !important;
 }
 
 li {
+  list-style-type: none;
   padding: 1rem 0;
   border-radius: 0 !important;
   cursor: pointer;
+
   &:hover {
-    background: linear-gradient(90deg, #fe0000, #fe8900) !important;
+    background: linear-gradient(90deg, $lgColor1, $lgColor2) !important;
   }
 }
 
@@ -25,4 +29,10 @@ li {
   right: 0;
   top: 0;
   margin: 2rem 2rem 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .offcanvas {
+    width: 20rem;
+  }
 }

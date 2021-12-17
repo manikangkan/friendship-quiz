@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <%-include('partials/head', {title: "instructions"})%>
-  <body class="container">
-    <div>
+  <body>
+    <div class="position-absolute top-0 start-0">
+      <%-include('partials/animatedColorPulse.ejs')%>
+    </div>
+    <div class="container">
       <h5 class="wow fadeInUp" data-wow-delay="100ms">Instructions</h5>
       <div class="my-5 wow fadeInUp" data-wow-delay="200ms">
         <h5 class="text-secondary">1. Create your own quiz</h5>
@@ -25,14 +28,13 @@
       <a href="/">
         <button
           type="button"
-          class="btn btn-primary w-100 wow fadeInUp"
+          class="btn btn-primary shine-hover w-100 wow fadeInUp"
           data-wow-delay="500ms"
         >
           Yo understood, let's go
         </button>
       </a>
     </div>
-    <%- include('partials/offcanvas.ejs')%>
-    <%-include('partials/copyright.ejs')%> <%-include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas.ejs')%> <%-include('partials/footer.ejs')%>
   </body>
 </html>

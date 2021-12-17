@@ -14,7 +14,9 @@ function loadNavigator_v2(n = 1) {
     let html = `
         <button type="button" 
         name="btnradio" id="btnradio${i + 1}" value="${i}" 
-        class="btn btn-light wow fadeInUp navigator_item" data-wow-delay="200ms"
+        class="btn btn-light wow fadeInUp navigator_item" data-wow-delay="${
+          (i + 1) * 100
+        }ms"
         onclick="loadQuesArea_v2(${i});"
         >
         ${i + 1}
@@ -139,7 +141,7 @@ function nextBtnMechanism() {
     progressPercent = (answerMap.size / no_of_ques) * 100;
 
     if (progressPercent == 100) {
-      $("#nextBtnTxt").text("Submit my Answer");
+      $("#nextBtnTxt").text("Submit my answer");
     }
 
     nextBtn.querySelector("#nxtBtPrg").style.width = `${progressPercent}%`;
@@ -158,6 +160,7 @@ function submitMyAns() {
     username,
     score,
     max: no_of_ques,
+    avatarCode,
   };
 
   postData(`/${username}/playscr`, jsonBody).then((data) => {

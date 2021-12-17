@@ -3,40 +3,47 @@
   <%-include('partials/head', {title: `Score of ${clientName}`})%> <% const
   toSentenceCase = function(str){ return str.split(' ') .map(w =>
   w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
-  <body class="text-center">
+  <body class="mt-5">
     <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
-    <div class="container mt-5">
-      <p class="form-label">
+    <div class="my-5 text-center">
+      <p class="form-label wow fadeInUp" data-wow-delay="200ms">
         <%=`${toSentenceCase(clientName)}'s scoresheet for ${gender=="male"?
-        "Mr." : "Miss."} ${toSentenceCase(userName)}'S Quiz `%>
+        "Mr." : "Miss."} ${toSentenceCase(userName)}'s Quiz `%>
       </p>
-      <h4 class="text-center">
-        <%=`${gender=="male"? "he" : "she"} scored ${score} out of
+      <h4 class="text-center wow fadeInUp" data-wow-delay="300ms">
+        <%=`${gender=="male"? "He" : "She"} scored ${score} out of
         ${quesSheet_objs_arr.length}`%>
       </h4>
     </div>
 
-    <section class="w-100 pt-5" id="answerCards">
-      <!-- All the answer cards appear here -->
-    </section>
+    <section
+      class="w-100 wow fadeInUp"
+      data-wow-delay="400ms"
+      id="answerCards"
+    ></section>
 
-    <div class="container mb-5">
-      <a
-        href="/usrlogin"
-        type="button"
-        class="btn btn-primary w-100 wow fadeInUp"
-        data-wow-delay="400ms"
-      >
-        Damn, let me create a new quiz for myself
-      </a>
-    </div>
+    <a
+      href="/usrlogin"
+      type="button"
+      class="btn btn-primary rounded-0 shine-hover w-100 wow fadeInUp"
+      data-wow-delay="500ms"
+    >
+      Damn, let me create a new quiz for myself
+    </a>
 
+    <%- include('partials/offcanvas.ejs',{name: toSentenceCase(clientName)})%>
     <script>
-      const answer =<%-JSON.stringify(answerSheet)%>;
-      const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+        const answer =<%-JSON.stringify(answerSheet)%>;
+        const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+        const clientAvatarCode = '<%=clientAvatarCode%>';
+        const userAvatarCode = '<%=userAvatarCode%>';
+
+        const element = document.querySelectorAll('.avatar-img');
+        avatarGen(element[0], clientAvatarCode, '<%=clientName%>');
+      avatarGen(element[1], clientAvatarCode, '<%=clientName%>');
     </script>
     <script src="/js/responseDetails.js"></script>
 
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+    <%- include('partials/footer.ejs')%>
   </body>
 </html>

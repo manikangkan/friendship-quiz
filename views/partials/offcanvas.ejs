@@ -8,39 +8,41 @@
   class="hamburger-menu"
 />
 <div
-  class="offcanvas offcanvas-end text-center"
+  class="offcanvas offcanvas-end"
   tabindex="-1"
   id="offcanvasRight"
   aria-labelledby="offcanvasRightLabel"
 >
-  <div class="offcanvas-body px-0">
+  <div class="d-flex flex-column justify-content-between vh-100">
     <div>
-      <%- include('../partials/avatar.ejs')%>
-      <!-- avatar finish -->
-      <div class="my-5 lh-1">
-        <p
-          class="wow fadeInUp form-label text-secondary"
-          data-wow-delay="200ms"
-        >
-          Hello,
-        </p>
-        <h4 class="wow fadeInUp" data-wow-delay="300ms">Manikangkan</h4>
+      <div class="mt-4">
+        <%- include('avatar.ejs')%>
+        <!-- avatar finish -->
+        <div class="my-5 lh-1 pt-4">
+          <p
+            class="wow fadeInUp form-label text-secondary"
+            data-wow-delay="200ms"
+          >
+            Hello,
+          </p>
+          <h4 class="wow fadeInUp" data-wow-delay="300ms" id="offCanvasName">
+            <%=name%>
+          </h4>
+        </div>
+        <!-- greet user end -->
       </div>
-      <!-- greet user end -->
+      <ul class="p-0">
+        <a href="/"><li>Home</li></a>
+        <a href="/devInfo"><li>Gorgeous Team</li></a>
+        <a href="/instructions"><li>Crystal Clear Instructions</li></a>
+        <a href="www.asity.tech" target="_blank"
+          ><li>Know more about asity</li></a
+        >
+        <a href="/t&c"><li>Terms & Conditions</li></a>
+        <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
+      </ul>
     </div>
-    <ul class="p-0">
-      <a href="/"><li>Home</li></a>
-      <a href="/devInfo"><li>Gorgeous Team</li></a>
-      <a href="/instructions"><li>Crystal Clear Instructions</li></a>
-      <a href="www.asity.tech" target="_blank"
-        ><li>Know more about asity</li></a
-      >
-      <a href="/t&c"><li>Terms & Conditions</li></a>
-      <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
-    </ul>
-    <p class="text-secondary fixed-bottom mb-4">
-      Proudly Designed & Developed by <br />
-      <a href="asity.tech">asity.tech</a>
-    </p>
+    <div class="circle-offcanvas"></div>
+    <%- include('copyright.ejs')%>
   </div>
 </div>

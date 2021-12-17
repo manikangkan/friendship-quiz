@@ -1,0 +1,25 @@
+// hover shine effect
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  ) !important;
+  transition: 0.5s;
+}
+
+.shine-hover:hover::before {
+  left: 100%;
+}

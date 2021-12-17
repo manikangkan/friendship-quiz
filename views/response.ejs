@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <%-include('partials/head', {title: "🍁Leaderboard🍁"})%>
-  <body>
-    <div
-      class="
-        container
-        col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11
-        pt-5
-      "
-    >
+  <% const
+  toSentenceCase = function(str){ return str.split(' ') .map(w =>
+  w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
+  <body class="my-5">
+    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <%- include('partials/avatar')%>
-      <div class="" id="clientList"></div>
+      <div class="mt-4 pt-4" id="clientList"></div>
       <a href="/">
         <button
           type="button"
-          class="btn btn-primary w-100 mt-3 wow fadeInUp"
+          class="btn btn-primary w-100 my-3 wow fadeInUp"
           data-wow-delay="200ms"
         >
           Go back to Home
@@ -27,6 +24,14 @@
     </script>
     <script src="/js/response.js"></script>
 
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas.ejs', {name : toSentenceCase(username)})%> 
+    <%- include('partials/footer.ejs')%>
+
+    <script>
+
+      const element = document.querySelectorAll('.avatar-img');
+      avatarGen(element[0], '<%=userAvatarCode%>', '<%=username%>');
+		  avatarGen(element[1], '<%=userAvatarCode%>', '<%=username%>');
+    </script>
   </body>
 </html>

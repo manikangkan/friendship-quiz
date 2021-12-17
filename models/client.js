@@ -33,6 +33,7 @@ const clientSchema = new mongoose.Schema({
     score: Number,
     max: Number,
     date: Date,
+    avatarCode: String,
 });
 
 const Client = mongoose.model('Client', clientSchema);

@@ -1,28 +1,29 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <h5 class="modal-title" id="exampleModalLabel">Dear, Abhisek</h5>
-            <div class="modal-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus nisl
-                justo pellentesque dui neque, amet vel. Sapien dolor velit, viverra amet
-                sed commodo gravida pharetra
-            </div>
-        </div>
-        <button type="button" class="btn btn-primary modal-btn w-50" data-bs-dismiss="modal" aria-label="Close">
-            O yeah, got it dear
-        </button>
+<div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h5 class="modal-title" id="exampleModalLabel">Dear, Abhisek</h5>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus nisl
+        justo pellentesque dui neque, amet vel. Sapien dolor velit, viverra amet
+        sed commodo gravida pharetra
+      </div>
     </div>
+    <button type="button" class="btn btn-primary shine-hover modal-btn w-50" data-bs-dismiss="modal" aria-label="Close">
+      O yeah, got it dear
+    </button>
+  </div>
 </div>
 
 <script>
-    function modalTrigger(
-        title = "modal_title",
-        body = "modal_body",
-        btn = "modal_btn"
-    ) {
-        $(".modal-title").text(title);
-        $(".modal-body").text(body);
-        $(".modal-btn").text(btn);
-        $("#exampleModal").modal("show");
-    }
+  function modalTrigger(
+    title = "modal_title",
+    body = "modal_body",
+    btn = "modal_btn"
+  ) {
+    $(".modal-title").text(title);
+    $(".modal-body").text(body);
+    $(".modal-btn").text(btn);
+    $("#exampleModal").modal("show");
+  }
 </script>

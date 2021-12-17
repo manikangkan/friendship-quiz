@@ -25,11 +25,11 @@
           <button
             type="button"
             id="clientLogin"
-            class="btn btn-light btn-border-for-choosed-wrong-option col"
+            class="btn btn-primary shine-hover col"
           >
             Play
           </button>
-          <%- include('partials/modal.ejs')%>
+          <%-include('partials/modal.ejs')%>
         </div>
         <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="400ms">
           <a class="btn btn-light col" href="/usrlogin"> Create a quiz </a>
@@ -38,6 +38,8 @@
     </div>
 
     <script src="/js/start.js"></script>
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+    <script src="/js/avatarGen.js"></script>
+    <%- include('partials/offcanvas.ejs', {name: "there"})%> <%-
+    include('partials/footer.ejs')%>
   </body>
 </html>

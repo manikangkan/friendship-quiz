@@ -4,40 +4,45 @@
   toSentenceCase = function(str){ return str.split(' ') .map(w =>
   w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
 
-  <body class="py-5">
-    <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
-    <h4 class="text-center wow fadeInUp" data-wow-delay="200ms">
-      Welcome to <%=gender=="male"? "Mr." : "Miss." %> <%=
-      toSentenceCase(username) %>'s' quiz kitchen
-    </h4>
-
-    <section id="quesListParent" class="w-100 pt-5">
-      <!-- inserting all the question here -->
-    </section>
-    <div class="container row col-sm-6 col-md-10">
-      <button
-        id="cook"
-        type="button"
-        class="btn btn-primary wow fadeInUp"
-        data-wow-delay="400ms"
-        onclick="cook()"
-      >
-        Share with my friends
-      </button>
+  <body class="mt-5">
+    <div class="mt-5 pt-5"><%-include('partials/avatar')%></div>
+    <div class="my-5 text-center">
+      <h4 class="wow fadeInUp" data-wow-delay="200ms">
+        Hey <%=gender=="male"? "Mr." : "Miss." %> <%=
+        toSentenceCase(username)%>, let's create a set of question for you
+      </h4>
+      <p class="text-secondary mx-2 wow fadeInUp" data-wow-delay="300ms">
+        If you get stuck somewhere you can open the offcanvas and check the
+        crystal clear instruction to get more clearity, yaa.
+      </p>
     </div>
+    <section id="quesListParent" class="w-100"></section>
+    <button
+      id="cook"
+      type="button"
+      class="btn btn-primary w-100 rounded-0 shine-hover wow fadeInUp"
+      data-wow-delay="400ms"
+      onclick="cook()"
+    >
+      I'm done, let's share it
+    </button>
 
-    <!-- Modal -->
-    <div class="fab" id="editToggle" onclick="editButtonToggle()">
+    <div class="fab" id="editToggle" onclick="editButtonToggle(this)">
       <img src="../assets/edit.svg" alt="" />
     </div>
 
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/modal.ejs')%>
-    <%- include('partials/footer.ejs')%> <%-include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas', {name: toSentenceCase(username)})%> <%-
+    include('partials/modal.ejs')%> <%- include('partials/footer.ejs')%>
 
     <script>
       const gender = "<%=gender%>";
       const date = "<%=date%>";
       const username = "<%=username%>";
+      const avatarCode = "<%=avatarCode%>";
+
+      const element = document.querySelectorAll(".avatar-img");
+      avatarGen(element[0], avatarCode, username);
+      avatarGen(element[1], avatarCode, username);
     </script>
     <script src="/js/make.js"></script>
   </body>

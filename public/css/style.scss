@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 @import "partials/theme";
 @import "partials/bootstrap";
-@import "partials/offcanvas";
 @import "partials/modal";
 @import "partials/footer";
-@import "partials/skeleton_loading";
+@import "partials/skeletonLoading";
 @import "partials/utilities";
+@import "partials/shineHover";
+@import "partials/offcanvas";
+@import "partials/animatedColorPulse";
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
   color: $tc !important;
-  border-radius: 2px !important;
+  border-radius: 3px !important;
   font-size: 0.86rem;
   text-decoration: none !important;
 }
@@ -44,8 +46,8 @@ body {
 
 .avatar-pulse {
   opacity: 0.2;
-  width: 250px !important;
-  height: 250px !important;
+  width: 200px !important;
+  height: 200px !important;
   z-index: -1000;
 }
 .award-img {
@@ -62,9 +64,8 @@ body {
 
 .navigator_item {
   border-radius: 100% !important;
-  width: 50px !important;
-  height: 50px !important;
-  aspect-ratio: 1;
+  width: 60px !important;
+  height: 60px !important;
   @include df;
 
   &:not(:last-child) {
@@ -85,6 +86,11 @@ body {
   }
 }
 
+.form-control::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
 .highlight-selected-question-background {
   width: 100% !important;
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent) !important;
@@ -96,7 +102,7 @@ body {
 
 .selected-question,
 .responder-question-number p:hover {
-  background: linear-gradient(90deg, $lg-color-1, $lg-color-2) !important;
+  background: linear-gradient(90deg, $lgColor1, $lgColor2) !important;
   border: none !important;
 }
 
@@ -115,27 +121,6 @@ object {
 
 .ready-to-share {
   margin-bottom: 10rem;
-}
-
-// hover shine effect
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, #fff, transparent) !important;
-  transition: 0.5s;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
 }
 
 .btn-light:hover {
@@ -163,7 +148,7 @@ h5 {
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 100% !important;
-  background: $diselect;
+  background: $border;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -174,13 +159,13 @@ h5 {
     width: 1.4rem;
   }
   &:active {
-    background: $linear-gradient;
+    background: $linearGradient;
   }
 }
 
-.btn-border-for-choosed-wrong-option {
-  border: 1px solid red !important;
-}
+// .btn-border-for-choosed-wrong-option {
+//   border: 1px solid red !important;
+// }
 
 .btn:active {
   transition: all 0.2s;
@@ -215,6 +200,5 @@ h5 {
 }
 
 .btn-border {
-  border: 1px solid red !important;
+  border: 1px solid $lgColor2 !important;
 }
-/* -------------- END abhisek patch ------------- */

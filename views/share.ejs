@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: "🍁Friendship Quiz🍁"})%>
+  <%-include("partials/head", {title: "🍁Friendship Quiz🍁" })%> <% const
+  toSentenceCase=function(str){ return str.split(' ') .map(w =>
+  w[0].toUpperCase() + w.substr(1).toLowerCase()) .join(' ') } %>
 
   <body>
     <div
       class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-10 col-11 text-center"
     >
-      <%- include('partials/avatar.ejs')%>
-      <div class="my-5 py-5">
+      <%-include('partials/avatar')%>
+      <div class="my-5 mx-2 pt-4">
         <h2 class="fw-bold wow fadeInDown" data-wow-delay="100ms">
-          Damn Dear, <%= id %>
+          Great! An exciting quiz of <%= toSentenceCase(id) %>.
         </h2>
-        <p class="wow fadeInDown" data-wow-delay="200ms">
-          Time to challenge my Friends, let's share the quiz by using below
-          options
+        <p class="text-secondary wow fadeInDown" data-wow-delay="200ms">
+          you've successphully create your quiz, time to challenge your friends,
+          let's share the quiz by using options below
         </p>
       </div>
-      <div class="row gap-2">
-        <div class="col-md-6 col-sm-12 p-0">
-          <div class="input-group mb-2 wow fadeInDown" data-wow-delay="300ms">
-            <p id="copyURL" class="form-control">
-              <%=`http://localhost:3000/${id.toLowerCase()}/play`%>
-            </p>
-            <button class="btn btn-primary" type="button" id="button-addon2">
-              Copy
-            </button>
+      <div class="row gap-2 d-flex justify-content-center">
+        <div class="row gap-2 d-flex justify-content-center">
+          <div class="col-md-6 col-sm-12 m-0 p-0">
+            <div class="input-group mb-2 wow fadeInDown" data-wow-delay="300ms">
+              <p id="copyURL" class="form-control">
+                <%=`http://friendshipquiz.herokuapp.com/${id.toLowerCase()}/play`%>
+              </p>
+              <button
+                class="btn btn-primary shine-hover"
+                type="button"
+                id="button-addon2"
+                onclick="copyEvent('copyURL')"
+              >
+                Copy
+              </button>
+            </div>
+            <div class="input-group wow fadeInDown" data-wow-delay="400ms">
+              <p id="copyCode" class="form-control"><%= id.toLowerCase() %></p>
+              <button
+                class="btn btn-primary shine-hover"
+                type="button"
+                id="button-addon2"
+                onclick="copyEvent('copyCode')"
+              >
+                Copy
+              </button>
+            </div>
           </div>
-          <div class="input-group wow fadeInDown" data-wow-delay="400ms">
-            <p id="copyCode" class="form-control"><%= id.toLowerCase() %></p>
-            <button class="btn btn-primary" type="button" id="button-addon2">
-              Copy
-            </button>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12 row gap-2">
-          <div
-            class="col p-0 wow fadeInDown"
-            data-wow-delay="500ms"
-            onclick="copyEvent('copyURL')"
-          >
-            <a
-              href="#"
-              type="button"
-              class="
-                btn btn-secondary
-                d-flex
-                justify-content-center
-                align-items-center
-              "
-            >
-              <object
-                data="../../assets/social-share-icons/whatsapp.svg"
-                type="image/svg+xml"
-              ></object>
-            </a>
-          </div>
-          <div
-            class="col p-0 wow fadeInDown"
-            data-wow-delay="600ms"
-            onclick="copyEvent('copyURL')"
-          >
-            <a
-              href="#"
-              type="button"
-              class="
-                btn btn-secondary
-                d-flex
-                justify-content-center
-                align-items-center
-              "
-            >
-              <object
-                data="../../assets/social-share-icons/telegram.svg"
-                type="image/svg+xml"
-              ></object>
-            </a>
+          <div class="col-md-6 col-sm-12 row m-0 p-0 gap-2">
+            <div class="col p-0 wow fadeInDown" data-wow-delay="500ms">
+              <a
+                href="#"
+                type="button"
+                class="
+                  btn btn-secondary
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                "
+              >
+                <object
+                  data="../../assets/social-share-icons/whatsapp.svg"
+                  type="image/svg+xml"
+                ></object>
+              </a>
+            </div>
+            <div class="col p-0 wow fadeInDown" data-wow-delay="600ms">
+              <a
+                href="#"
+                type="button"
+                class="
+                  btn btn-secondary
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                "
+              >
+                <object
+                  data="../../assets/social-share-icons/telegram.svg"
+                  type="image/svg+xml"
+                ></object>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <%- include('partials/offcanvas.ejs')%> <%- include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas.ejs', {name: toSentenceCase(id)})%> <%-
+    include('partials/footer.ejs')%>
     <script>
       new WOW().init();
       function copyEvent(id) {
@@ -88,15 +95,29 @@
         document.execCommand("Copy");
       }
 
-      const shareButton = document.querySelector("#shareButton");
-      shareButton.addEventListener("click", (event) => {
-        let url = document.location.href;
-        const canonicalElement = document.querySelector("link[rel=canonical]");
-        if (canonicalElement !== null) {
-          url = canonicalElement.href;
-        }
-        navigator.share({ url });
-      });
+      // const shareButton = document.querySelector("#shareButton");
+      // shareButton.addEventListener("click", (event) => {
+      //   let url = document.location.href;
+      //   const canonicalElement = document.querySelector("link[rel=canonical]");
+      //   if (canonicalElement !== null) {
+      //     url = canonicalElement.href;
+      //   }
+      //   navigator.share({ url });
+      // });
+
+      // const shareButton = document.querySelector("#shareButton");
+      // shareButton.addEventListener("click", (event) => {
+      //   let url = document.location.href;
+      //   const canonicalElement = document.querySelector("link[rel=canonical]");
+      //   if (canonicalElement !== null) {
+      //     url = canonicalElement.href;
+      //   }
+      //   navigator.share({ url });
+      // });
+
+      const element = document.querySelectorAll(".avatar-img");
+      avatarGen(element[0], "<%=avc%>", "<%=id%>");
+      avatarGen(element[1], "<%=avc%>", "<%=id%>");
     </script>
   </body>
 </html>

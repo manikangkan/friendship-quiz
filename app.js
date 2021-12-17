@@ -43,21 +43,24 @@ app.get("/usrlogin", (req, res) => {
 });
 
 app.post("/usrlogin", (req, res) => {
-  let { username, gender } = req.body;
+  let { username, gender, avatarCode } = req.body;
+  console.log(avatarCode);
   username = username.toLowerCase();
-  res.redirect(`/${username}/make?gender=${gender}`);
+  res.redirect(`/${username}/make?gender=${gender}&avc=${avatarCode}`);
 });
 
 app.get("/:id/make", (req, res) => {
   const { id: username } = req.params;
   const { gender } = req.query;
+  const { avc: avatarCode } = req.query;
   const date = moment(new Date()).format("YYYY-MM-DD");
-  res.render("make", { username, gender, date });
+  res.render("make", { username, gender, date, avatarCode });
 });
 
 app.post("/make", async (req, res) => {
   const body = req.body;
   const username = body.username;
+  const avatarCode = body.avatarCode;
   console.log(body);
 
   const filter = { username };
@@ -72,21 +75,27 @@ app.post("/make", async (req, res) => {
 
   res.send({
     message: "we received your cooked questions",
-    redirect: `/${username}/make/share`,
+    redirect: `/${username}/make/share?avc=${avatarCode}`,
   });
 });
 
 app.get("/:id/make/share", (req, res) => {
   const { id } = req.params;
+  const { avc } = req.query;
   // res.send(req.path);
-  res.render("share", { id });
+  res.render("share", { id, avc });
 });
 
 app.get("/:id/validate", async (req, res) => {
   const { id } = req.params;
   const temp = await User.findOne({ username: id });
   if (temp == null) res.send({ userExists: false });
-  else res.send({ userExists: true, redirect: `/${id}/play` });
+  else
+    res.send({
+      userExists: true,
+      redirect: `/${id}/play`,
+      avatarCode: temp.avatarCode,
+    });
 });
 
 app.get("/:id/play", async (req, res) => {
@@ -102,14 +111,14 @@ app.post("/:id/play", async (req, res) => {
 
   const usr = await User.findOne({ username: id });
 
-  const { clientName } = req.body;
-  res.render("playscr", { quesArr: usr.cookedQs, clientName, id });
+  const { clientName, avatarCode } = req.body;
+  res.render("playscr", { quesArr: usr.cookedQs, clientName, id, avatarCode });
 });
 
 app.post("/:id/playscr", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  const { clientName, score } = body;
+  const { clientName, score, avatarCode } = body;
   console.log("received answersheet");
 
   const filter = { clientName: body.clientName };
@@ -123,7 +132,7 @@ app.post("/:id/playscr", async (req, res) => {
     .catch((e) => console.log(e));
   res.send({
     message: "we received your response",
-    redirect: `/${id}/score?clientName=${clientName}&scr=${score}`,
+    redirect: `/${id}/score?clientName=${clientName}&scr=${score}&avc=${avatarCode}`,
   });
 });
 
@@ -131,10 +140,12 @@ app.get("/:id/score", (req, res) => {
   const { id } = req.params;
   const { clientName } = req.query;
   const { scr: score } = req.query;
+  const { avc: avatarCode } = req.query;
   res.render("scoreDisp", {
     userName: id,
     clientName,
     score: score,
+    avatarCode,
   });
 });
 
@@ -161,6 +172,8 @@ app.get("/:id/response/:clientName", async (req, res) => {
     answerSheet: client.answerSheet,
     score: client.score,
     gender: user.gender,
+    clientAvatarCode: client.avatarCode,
+    userAvatarCode: user.avatarCode,
   });
 });
 
@@ -183,6 +196,8 @@ app.get("/:username/response/", async (req, res) => {
   res.render("response", {
     clients: [...clients],
     clientCount: clients.length,
+    username,
+    userAvatarCode: user.avatarCode,
   });
 });
 
