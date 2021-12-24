@@ -40,17 +40,20 @@
       </div>
       <div class="col-md-6 col-sm-12 row m-0 p-0 gap-2">
         <div class="col p-0 wow fadeInDown" data-wow-delay="500ms">
-          <a href="#" type="button" class="
-                btn btn-secondary
-                d-flex
-                justify-content-center
-                align-items-center
-              ">
+          <a href="whatsapp://send?text=<%=encodeURI(`http://friendshipquiz.herokuapp.com/${id}/play`)%>"
+                data-action="share/whatsapp/share" 
+                type="button" 
+                class="
+                  btn btn-secondary
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                ">
             <object data="../../assets/social-share-icons/whatsapp.svg" type="image/svg+xml"></object>
           </a>
         </div>
         <div class="col p-0 wow fadeInDown" data-wow-delay="600ms">
-          <a href="#" type="button" class="
+        <a href="https://telegram.me/share/url?url=<%=encodeURI(`http://friendshipquiz.herokuapp.com/${id}/play`)%>&text=Quiz of <%=id%>" type="button" class="
                 btn btn-secondary
                 d-flex
                 justify-content-center
@@ -81,6 +84,7 @@
           //   }
           //   navigator.share({ url });
           // });
+
 
           const element = document.querySelectorAll('.avatar-img');
           avatarGen(element[0],'<%=avc%>', '<%=id%>');

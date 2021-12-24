@@ -10,7 +10,7 @@
             <div class="wow fadeInUp" data-wow-delay="200ms">
               <label for="username" class="form-label">Username</label>
               <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp"
-                placeholder="Type an username here" oninput="liveAvatarGen(this.value)" />
+                placeholder="Type an username here without <space>" oninput="liveAvatarGen(this.value)" />
             </div>
 
             <div class="btn-group d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms" role="group">
@@ -44,9 +44,9 @@
     </script>
 
     <script src="js/avatarGen.js"></script>
-
     <%-include('partials/offcanvas.ejs', {name: 'Adventurer'})%>
       <%-include('partials/footer.ejs')%>
+      <script>avatarGen()</script>
   </body>
 
 </html>

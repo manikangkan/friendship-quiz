@@ -42,4 +42,9 @@
         <script src="/js/avatarGen.js"></script>
         <%-include('partials/offcanvas', {name: 'asity'})%>
          <%-include('partials/footer')%>
+         <script>
+          const element = document.querySelectorAll('.avatar-img');
+          avatarGen(element[0],'<%=avatarCode%>', '<%=id%>');
+          avatarGen(element[1], '<%=avatarCode%>', '<%=id%>');
+         </script>
 </html>

@@ -32,6 +32,8 @@
         </button>
       </a>
     </div>
-    <%- include('partials/offcanvas.ejs')%> <%-include('partials/footer.ejs')%>
+    <%- include('partials/offcanvas.ejs', {name: 'Adventurer'})%> 
+    <%-include('partials/footer.ejs')%>
+    <script>avatarGen()</script>
   </body>
 </html>

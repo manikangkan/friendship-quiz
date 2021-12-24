@@ -1,23 +1,25 @@
 <div class="avatar-wrapper wow fadeInUp" data-wow-delay="100ms">
-  <img src=<%=`/assets/avatars/${Math.random() < 0.5 ? 'male1' : 'female1' }.svg`%> class="avatar-img" alt="" />
+  <img src="#" " class="avatar-img" alt="" />
   <img src="../../assets/pulse.gif" alt="" class="avatar-pulse position-absolute" />
 </div>
 
 
 <script>
-  function avatarGen(elem, sprite, seed) {
+
+  async function avatarGen(elem, sprite, seed) {
     if (elem == null && sprite == null && seed == null) {
-      document.querySelectorAll(".avatar-img").forEach(elem => elem.src = `/assets/avatars/${Math.random() < 0.5 ? 'male1' : 'female1'}.svg`);
-      return;
+      const spriteXY = ['adventurer', 'avataaars', 'big-ears', 'big-smile', 'micah', 'miniavs', 'personas', 'open-peeps'];
+
+      const randomSprite = Math.floor(Math.random()*8);
+      const url = await `https://avatars.dicebear.com/api/${spriteXY[randomSprite]}/${Math.floor(Math.random()*10)}.svg?background=%23f4d150`;
+      document.querySelectorAll(".avatar-img").forEach(elem => elem.src = url);
+      url;
     }
-
-
-
-    seed = seed.replace(/\s/g, "").toLowerCase();
-    const url = `https://avatars.dicebear.com/api/${sprite}/${seed}.svg?background=%23f4d150`;
-    elem.src = url;
+    else {
+      seed = seed.replace(/\s/g, "").toLowerCase();
+      const url = `https://avatars.dicebear.com/api/${sprite}/${seed}.svg?background=%23f4d150`;
+      elem.src = url;
+    }
   }
-
-
 
 </script>
