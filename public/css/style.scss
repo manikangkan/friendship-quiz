@@ -46,8 +46,8 @@ body {
 
 .avatar-pulse {
   opacity: 0.2;
-  width: 240px !important;
-  height: 240px !important;
+  width: 200px !important;
+  height: 200px !important;
   z-index: -1000;
 }
 .award-img {
@@ -148,13 +148,12 @@ h5 {
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 100% !important;
-  background: $diselect;
+  background: $border;
   position: fixed;
   right: 0;
   bottom: 0;
   margin: 0 2rem 2rem 0;
   cursor: pointer;
-  box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.1);
   @include dg;
   img {
     width: 1.4rem;
@@ -201,5 +200,5 @@ h5 {
 }
 
 .btn-border {
-  border: 1px solid red !important;
+  border: 1px solid $lgColor2 !important;
 }

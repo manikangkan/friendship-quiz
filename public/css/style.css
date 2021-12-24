@@ -102,7 +102,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-.avatar-img {
+.skeleton-loading {
   -webkit-animation: skeleton-loading 1s linear infinite alternate;
           animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -302,8 +302,8 @@ body {
 
 .avatar-pulse {
   opacity: 0.2;
-  width: 240px !important;
-  height: 240px !important;
+  width: 200px !important;
+  height: 200px !important;
   z-index: -1000;
 }
 
@@ -443,14 +443,12 @@ h5 {
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 100% !important;
-  background: #303134;
+  background: #4a4a4a;
   position: fixed;
   right: 0;
   bottom: 0;
   margin: 0 2rem 2rem 0;
   cursor: pointer;
-  -webkit-box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.1);
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -501,6 +499,6 @@ h5 {
 }
 
 .btn-border {
-  border: 1px solid red !important;
+  border: 1px solid #fe8900 !important;
 }
 /*# sourceMappingURL=style.css.map */

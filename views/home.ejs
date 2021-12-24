@@ -4,11 +4,7 @@
 
   <body>
     <div
-      class="
-        col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11
-        text-center
-        mt-5
-      "
+      class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11 text-center"
     >
       <object
         data="assets/illustration-splash-screen.svg"
@@ -18,10 +14,13 @@
       ></object>
 
       <div class="text-center my-5">
-        <p class="wow fadeInUp form-label" data-wow-delay="200ms">
+        <!-- <p class="wow fadeInUp form-label" data-wow-delay="200ms">
           Test Your Bond
-        </p>
-        <h4 class="wow fadeInUp" data-wow-delay="300ms">Friendship Quiz</h4>
+        </p> -->
+        <!-- <h4 class="wow fadeInUp" data-wow-delay="300ms">Friendship Quiz</h4> -->
+        <!-- <h4 class="wow fadeInUp" data-wow-delay="300ms">
+          Test your bond right now
+        </h4> -->
       </div>
       <a
         type="button"
@@ -29,10 +28,10 @@
         data-wow-delay="400ms"
         href="/start"
       >
-        Play
+        Let's play
       </a>
     </div>
-    <%-include('partials/offcanvas.ejs', {name: 'Welcome to Asity'})%>
+    <%-include('partials/offcanvas.ejs', {name: 'There'})%>
     <%-include('partials/footer.ejs')%>
     <script>avatarGen()</script>
   </body>
