@@ -108,6 +108,7 @@ function btnGroupAction() {
 function abhisek_feature() {
   const qArea = document.querySelector(".ques-container");
   qArea.addEventListener("wheel", (event) => {
+    event.preventDefault();
     let index = qArea.id;
 
     if (event.deltaY > 5) {

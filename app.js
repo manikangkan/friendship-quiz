@@ -102,7 +102,7 @@ app.get("/:id/play", async (req, res) => {
   const { id } = req.params;
   const temp = await User.findOne({ username: id });
   if (temp == null) res.render("expired", { id });
-  else res.render("play", { id });
+  else res.render("play", { id, avatarCode: temp.avatarCode, });
 });
 
 app.post("/:id/play", async (req, res) => {
@@ -118,9 +118,9 @@ app.post("/:id/play", async (req, res) => {
 app.post("/:id/playscr", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  const { clientName, score, avatarCode } = body;
+  const { clientName, score, avatarCode, max } = body;
   console.log("received answersheet");
-
+  console.log(body);
   const filter = { clientName: body.clientName };
   const update = body;
 
@@ -132,7 +132,7 @@ app.post("/:id/playscr", async (req, res) => {
     .catch((e) => console.log(e));
   res.send({
     message: "we received your response",
-    redirect: `/${id}/score?clientName=${clientName}&scr=${score}&avc=${avatarCode}`,
+    redirect: `/${id}/score?clientName=${clientName}&scr=${score}&avc=${avatarCode}&max=${max}`,
   });
 });
 
@@ -140,12 +140,14 @@ app.get("/:id/score", (req, res) => {
   const { id } = req.params;
   const { clientName } = req.query;
   const { scr: score } = req.query;
+  const { max } = req.query;
   const { avc: avatarCode } = req.query;
   res.render("scoreDisp", {
     userName: id,
     clientName,
     score: score,
     avatarCode,
+    max
   });
 });
 

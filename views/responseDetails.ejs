@@ -7,11 +7,11 @@
     <div class="mt-5 pt-5"><%- include('partials/avatar.ejs')%></div>
     <div class="my-5 text-center">
       <p class="form-label wow fadeInUp" data-wow-delay="200ms">
-        <%=`${toSentenceCase(clientName)}'s scoresheet for ${gender=="male"?
-        "Mr." : "Miss."} ${toSentenceCase(userName)}'s Quiz `%>
+        <%=`In ${gender=="male"?
+        "Mr." : "Miss."} ${toSentenceCase(userName)}'S Quiz `%>
       </p>
       <h4 class="text-center wow fadeInUp" data-wow-delay="300ms">
-        <%=`${gender=="male"? "He" : "She"} scored ${score} out of
+        <%=`${toSentenceCase(clientName)} scored ${score} out of
         ${quesSheet_objs_arr.length}`%>
       </h4>
     </div>
@@ -33,17 +33,18 @@
 
     <%- include('partials/offcanvas.ejs',{name: toSentenceCase(clientName)})%>
     <script>
-        const answer =<%-JSON.stringify(answerSheet)%>;
-        const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
-        const clientAvatarCode = '<%=clientAvatarCode%>';
-        const userAvatarCode = '<%=userAvatarCode%>';
+      const answer =<%-JSON.stringify(answerSheet)%>;
+      const quesSheet_objs_arr = <%-JSON.stringify(quesSheet_objs_arr) %>;
+      const clientAvatarCode = '<%=clientAvatarCode%>';
+      const userAvatarCode = '<%=userAvatarCode%>';
 
-        const element = document.querySelectorAll('.avatar-img');
-        avatarGen(element[0], clientAvatarCode, '<%=clientName%>');
-      avatarGen(element[1], clientAvatarCode, '<%=clientName%>');
+      const element = document.querySelectorAll('.avatar-img');
+      avatarGen(element[0], clientAvatarCode, '<%=clientName%>');
+		  avatarGen(element[1], clientAvatarCode, '<%=clientName%>');
     </script>
     <script src="/js/responseDetails.js"></script>
 
+     
     <%- include('partials/footer.ejs')%>
   </body>
 </html>
