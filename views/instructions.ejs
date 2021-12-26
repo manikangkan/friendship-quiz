@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: "instructions"})%>
-  <body>
-    <div class="position-absolute top-0 start-0">
-      <%-include('partials/animatedColorPulse.ejs')%>
-    </div>
-    <div class="container">
-      <h5 class="wow fadeInUp" data-wow-delay="100ms">Instructions</h5>
-      <div class="my-5 wow fadeInUp" data-wow-delay="200ms">
-        <h5 class="text-secondary">1. Create your own quiz</h5>
-        <p>
-          Make a quiz of atleast 5 questions by selecting the questions and
-          marking relevent answers.
-        </p>
-      </div>
-      <div class="wow fadeInUp" data-wow-delay="300ms">
-        <h5 class="text-secondary">2. Share it with your friends</h5>
-        <p>
-          Test your bonds by sharing the quiz via Whatsapp or telegram or use
-          the link provided.
-        </p>
-      </div>
-      <div class="my-5 wow fadeInUp" data-wow-delay="400ms">
-        <h5 class="text-secondary">3. Have fun</h5>
-        <p>See the leaderboard to see who knows you best.</p>
-      </div>
-      <a href="/">
-        <button
-          type="button"
-          class="btn btn-primary shine-hover w-100 wow fadeInUp"
-          data-wow-delay="500ms"
-        >
-          Yo understood, let's go
-        </button>
-      </a>
-    </div>
-    <%- include('partials/offcanvas.ejs', {name: 'Adventurer'})%> 
-    <%-include('partials/footer.ejs')%>
-    <script>avatarGen()</script>
-  </body>
+	<%-include('partials/head', {title: "instructions"})%>
+	<body>
+		<div class="position-absolute top-0 start-0"><%-include('partials/animatedColorPulse.ejs')%></div>
+		<div class="container">
+			<h5 class="wow fadeInUp" data-wow-delay="100ms">Instructions</h5>
+			<div class="my-5 wow fadeInUp" data-wow-delay="200ms">
+				<h5 class="text-secondary">1. Create your own quiz</h5>
+				<p>Make a quiz of atleast 5 questions by selecting the questions and marking relevent answers.</p>
+			</div>
+			<div class="wow fadeInUp" data-wow-delay="300ms">
+				<h5 class="text-secondary">2. Share it with your friends</h5>
+				<p>Test your bonds by sharing the quiz via Whatsapp or telegram or use the link provided.</p>
+			</div>
+			<div class="my-5 wow fadeInUp" data-wow-delay="400ms">
+				<h5 class="text-secondary">3. Have fun</h5>
+				<p>See the leaderboard to see who knows you best.</p>
+			</div>
+			<a href="/">
+				<button type="button" class="btn btn-primary shine-hover w-100 wow fadeInUp" data-wow-delay="500ms">
+					Yo understood, let's go
+				</button>
+			</a>
+		</div>
+		<%- include('partials/offcanvas.ejs', {name: 'Adventurer'})%> <%-include('partials/footer.ejs')%>
+		<script>
+			avatarGen();
+		</script>
+	</body>
 </html>

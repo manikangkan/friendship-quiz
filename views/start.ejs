@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%-include('partials/head', {title: "🍁Friendship Quiz🍁" })%>
+	<%-include('partials/head', {title: "🍁Friendship Quiz🍁" })%>
 
-  <body
-    class="vh-100 d-flex flex-column justify-content-center align-items-center"
-  >
-    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
-      <%-include('partials/avatar.ejs')%>
+	<body class="vh-100 d-flex flex-column justify-content-center align-items-center">
+		<div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
+			<%-include('partials/avatar.ejs')%>
 
-      <div class="w-100">
-        <div class="wow fadeInUp" data-wow-delay="200ms">
-          <label for="usercode" class="form-label">Have a code?</label>
-          <input
-            autofocus
-            type="text"
-            class="form-control"
-            name="usercode"
-            id="usercode"
-            placeholder="Type your playcode here"
-            oninput="liveValidate(this.value)"
-          />
-        </div>
-        <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms">
-          <button
-            type="button"
-            id="clientLogin"
-            class="btn btn-primary shine-hover col"
-          >
-            Play
-          </button>
-          <%-include('partials/modal.ejs')%>
-        </div>
-        <div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="400ms">
-          <a class="btn btn-light col" href="/usrlogin"> Create a quiz </a>
-        </div>
-      </div>
-    </div>
+			<div class="w-100">
+				<div class="wow fadeInUp" data-wow-delay="200ms">
+					<label for="usercode" class="form-label">Have a code?</label>
+					<input
+						autofocus
+						type="text"
+						class="form-control"
+						name="usercode"
+						id="usercode"
+						placeholder="Type your playcode here"
+						oninput="liveValidate(this.value)"
+					/>
+				</div>
+				<div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="300ms">
+					<button type="button" id="clientLogin" class="btn btn-primary shine-hover col">Play</button>
+					<%-include('partials/modal.ejs')%>
+				</div>
+				<div class="d-flex gap-3 my-3 wow fadeInUp" data-wow-delay="400ms">
+					<a class="btn btn-light col" href="/usrlogin"> Create a quiz </a>
+				</div>
+			</div>
+		</div>
 
-    <script src="/js/start.js"></script>
-    <script src="/js/avatarGen.js"></script>
-    <%- include('partials/offcanvas.ejs', {name: "Welcome to Asity"})%> 
-    <%-include('partials/footer.ejs')%>
-    <script>avatarGen()</script>
-  </body>
+		<script src="/js/start.js"></script>
+		<script src="/js/avatarGen.js"></script>
+		<%- include('partials/offcanvas.ejs', {name: "Welcome to Asity"})%> <%-include('partials/footer.ejs')%>
+		<script>
+			avatarGen();
+		</script>
+	</body>
 </html>
