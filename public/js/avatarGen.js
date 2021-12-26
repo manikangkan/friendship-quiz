@@ -23,8 +23,6 @@ function liveAvatarGen(name) {
 function allRandom(){
     const elements = document.querySelectorAll(".avatar-img");
     elements.forEach(elem => {
-        let devName = elem.parentElement.nextElementSibling.innerText;
-        if(devName.match(/^[A-Za-z. ]+$/))
-            avatarGen(elem, sprite[Math.floor(Math.random() * 8)], devName);
+         avatarGen(elem, sprite[Math.floor(Math.random() * 8)], Math.floor(Math.random() * 8).toString());
     });
 }

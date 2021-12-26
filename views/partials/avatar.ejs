@@ -16,7 +16,9 @@
       url;
     }
     else {
-      seed = seed.replace(/\s/g, "").toLowerCase();
+      if(seed != null)
+        seed = seed.replace(/\s/g, "").toLowerCase();
+      else seed = Math.random();
       const url = `https://avatars.dicebear.com/api/${sprite}/${seed}.svg?background=%23f4d150`;
       elem.src = url;
     }
