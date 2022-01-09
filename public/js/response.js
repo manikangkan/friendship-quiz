@@ -1,6 +1,5 @@
 // this is the leaderboard screen
 const clientList = document.querySelector("#clientList");
-console.log(clientCount);
 const toSentenceCase = function(str){ return str.split(' ') .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ')};
 
 for (let i = 0; i < clientCount; i++) {

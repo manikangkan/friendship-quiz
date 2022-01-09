@@ -45,7 +45,6 @@ function get_questionString(Qindex) {
 function opnHighlight(index = 0,option = "option_a"){
     const correctAns = quesSheet_objs_arr[index].correctAns;
     const clientAns = answer[index];
-    console.log(correctAns + "  " +  clientAns + " " + option);
    
     if(clientAns == option)
         return 'btn-primary';

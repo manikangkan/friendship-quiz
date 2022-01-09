@@ -1,48 +1,34 @@
 <img
-  src="/assets/hamburger.svg"
-  alt=""
-  type="button"
-  data-bs-toggle="offcanvas"
-  data-bs-target="#offcanvasRight"
-  aria-controls="offcanvasRight"
-  class="hamburger-menu"
+	src="/assets/hamburger.svg"
+	alt=""
+	type="button"
+	data-bs-toggle="offcanvas"
+	data-bs-target="#offcanvasRight"
+	aria-controls="offcanvasRight"
+	class="hamburger-menu"
 />
-<div
-  class="offcanvas offcanvas-end"
-  tabindex="-1"
-  id="offcanvasRight"
-  aria-labelledby="offcanvasRightLabel"
->
-  <div class="d-flex flex-column justify-content-between vh-100">
-    <div>
-      <div class="mt-4">
-        <%- include('avatar.ejs')%>
-        <!-- avatar finish -->
-        <div class="my-5 lh-1 pt-4">
-          <p
-            class="wow fadeInUp form-label text-secondary"
-            data-wow-delay="200ms"
-          >
-            Hello,
-          </p>
-          <h4 class="wow fadeInUp" data-wow-delay="300ms" id="offCanvasName">
-            <%=name%>
-          </h4>
-        </div>
-        <!-- greet user end -->
-      </div>
-      <ul class="p-0">
-        <a href="/"><li>Home</li></a>
-        <a href="/devInfo"><li>Gorgeous Team</li></a>
-        <a href="/instructions"><li>Crystal Clear Instructions</li></a>
-        <a href="https://www.asity.tech" target="_blank"
-          ><li>Know more about asity</li></a
-        >
-        <a href="/t&c"><li>Terms & Conditions</li></a>
-        <li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
-      </ul>
-    </div>
-    <div class="circle-offcanvas"></div>
-    <%- include('copyright.ejs')%>
-  </div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+	<div class="d-flex flex-column justify-content-between vh-100">
+		<div>
+			<div class="mt-4">
+				<%- include('avatar.ejs')%>
+				<!-- avatar finish -->
+				<div class="my-5 lh-1 pt-4">
+					<p class="wow fadeInUp form-label text-secondary" data-wow-delay="200ms">Hello,</p>
+					<h4 class="wow fadeInUp" data-wow-delay="300ms" id="offCanvasName"><%=name%></h4>
+				</div>
+				<!-- greet user end -->
+			</div>
+			<ul class="p-0">
+				<a href="/"><li>Home</li></a>
+				<a href="/devInfo"><li>Gorgeous Team</li></a>
+				<a href="/instructions"><li>Instructions</li></a>
+				<a href="https://www.asity.tech" target="_blank"><li>Know more about asity</li></a>
+				<a href="/t&c"><li>Rules</li></a>
+				<li data-bs-dismiss="offcanvas" aria-label="Close">Exit</li>
+			</ul>
+		</div>
+		<div class="circle-offcanvas"></div>
+		<%- include('copyright.ejs')%>
+	</div>
 </div>
