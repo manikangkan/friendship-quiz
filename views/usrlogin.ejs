@@ -44,7 +44,7 @@
     </script>
 
     <script src="js/avatarGen.js"></script>
-    <%-include('partials/offcanvas.ejs', {name: 'Adventurer'})%>
+    <%-include('partials/offcanvas.ejs', {name: session.user})%>
       <%-include('partials/footer.ejs')%>
       <script>avatarGen()</script>
   </body>

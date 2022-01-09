@@ -10,7 +10,6 @@ const loadSampleQuestions = async () => {
 	await fetch('/js/quesPreset.json')
 		.then((response) => response.json())
 		.then((data) => {
-			console.log('loaded');
 			questions = data.questions;
 			answers = data.answers;
 			n = data.limit;
@@ -149,7 +148,6 @@ function cook() {
 		const qSection = quesListParent.querySelector(`#q${index}`);
 		if (!qSection.querySelector('#activeStatus').classList.contains('btn-primary')) continue;
 
-		console.log(qSection);
 		if (qSection.querySelector('.opn.btn-primary') == null) {
 			modalTrigger('Hello there', `I guess you forget to activate an option on question ${index + 1}`, 'Really, let me check');
 			return;
@@ -185,7 +183,6 @@ function cook() {
 	};
 
 	postData(`/make`, jsonBody).then((data) => {
-		console.log(data.message);
 		window.location.href = data.redirect;
 	});
 }

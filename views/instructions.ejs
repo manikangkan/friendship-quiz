@@ -17,13 +17,14 @@
 				<h5 class="text-secondary">3. Have fun</h5>
 				<p>See the leaderboard to see who knows you best.</p>
 			</div>
-			<a href="/">
+			<a href="<%=session.url%>">
 				<button type="button" class="btn btn-primary shine-hover w-100 wow fadeInUp" data-wow-delay="500ms">
-					Yo understood, let's go
+					Go back
 				</button>
 			</a>
 		</div>
-		<%- include('partials/offcanvas.ejs', {name: 'Adventurer'})%> <%-include('partials/footer.ejs')%>
+		<%- include('partials/offcanvas.ejs', {name: session.user})%> 
+    <%-include('partials/footer.ejs')%>
 		<script>
 			avatarGen();
 		</script>

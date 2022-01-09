@@ -13,7 +13,7 @@ clientLoginBtn.addEventListener('click', function () {
 
 	if (validURL(usercode)) {
 		// usercode = usercode.split("/")[usercode.split("/").length - 3];
-		console.log('this is a url ' + usercode);
+		// console.log('this is a url ' + usercode);
 	}
 	if (hasLowerCase(usercode)) {
 		validate(usercode).then((data) => {

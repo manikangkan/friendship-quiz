@@ -8,13 +8,13 @@
     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-11">
       <%- include('partials/avatar')%>
       <div class="mt-4 pt-4" id="clientList"></div>
-      <a href="/">
+      <a href="<%=session.url%>">
         <button
           type="button"
           class="btn btn-primary w-100 my-3 wow fadeInUp"
           data-wow-delay="200ms"
         >
-          Go back to Home
+          Go Back
         </button>
       </a>
     </div>

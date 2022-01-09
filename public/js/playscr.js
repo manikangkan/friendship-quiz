@@ -165,7 +165,6 @@ function submitMyAns() {
   };
 
   postData(`/${username}/playscr`, jsonBody).then((data) => {
-    console.log(data.message);
     window.location.href = data.redirect;
   });
 }
