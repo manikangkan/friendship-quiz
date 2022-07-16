@@ -1,13 +1,12 @@
 # Friendship quiz - a full fledged site for playing quiz with friends
 
-## 📜 Screenshots![1](https://user-images.githubusercontent.com/75943412/179338947-923404c1-1283-40b4-a560-2ce0ad4eeec9.png)
-
-![1](https://user-images.githubusercontent.com/75943412/179338845-9831f52f-71d6-4ed8-871f-71303ed1800b.png)
+## 📜 Screenshots
+![1](https://user-images.githubusercontent.com/75943412/179338947-923404c1-1283-40b4-a560-2ce0ad4eeec9.png)
 ![3](https://user-images.githubusercontent.com/75943412/179338849-4412e068-b739-49b4-8e0d-9313a210a0b2.png)
 ![7](https://user-images.githubusercontent.com/75943412/179338850-7768bcde-88f6-428b-a8c1-b5800147aa3f.png)
-![8](https://user-images.githubusercontent.com/75943412/179338852-9572c53e-85bc-463c-98b7-b6fa31de1702.png)
 ![9](https://user-images.githubusercontent.com/75943412/179338854-c82e9f8f-1771-4a1d-ad69-dc2c8c7eaa8b.png)
 
+Responsive | Layout
 :-------------------------:|:-------------------------:
 ![](https://user-images.githubusercontent.com/75943412/179338933-ed5e4b67-7ac9-430f-b4d1-054c092cd545.png) | ![](https://user-images.githubusercontent.com/75943412/179338934-80125c67-ca76-4e18-8150-527e467c8199.png)
 
