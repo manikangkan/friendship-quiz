@@ -28,7 +28,7 @@ Features contain uptill now
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/manikangkandas/vedanta.git
+   git clone https://github.com/manikangkandas/friendship-quiz.git
    ```
 
 2. Navigate to dir api
