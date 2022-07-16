@@ -16,7 +16,7 @@ Features contain uptill now
 
 ## 🏗️ Building With
 
-- [CSS](https://tailwindcss.com/)
+- [SASS](https://tailwindcss.com/)
 - [EJS](https://reactrouter.com/)
 - [Node.js](https://redux-toolkit.js.org/)
 - [Express.js](https://expressjs.com/)
